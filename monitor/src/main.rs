@@ -13,13 +13,8 @@ async fn main() {
     // define channel to controll actix thread
     let (tx, rx) = mpsc::channel();
     //read config from json
-    let config = match (AppConfig::from_env()) {
-        Ok(r) => {
-            println!("Error occured reading config");
-            r
-        }
-        Err(err) => println!("Error occured reading config"),
-    };
+    let config = AppConfig::from_env().expect("Server configuration Errro");
+
     println!("config is {}", config.host);
     println!("start");
     //spwan thread and start actix on that thread controll the execution using the channel

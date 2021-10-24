@@ -1,5 +1,6 @@
 use color_eyre::Result;
 use config::*;
+use eyre::WrapErr;
 use serde::Deserialize;
 use std::path::Path;
 use tracing::{info, instrument};
@@ -13,7 +14,7 @@ pub struct AppConfig {
 
 impl AppConfig {
     #[instrument]
-    pub fn from_env() -> std::result::Result<AppConfig, config::ConfigError> {
+    pub fn from_env() -> Result<AppConfig> {
         // tracing_subscriber::fmt()
         //     .with_env_filter(EnvFilter::from_default_env())
         //     .init();
@@ -24,6 +25,8 @@ impl AppConfig {
         settings
             .merge(File::from(Path::new("configuration.json")))
             .unwrap();
-        settings.try_into()
+        settings
+            .try_into()
+            .context("Loading configurations from environment")
     }
 }
