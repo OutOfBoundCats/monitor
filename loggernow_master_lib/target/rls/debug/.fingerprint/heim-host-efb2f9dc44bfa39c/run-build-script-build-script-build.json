@@ -1,0 +1,1 @@
+{"rustc":10077412179023509715,"features":"","target":0,"profile":0,"path":0,"deps":[[7326407788887032635,"build_script_build",false,7997338903391667111]],"local":[{"RerunIfChanged":{"output":"debug/build/heim-host-efb2f9dc44bfa39c/output","paths":["build.rs"]}}],"rustflags":[],"metadata":0,"config":0,"compile_kind":0}

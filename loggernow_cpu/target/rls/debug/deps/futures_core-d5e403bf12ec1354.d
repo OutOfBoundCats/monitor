@@ -1,0 +1,11 @@
+/mnt/c/Users/rajpa/Documents/Projects/loggernow/old/loggernow_client/loggernow_cpu/target/rls/debug/deps/futures_core-d5e403bf12ec1354.rmeta: /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/lib.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/future.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/stream.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/mod.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/poll.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/mod.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/atomic_waker.rs
+
+/mnt/c/Users/rajpa/Documents/Projects/loggernow/old/loggernow_client/loggernow_cpu/target/rls/debug/deps/futures_core-d5e403bf12ec1354.d: /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/lib.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/future.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/stream.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/mod.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/poll.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/mod.rs /home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/atomic_waker.rs
+
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/lib.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/future.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/stream.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/mod.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/poll.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/mod.rs:
+/home/raj/.cargo/registry/src/github.com-1ecc6299db9ec823/futures-core-0.3.13/src/task/__internal/atomic_waker.rs:
