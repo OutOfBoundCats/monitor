@@ -1,0 +1,131 @@
+{
+    "main": {
+        "version": "2.2",
+        // Notification related --> Chat or Email
+        "send_limit": 3, // How many notifications
+        "first_wait": 10, // How many seconds I wait to send the first notification
+        "wait_between": 100, // How many seconds to wait between notifications
+        "priority": 5, // Notification priority
+        "notification_ended_delay": 60,
+        "notify_wait": 10,
+        "url": "https://www.destination-url.com", // URL that will open on button click
+        "button": "TEST_BUTTON", // Text seen in the button
+        "notify": "support", // Who you mention in the notifications
+        "notify_not_relaxed": "management", // Who you mention in the notifications
+        "token": "Bj_d1FPVkXm6iiqNbGKo5KvsOdLOPgrCWcUX_8LKkYk", // What room in chat to notify
+        "room": "ENV_CHAT_ROOM", // THis part normally comes in an environment file
+        "notify_model": "not_relaxed", // If you inform a higher management level
+
+
+        // General
+        "log_messages_delay": 100, // Waiting time between log messages (OK, INFO, ERROR, WARN)
+        "item_sleep": 60, // Waiting time betweeen loops
+        "service_sleep": 1,
+        "logfile": "/tmp/monitor.log",
+        "log": true // Disable logging if neccessary
+    },
+    "groups": {
+        "services": {
+            "messages": ["Service {{label}} not running", "Service {{label}} is active"],
+            "priority": 9,
+            "first_wait": 60,
+            "wait_between": 25,
+            "send_limit": 5,
+            "item_sleep": 10, // Time in seconds between check loops of this item
+            "items": [
+                {
+                    "label": "cron",
+                    "target": "cron",
+                    "send_limit": 1,
+                    "priority": 5,
+                    "item_sleep": 60
+                },
+                {
+                    "label": "apache-web-server",
+                    "target": "apache2",
+                    "priority": 1,
+                    "first_wait": 5
+                }
+            ]
+        },
+        "volumes": {
+            "messages": ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"],
+            "priority": 1,
+            "first_wait": 10,
+            "wait_between": 30,
+            "send_limit": 3,
+            "item_sleep": 30,
+            "items": [
+                {
+                    "label": "root",
+                    "enabled": false,
+                    "target": "/",
+                    "measurement": "20 GB",
+                    "priority": 1,
+                    "first_wait": 0,
+                    "wait_between": 2,
+                    "item_sleep": 1,
+                    "send_limit": 3
+                }
+            ]
+        },
+        "pings": {
+            "messages": ["Host {{label}} not responding to ping", "Pîng sucess"],
+            "priority": 2,
+            "first_wait": 3,
+            "wait_between": 3,
+            "send_limit": 3,
+            "item_sleep": 30,
+            "items": [
+                {
+                    "label": "google",
+                    "target": "www.google.com:443",
+                    "item_sleep": 5
+                }, {
+                    "label": "microsoft",
+                    "enabled": true,
+                    "target": "www.microsoft.com:443",
+                    "item_sleep": 5
+                }
+            ]
+        },
+        "memory": {
+            "messages": ["Memory usage notice ({{label}})", "Memory usage is under the limit"],
+            "priority": 2,
+            "first_wait": 30,
+            "wait_between": 30,
+            "send_limit": 3,
+            "item_sleep": 60,
+            "items": [
+                {
+                    "label": "critical",
+                    "target": "20%",
+                    "enabled": false
+                }, {
+                    "label": "high",
+                    "target": "80%",
+                    "enabled": false
+                }
+            ]
+        },
+        "cpu": {
+            "messages": ["CPU usage notice ({{label}})", "CPU usage is valid"],
+            "priority": 2,
+            "first_wait": 30,
+            "wait_between": 30,
+            "send_limit": 3,
+            "item_sleep": 60,
+            "items": [
+                {
+                    "label": "critical",
+                    "target": "100%",
+                    "enabled": true
+                }, {
+                    "label": "high",
+                    "target": "20%",
+                    "enabled": false
+                }
+            ]
+        }
+    }
+}
