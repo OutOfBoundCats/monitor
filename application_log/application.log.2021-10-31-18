@@ -1,0 +1,106 @@
+[2m2021-10-31T18:49:12.976921Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:12.978415Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-10-31T18:49:12.979020Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-10-31T18:49:12.979862Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.080197Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.180710Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.281554Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.382547Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.483414Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.584232Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.684819Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.785633Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.886689Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:13.987752Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.089112Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.191185Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.292405Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.393359Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.494338Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.595484Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.696298Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.796950Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:14.915291Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.015986Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.116722Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.218236Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.320601Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.421685Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.522590Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.622922Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:49:15.682940Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
+[2m2021-10-31T18:50:20.923835Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:20.925334Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-10-31T18:50:20.926103Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-10-31T18:50:20.927302Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.028287Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.128722Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.229454Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.330084Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.430607Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.531060Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.631437Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.731853Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.832319Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:21.932695Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.033125Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.133732Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.234241Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.335046Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.435595Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.536174Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.636704Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.769410Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.870365Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:22.970765Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.071268Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.171821Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.272324Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.372710Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.473095Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.573500Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.673847Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.774483Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.875125Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:23.975964Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.077528Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.178645Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.279940Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.381209Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.482429Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:50:24.493737Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
+[2m2021-10-31T18:52:07.652201Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:07.653431Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-10-31T18:52:07.654124Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-10-31T18:52:07.654607Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:07.755267Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:07.855634Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:07.956363Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.057224Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.158118Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.258672Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.359530Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.460614Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.561264Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.662798Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.763970Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.866178Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:08.967302Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:09.000200Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
+[2m2021-10-31T18:52:28.363891Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.365151Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-10-31T18:52:28.365877Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-10-31T18:52:28.366639Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.474772Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.575108Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.675571Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.776964Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.877818Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:28.978326Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.079108Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.180706Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.281299Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.381872Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.483260Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.583765Z[0m [32m INFO[0m monitor: hello
+[2m2021-10-31T18:52:29.592279Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
