@@ -24,7 +24,7 @@ async fn main() {
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
     let formatting_layer = BunyanFormattingLayer::new("zero2prod".into(), std::io::stdout);
 
-    let file_appender = tracing_appender::rolling::hourly("application_log", "application.log");
+    let file_appender = tracing_appender::rolling::never("application_log", "application.log");
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
     let subscriber = Registry::default()
         .with(env_filter)
@@ -35,6 +35,7 @@ async fn main() {
 
     set_global_default(subscriber).expect("Failed to set subscriber");
     tracing::info!("hello");
+
     // define channel to controll actix thread
     let (tx, rx) = mpsc::channel();
     //read config from json
