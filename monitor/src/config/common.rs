@@ -1,4 +1,3 @@
-use bevy_reflect::Reflect;
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::fs::File;
@@ -82,7 +81,7 @@ fn default_item_sleep() -> i32 {
     2
 }
 
-#[derive(Deserialize, Reflect, Serialize)]
+#[derive(Deserialize, Serialize)]
 pub struct Items {
     pub label: String,
     pub target: String,

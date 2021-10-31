@@ -38,15 +38,15 @@ impl AppConfig {
             .context("Loading configurations from environment")
     }
 
-    #[instrument]
-    pub fn from_setting() -> common::Settings {
-        common::write_struct();
+    // #[instrument]
+    // pub fn from_setting() -> common::Settings {
+    //     common::write_struct();
 
-        let data = fs::read_to_string("read_config.json").expect("Unable to read file");
-        let mut serialised: common::Settings = serde_json::from_str(data.as_str()).unwrap();
-        serialised.default_fill();
-        let item_proprity = serialised.groups.list[0].items[0].priority;
-        println!("new item priority {:?}", &item_proprity);
-        serialised
-    }
+    //     let data = fs::read_to_string("read_config.json").expect("Unable to read file");
+    //     let mut serialised: common::Settings = serde_json::from_str(data.as_str()).unwrap();
+    //     serialised.default_fill();
+    //     let item_proprity = serialised.groups.list[0].items[0].priority;
+    //     println!("new item priority {:?}", &item_proprity);
+    //     serialised
+    // }
 }
