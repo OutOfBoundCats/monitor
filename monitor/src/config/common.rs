@@ -134,3 +134,105 @@ pub fn write_struct() {
 
     println!("{}", serialized_setting);
 }
+
+impl Settings {
+    pub fn default_fill(&mut self) {
+        //iterate over all services in group
+        for l in self.groups.list.iter_mut() {
+            println!("service priority is {}", &l.priority);
+            //get service priority
+            let service_priority = l.priority;
+            let service_first_wait = l.first_wait;
+            let service_wait_between = l.wait_between;
+            let service_send_limit = l.send_limit;
+            let service_item_sleep = l.item_sleep;
+
+            //iterate over items in service
+            for item in l.items.iter_mut() {
+                // 1. if item priority is None then take service priority
+                let item_priority = match item.priority {
+                    Some(value) => value,
+                    None => service_priority,
+                };
+                //substitute the priority in struct
+                item.priority = Some(item_priority);
+
+                //2. if item first_wait is None then take service first_wait
+                let item_first_wait = match item.first_wait {
+                    Some(value) => value,
+                    None => service_first_wait,
+                };
+                //substitute the priority in struct
+                item.first_wait = Some(item_first_wait);
+
+                //3. if item wait_between is None then take service service_wait_between
+                let item_wait_between = match item.wait_between {
+                    Some(value) => value,
+                    None => service_wait_between,
+                };
+                //substitute the priority in struct
+                item.wait_between = Some(item_wait_between);
+
+                //4. if item send_limit is None then take service service_send_limit
+                let item_send_limit = match item.send_limit {
+                    Some(value) => value,
+                    None => service_send_limit,
+                };
+                //substitute the priority in struct
+                item.send_limit = Some(item_send_limit);
+
+                //4. if item item_sleep is None then take service service_item_sleep
+                let item_item_sleep = match item.item_sleep {
+                    Some(value) => value,
+                    None => service_item_sleep,
+                };
+                //substitute the priority in struct
+                item.item_sleep = Some(item_item_sleep);
+            }
+        }
+    }
+
+    pub fn default_fill_priority(&mut self) {
+        //iterate over all services
+        for l in self.groups.list.iter_mut() {
+            println!("service priority is {}", &l.priority);
+            //get service priority
+            let service_priority = l.priority;
+
+            //iterate over items in service
+            for item in l.items.iter_mut() {
+                // if item priority is None then take service priority
+                let item_priority = match item.priority {
+                    Some(value) => value,
+                    None => service_priority,
+                };
+
+                //substitute the priority in struct
+                item.priority = Some(item_priority);
+            }
+        }
+    }
+    pub fn default_fill_first_wait(&mut self) {
+        //iterate over all services
+        for l in self.groups.list.iter_mut() {
+            println!("service priority is {}", &l.first_wait);
+            //get service first_wait
+            let service_first_wait = l.first_wait;
+
+            //iterate over items in service
+            for item in l.items.iter_mut() {
+                // if item priority is None then take service priority
+                let item_first_wait = match item.first_wait {
+                    Some(value) => value,
+                    None => service_first_wait,
+                };
+
+                //substitute the first_wait in struct
+                item.first_wait = Some(item_first_wait);
+            }
+        }
+    }
+    pub fn default_fill_wait_between(&mut self) {}
+    pub fn default_fill_send_limit(&mut self) {}
+    pub fn default_fill_item_sleep(&mut self) {}
+}

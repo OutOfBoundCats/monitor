@@ -4,6 +4,7 @@ mod common;
 use config::*;
 use eyre::WrapErr;
 use serde::Deserialize;
+use std::fs;
 use std::path::Path;
 use tracing::{info, instrument};
 
@@ -40,5 +41,11 @@ impl AppConfig {
     #[instrument]
     pub fn from_setting() {
         common::write_struct();
+
+        let data = fs::read_to_string("read_config.json").expect("Unable to read file");
+        let mut serialised: common::Settings = serde_json::from_str(data.as_str()).unwrap();
+        serialised.default_fill_priority();
+        let item_proprity = serialised.groups.list[0].items[0].priority;
+        println!("new item priority {:?}", &item_proprity);
     }
 }
