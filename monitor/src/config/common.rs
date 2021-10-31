@@ -50,12 +50,36 @@ pub struct Groups {
 #[derive(Deserialize, Serialize)]
 pub struct Services {
     pub messages: String,
+    #[serde(default = "default_priority")]
     pub priority: i32,
+
+    #[serde(default = "default_first_wait")]
     pub first_wait: i32,
+
+    #[serde(default = "default_wait_between")]
     pub wait_between: i32,
+
+    #[serde(default = "default_send_limit")]
     pub send_limit: i32,
+
+    #[serde(default = "default_item_sleep")]
     pub item_sleep: i32,
     pub items: Vec<Items>,
+}
+fn default_priority() -> i32 {
+    2
+}
+fn default_first_wait() -> i32 {
+    2
+}
+fn default_wait_between() -> i32 {
+    2
+}
+fn default_send_limit() -> i32 {
+    2
+}
+fn default_item_sleep() -> i32 {
+    2
 }
 
 #[derive(Deserialize, Reflect, Serialize)]
@@ -132,14 +156,14 @@ pub fn write_struct() {
     //fs::Write(output, serialized_setting.as_str()).unwrap();
     fs::write(path, &serialized_setting).expect("Unable to write file");
 
-    println!("{}", serialized_setting);
+    //println!("{}", serialized_setting);
 }
 
 impl Settings {
     pub fn default_fill(&mut self) {
         //iterate over all services in group
         for l in self.groups.list.iter_mut() {
-            println!("service priority is {}", &l.priority);
+            //println!("service priority is {}", &l.priority);
             //get service priority
             let service_priority = l.priority;
             let service_first_wait = l.first_wait;
@@ -195,11 +219,12 @@ impl Settings {
     pub fn from_setting() -> Settings {
         write_struct();
 
-        let data = fs::read_to_string("read_config.json").expect("Unable to read file");
+        let data =
+            fs::read_to_string("configurations/read_config.json").expect("Unable to read file");
         let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
         serialised.default_fill();
         let item_proprity = serialised.groups.list[0].items[0].priority;
-        println!("new item priority {:?}", &item_proprity);
+        //println!("new item priority {:?}", &item_proprity);
         serialised
     }
 }
