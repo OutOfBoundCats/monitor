@@ -6,11 +6,13 @@ use std::time::Duration;
 mod controllers;
 use controllers::app_config;
 mod config;
+use crate::config::common::Settings;
+
 use crate::config::AppConfig;
 
 #[actix_web::main]
 async fn main() {
-    AppConfig::from_setting();
+    let settings = Settings::from_setting();
 
     // define channel to controll actix thread
     let (tx, rx) = mpsc::channel();

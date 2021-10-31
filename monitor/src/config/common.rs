@@ -192,47 +192,14 @@ impl Settings {
         }
     }
 
-    pub fn default_fill_priority(&mut self) {
-        //iterate over all services
-        for l in self.groups.list.iter_mut() {
-            println!("service priority is {}", &l.priority);
-            //get service priority
-            let service_priority = l.priority;
+    pub fn from_setting() -> Settings {
+        write_struct();
 
-            //iterate over items in service
-            for item in l.items.iter_mut() {
-                // if item priority is None then take service priority
-                let item_priority = match item.priority {
-                    Some(value) => value,
-                    None => service_priority,
-                };
-
-                //substitute the priority in struct
-                item.priority = Some(item_priority);
-            }
-        }
+        let data = fs::read_to_string("read_config.json").expect("Unable to read file");
+        let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
+        serialised.default_fill();
+        let item_proprity = serialised.groups.list[0].items[0].priority;
+        println!("new item priority {:?}", &item_proprity);
+        serialised
     }
-    pub fn default_fill_first_wait(&mut self) {
-        //iterate over all services
-        for l in self.groups.list.iter_mut() {
-            println!("service priority is {}", &l.first_wait);
-            //get service first_wait
-            let service_first_wait = l.first_wait;
-
-            //iterate over items in service
-            for item in l.items.iter_mut() {
-                // if item priority is None then take service priority
-                let item_first_wait = match item.first_wait {
-                    Some(value) => value,
-                    None => service_first_wait,
-                };
-
-                //substitute the first_wait in struct
-                item.first_wait = Some(item_first_wait);
-            }
-        }
-    }
-    pub fn default_fill_wait_between(&mut self) {}
-    pub fn default_fill_send_limit(&mut self) {}
-    pub fn default_fill_item_sleep(&mut self) {}
 }
