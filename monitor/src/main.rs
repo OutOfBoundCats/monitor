@@ -10,10 +10,13 @@ use crate::config::AppConfig;
 
 #[actix_web::main]
 async fn main() {
+    AppConfig::from_setting();
+
     // define channel to controll actix thread
     let (tx, rx) = mpsc::channel();
     //read config from json
     let config = AppConfig::from_env().expect("Server configuration Errro");
+    println!("{}", config.host);
 
     println!("config is {}", config.host);
     println!("start");
@@ -30,7 +33,6 @@ async fn main() {
         .bind("127.0.0.1:8080")?
         .shutdown_timeout(6000) // <- Set shutdown timeout to 60 seconds
         .run();
-
         let _ = tx.send(srv);
 
         sys.run() //This function will start tokio runtime and will finish once the System::stop() message get called. Function f get called within tokio runtime context.

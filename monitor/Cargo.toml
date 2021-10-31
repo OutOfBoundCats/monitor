@@ -16,3 +16,5 @@ tracing-log = { version = "0.1.2", features = ["env_logger"] }
 tracing-subscriber = "0.3.0"
 eyre = "0.6.5"
 color-eyre = "0.5.11"
+serde_derive = "*"
+bevy_reflect = "0.5.0"
