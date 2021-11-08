@@ -20,14 +20,22 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 
 #[actix_web::main]
 async fn main() {
+    //new implementation of reading json config file
     let settings = Settings::from_setting();
+
+    // set logging for actix whihc uses log crate
     env_logger::from_env(Env::default().default_filter_or("info")).init();
+
+    //initialize thetracing crate
     LogTracer::init().expect("Failed to set logger");
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
+    // gives json output og log which we utilize to write to db
     let formatting_layer = BunyanFormattingLayer::new("zero2prod".into(), std::io::stdout);
 
+    // specify how the log file should get created
     let file_appender = tracing_appender::rolling::never("application_log", "application.log");
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
+    //make subscriber which  logs tracing events to console as well as file
     let subscriber = Registry::default()
         .with(env_filter)
         .with(fmt::Layer::default().with_writer(non_blocking))
@@ -35,12 +43,16 @@ async fn main() {
         //.with(formatting_layer)
         ;
 
+    //set subscriber made as global subscriber capaable of subscribing to tracing events from all thhread as well as async functions
     set_global_default(subscriber).expect("Failed to set subscriber");
+
+    //demo tracing event
     tracing::info!("hello");
 
     // define channel to controll actix thread
     let (tx, rx) = mpsc::channel();
-    //read config from json
+
+    //read config from json to be replaced with custom implementation later
     let config = AppConfig::from_env().expect("Server configuration Errro");
     println!("{}", config.host);
 
