@@ -1,5 +1,7 @@
 use actix_web::dev::Server;
+use actix_web::middleware::Logger;
 use actix_web::{rt::System, web, App, HttpResponse, HttpServer};
+use env_logger::Env;
 use std::sync::mpsc;
 use std::thread;
 use std::time::Duration;
@@ -19,7 +21,7 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 #[actix_web::main]
 async fn main() {
     let settings = Settings::from_setting();
-
+    env_logger::from_env(Env::default().default_filter_or("info")).init();
     LogTracer::init().expect("Failed to set logger");
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
     let formatting_layer = BunyanFormattingLayer::new("zero2prod".into(), std::io::stdout);
@@ -48,9 +50,9 @@ async fn main() {
     thread::spawn(move || {
         //System is a runtime manager.
         let sys = System::new("http-server"); //Create new system.This method panics if it can not create tokio runtime
-
         let srv = HttpServer::new(|| {
             App::new()
+                .wrap(Logger::default())
                 .configure(app_config)
                 .route("/", web::get().to(|| HttpResponse::Ok()))
         })
