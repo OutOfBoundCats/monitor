@@ -1,5 +1,0 @@
-2021-11-14T13:18:05.921082Z  INFO monitor:hello
-2021-11-14T13:18:05.921164Z ERROR monitor:Subsciber set
-2021-11-14T13:18:05.921723Z  INFO default_fill: monitor::config::common:item sleep from notification is 2
-2021-11-14T13:18:05.921842Z  INFO default_fill: monitor::config::common:item sleep from group is Null so imputing from general 2
-2021-11-14T13:18:05.921979Z  INFO default_fill: monitor::config::common:item sleep from item is Null so imputing from group 2

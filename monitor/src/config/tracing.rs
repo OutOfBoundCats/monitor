@@ -22,7 +22,7 @@ pub fn get_subcriber() -> impl Subscriber + Sync + Send {
     let file_layer = fmt::layer()
         .with_target(true) // don't include event targets when logging
         .with_level(true)
-        .with_ansi(true)
+        .with_ansi(false)
         .compact()
         .pretty()
         .with_writer(non_blocking);
@@ -30,8 +30,6 @@ pub fn get_subcriber() -> impl Subscriber + Sync + Send {
     let subscriber = Registry::default()
         .with(env_filter)
         .with(fmt_layer)
-        //.with(tracing_subscriber::fmt::layer())
-        //.with(fmt::Layer::default().with_writer(non_blocking))
         .with(file_layer)
         //.with(JsonStorageLayer)
         //.with(formatting_layer)
@@ -42,4 +40,8 @@ pub fn get_subcriber() -> impl Subscriber + Sync + Send {
 /// Register a subscriber as global default to process span data.
 pub fn init_subscriber(subscriber: impl Subscriber + Sync + Send) {
     set_global_default(subscriber).expect("Failed to set subscriber");
+}
+
+fn http_writer() -> impl std::io::Write {
+    std::io::stdout()
 }
