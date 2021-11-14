@@ -24,7 +24,7 @@ async fn main() {
     let settings = Settings::from_setting();
 
     // set logging for actix whihc uses log crate
-    env_logger::from_env(Env::default().default_filter_or("info")).init();
+    //env_logger::from_env(Env::default().default_filter_or("info")).init();
 
     //initialize thetracing crate
     LogTracer::init().expect("Failed to set logger");
@@ -64,7 +64,7 @@ async fn main() {
         let sys = System::new("http-server"); //Create new system.This method panics if it can not create tokio runtime
         let srv = HttpServer::new(|| {
             App::new()
-                .wrap(Logger::default())
+                //.wrap(Logger::default())
                 .configure(app_config)
                 .route("/", web::get().to(|| HttpResponse::Ok()))
         })

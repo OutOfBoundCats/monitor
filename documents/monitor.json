@@ -15,8 +15,6 @@
         "token": "Bj_d1FPVkXm6iiqNbGKo5KvsOdLOPgrCWcUX_8LKkYk", // What room in chat to notify
         "room": "ENV_CHAT_ROOM", // THis part normally comes in an environment file
         "notify_model": "not_relaxed", // If you inform a higher management level
-
-
         // General
         "log_messages_delay": 100, // Waiting time between log messages (OK, INFO, ERROR, WARN)
         "item_sleep": 60, // Waiting time betweeen loops
@@ -26,7 +24,10 @@
     },
     "groups": {
         "services": {
-            "messages": ["Service {{label}} not running", "Service {{label}} is active"],
+            "messages": [
+                "Service {{label}} not running",
+                "Service {{label}} is active"
+            ],
             "priority": 9,
             "first_wait": 60,
             "wait_between": 25,
@@ -49,7 +50,10 @@
             ]
         },
         "volumes": {
-            "messages": ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"],
+            "messages": [
+                "Volume capacity low in {{label}}. Under {{measurement}}",
+                "Volume size is stable"
+            ],
             "priority": 1,
             "first_wait": 10,
             "wait_between": 30,
@@ -70,7 +74,10 @@
             ]
         },
         "pings": {
-            "messages": ["Host {{label}} not responding to ping", "Pîng sucess"],
+            "messages": [
+                "Host {{label}} not responding to ping",
+                "Pîng sucess"
+            ],
             "priority": 2,
             "first_wait": 3,
             "wait_between": 3,
@@ -81,7 +88,8 @@
                     "label": "google",
                     "target": "www.google.com:443",
                     "item_sleep": 5
-                }, {
+                },
+                {
                     "label": "microsoft",
                     "enabled": true,
                     "target": "www.microsoft.com:443",
@@ -90,7 +98,10 @@
             ]
         },
         "memory": {
-            "messages": ["Memory usage notice ({{label}})", "Memory usage is under the limit"],
+            "messages": [
+                "Memory usage notice ({{label}})",
+                "Memory usage is under the limit"
+            ],
             "priority": 2,
             "first_wait": 30,
             "wait_between": 30,
@@ -101,7 +112,8 @@
                     "label": "critical",
                     "target": "20%",
                     "enabled": false
-                }, {
+                },
+                {
                     "label": "high",
                     "target": "80%",
                     "enabled": false
@@ -109,7 +121,10 @@
             ]
         },
         "cpu": {
-            "messages": ["CPU usage notice ({{label}})", "CPU usage is valid"],
+            "messages": [
+                "CPU usage notice ({{label}})",
+                "CPU usage is valid"
+            ],
             "priority": 2,
             "first_wait": 30,
             "wait_between": 30,
@@ -120,7 +135,8 @@
                     "label": "critical",
                     "target": "100%",
                     "enabled": true
-                }, {
+                },
+                {
                     "label": "high",
                     "target": "20%",
                     "enabled": false

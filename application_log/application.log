@@ -1,0 +1,30 @@
+[2m2021-11-08T07:57:05.977095Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:05.979004Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-11-08T07:57:05.979590Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-11-08T07:57:05.980189Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.080387Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.180779Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.281347Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.381733Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.482191Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.582960Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.683540Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.784129Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.884566Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:06.985099Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:07.085664Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:07.186316Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:07.287101Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:07.387872Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T07:57:07.394368Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
+[2m2021-11-08T08:06:01.416780Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.418406Z[0m [32m INFO[0m actix_server::builder: Starting 8 workers    
+[2m2021-11-08T08:06:01.419298Z[0m [32m INFO[0m actix_server::builder: Starting "actix-web-service-127.0.0.1:8080" service on 127.0.0.1:8080    
+[2m2021-11-08T08:06:01.420252Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.520603Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.621196Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.721675Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.822516Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:01.923706Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:02.024506Z[0m [32m INFO[0m monitor: hello
+[2m2021-11-08T08:06:02.070563Z[0m [32m INFO[0m actix_server::builder: SIGINT received, exiting    
