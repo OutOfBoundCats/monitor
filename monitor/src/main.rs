@@ -39,7 +39,7 @@ async fn main() {
         .pretty()
         .with_writer(non_blocking);
 
-    //http layer
+    //http layer  the gaurd has to be in main to work as per documentation
     let (non_blocking_http, _guard_http) = tracing_appender::non_blocking(HttpWriter);
     let http_layer = fmt::layer()
         .with_target(true) // don't include event targets when logging
