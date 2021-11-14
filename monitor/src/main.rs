@@ -22,7 +22,7 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 async fn main() {
     let settings = Settings::from_setting();
     env_logger::from_env(Env::default().default_filter_or("info")).init();
-    LogTracer::init().expect("Failed to set logger");
+    // LogTracer::init().expect("Failed to set logger");
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
     let formatting_layer = BunyanFormattingLayer::new("zero2prod".into(), std::io::stdout);
 
