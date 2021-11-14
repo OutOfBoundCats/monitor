@@ -36,6 +36,8 @@ pub struct Notifications {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct General {
+    // pub inactive_times: i32,
+    // pub inactive_days: i32,
     pub log_messages_delay: i32,
     pub item_sleep: i32,
     pub service_sleep: i32,

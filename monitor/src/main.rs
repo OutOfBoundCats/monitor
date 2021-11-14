@@ -22,12 +22,12 @@ async fn main() {
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
 
     //layer to log to standard output
-    // let fmt_layer = fmt::layer()
-    //     .with_target(true) // don't include event targets when logging
-    //     .with_level(true)
-    //     .with_ansi(true)
-    //     .compact()
-    //     .pretty();
+    let fmt_layer = fmt::layer()
+        .with_target(true) // don't include event targets when logging
+        .with_level(true)
+        .with_ansi(true)
+        .compact()
+        .pretty();
 
     //layer to log to file
     let file_layer = fmt::layer()
@@ -50,7 +50,7 @@ async fn main() {
 
     let subscriber = Registry::default()
         .with(env_filter)
-        //.with(fmt_layer)
+        .with(fmt_layer)
         .with(file_layer)
         .with(JsonStorageLayer)
         .with(formatting_layer)
@@ -77,7 +77,7 @@ async fn main() {
     for i in 0..5 {
         // Spin up another thread
         children.push(thread::spawn(move || {
-            println!("this is thread number {}", i);
+            //println!("this is thread number {}", i);
         }));
     }
 
