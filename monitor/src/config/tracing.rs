@@ -1,21 +1,11 @@
-use std::sync::mpsc;
-use std::time::Duration;
-use std::{panic, thread};
-
-mod config;
-use crate::config::common::Settings;
-use crate::config::tracing::*;
-
-use env_logger::Env;
 use tracing::subscriber::set_global_default;
-use tracing::{info, Subscriber};
+use tracing::Subscriber;
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 use tracing_log::LogTracer;
-use tracing_subscriber::prelude::*;
 use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 
-#[actix_web::main]
-async fn main() {
+/// We are using `impl Subscriber` as return type to avoid having to spell out the actual
+pub fn get_subcriber() -> impl Subscriber + Sync + Send {
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
     let formatting_layer = BunyanFormattingLayer::new("monitor".into(), std::io::stdout);
 
@@ -32,8 +22,9 @@ async fn main() {
     let file_layer = fmt::layer()
         .with_target(true) // don't include event targets when logging
         .with_level(true)
-        .with_ansi(false)
+        .with_ansi(true)
         .compact()
+        .pretty()
         .with_writer(non_blocking);
 
     let subscriber = Registry::default()
@@ -45,18 +36,10 @@ async fn main() {
         //.with(JsonStorageLayer)
         //.with(formatting_layer)
         ;
-    //let subscriber = get_subcriber();
+    subscriber
+}
 
+/// Register a subscriber as global default to process span data.
+pub fn init_subscriber(subscriber: impl Subscriber + Sync + Send) {
     set_global_default(subscriber).expect("Failed to set subscriber");
-
-    tracing::info!("hello");
-
-    tracing::error!("Subsciber set");
-
-    //new implementation of reading json config file
-    let settings = Settings::from_setting();
-    //println!("{:?}", &settings);
-
-    let i = settings.groups[0].items[0].item_sleep;
-    //println!("i is {:?}", &i);
 }
