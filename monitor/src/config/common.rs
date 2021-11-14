@@ -3,24 +3,25 @@ use std::fs;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Write};
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct Settings {
     pub main: NotifyGeneral,
-    pub groups: Groups,
+    pub groups: Vec<Services>,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct NotifyGeneral {
-    pub notification: Notifications,
     pub general: General,
+    pub notification: Notifications,
 }
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct Notifications {
     pub version: String,
     pub send_limit: i32,
     pub first_wait: i32,
     pub wait_between: i32,
     pub priority: i32,
+    pub item_sleep: i32,
     pub notification_ended_delay: i32,
     pub notify_wait: i32,
     pub url: String,
@@ -32,7 +33,7 @@ pub struct Notifications {
     pub notify_model: String,
 }
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct General {
     pub log_messages_delay: i32,
     pub item_sleep: i32,
@@ -41,48 +42,26 @@ pub struct General {
     pub log: bool,
 }
 
-#[derive(Deserialize, Serialize)]
-pub struct Groups {
-    pub list: Vec<Services>,
-}
-
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct Services {
     pub messages: String,
-    #[serde(default = "default_priority")]
-    pub priority: i32,
 
-    #[serde(default = "default_first_wait")]
-    pub first_wait: i32,
+    pub priority: Option<i32>,
 
-    #[serde(default = "default_wait_between")]
-    pub wait_between: i32,
+    pub first_wait: Option<i32>,
 
-    #[serde(default = "default_send_limit")]
-    pub send_limit: i32,
+    pub wait_between: Option<i32>,
 
-    #[serde(default = "default_item_sleep")]
-    pub item_sleep: i32,
+    pub send_limit: Option<i32>,
+
+    pub item_sleep: Option<i32>,
+
     pub items: Vec<Items>,
 }
-fn default_priority() -> i32 {
-    2
-}
-fn default_first_wait() -> i32 {
-    2
-}
-fn default_wait_between() -> i32 {
-    2
-}
-fn default_send_limit() -> i32 {
-    2
-}
-fn default_item_sleep() -> i32 {
-    2
-}
 
-#[derive(Deserialize, Serialize)]
+#[derive(Deserialize, Serialize, Debug)]
 pub struct Items {
+    pub name: String,
     pub label: String,
     pub target: String,
     pub priority: Option<i32>,
@@ -99,6 +78,7 @@ pub fn write_struct() {
         first_wait: 5,
         wait_between: 3,
         priority: 2,
+        item_sleep: 2,
         notification_ended_delay: 5,
         notify_wait: 5,
         url: "loggernow.com".to_owned(),
@@ -118,6 +98,7 @@ pub fn write_struct() {
     };
 
     let item = Items {
+        name: "Server".to_owned(),
         label: "label".to_owned(),
         target: "target".to_owned(),
         priority: Some(2),
@@ -128,16 +109,14 @@ pub fn write_struct() {
     };
     let service = Services {
         messages: "message".to_owned(),
-        priority: 2,
-        first_wait: 2,
-        wait_between: 2,
-        send_limit: 2,
-        item_sleep: 2,
+        priority: Some(2),
+        first_wait: Some(2),
+        wait_between: Some(2),
+        send_limit: Some(2),
+        item_sleep: Some(2),
         items: vec![item],
     };
-    let group = Groups {
-        list: vec![service],
-    };
+
     let main = NotifyGeneral {
         notification: notification,
         general: general,
@@ -145,7 +124,7 @@ pub fn write_struct() {
 
     let settings = Settings {
         main: main,
-        groups: group,
+        groups: vec![service],
     };
     let serialized_setting = serde_json::to_string(&settings).unwrap();
 
@@ -159,23 +138,52 @@ pub fn write_struct() {
 }
 
 impl Settings {
+    #[tracing::instrument]
     pub fn default_fill(&mut self) {
-        //iterate over all services in group
-        for l in self.groups.list.iter_mut() {
-            //println!("service priority is {}", &l.priority);
-            //get service priority
-            let service_priority = l.priority;
-            let service_first_wait = l.first_wait;
-            let service_wait_between = l.wait_between;
-            let service_send_limit = l.send_limit;
-            let service_item_sleep = l.item_sleep;
+        //get values form notification section
+        let general_send_limit = self.main.notification.send_limit;
+        let general_first_wait = self.main.notification.first_wait;
+        let general_wait_betwee = self.main.notification.wait_between;
+        let general_priority = self.main.notification.priority;
+        let general_item_sleep = self.main.notification.item_sleep;
 
-            //iterate over items in service
+        tracing::info!("item sleep from notification is {}", &general_item_sleep);
+
+        //iterate over all groups in group
+        for l in self.groups.iter_mut() {
+            //println!("service priority is {}", &l.priority);
+            //get group priority impute if its nulll from notification struct
+
+            let group_priority = match l.priority {
+                Some(value) => value,
+                None => general_priority,
+            };
+            let group_first_wait = match l.first_wait {
+                Some(value) => value,
+                None => general_first_wait,
+            };
+            let group_wait_between = match l.wait_between {
+                Some(value) => value,
+                None => general_wait_betwee,
+            };
+            let group_send_limit = match l.send_limit {
+                Some(value) => value,
+                None => general_send_limit,
+            };
+            let group_item_sleep = match l.item_sleep {
+                Some(value) => value,
+                None => {
+                    tracing::info!("item sleep from group is Null so imputing from general");
+                    general_item_sleep
+                }
+            };
+
+            //iterate over items in groups
             for item in l.items.iter_mut() {
                 // 1. if item priority is None then take service priority
                 let item_priority = match item.priority {
                     Some(value) => value,
-                    None => service_priority,
+                    None => group_priority,
                 };
                 //substitute the priority in struct
                 item.priority = Some(item_priority);
@@ -183,7 +191,7 @@ impl Settings {
                 //2. if item first_wait is None then take service first_wait
                 let item_first_wait = match item.first_wait {
                     Some(value) => value,
-                    None => service_first_wait,
+                    None => group_first_wait,
                 };
                 //substitute the priority in struct
                 item.first_wait = Some(item_first_wait);
@@ -191,7 +199,7 @@ impl Settings {
                 //3. if item wait_between is None then take service service_wait_between
                 let item_wait_between = match item.wait_between {
                     Some(value) => value,
-                    None => service_wait_between,
+                    None => group_wait_between,
                 };
                 //substitute the priority in struct
                 item.wait_between = Some(item_wait_between);
@@ -199,7 +207,7 @@ impl Settings {
                 //4. if item send_limit is None then take service service_send_limit
                 let item_send_limit = match item.send_limit {
                     Some(value) => value,
-                    None => service_send_limit,
+                    None => group_send_limit,
                 };
                 //substitute the priority in struct
                 item.send_limit = Some(item_send_limit);
@@ -207,7 +215,10 @@ impl Settings {
                 //4. if item item_sleep is None then take service service_item_sleep
                 let item_item_sleep = match item.item_sleep {
                     Some(value) => value,
-                    None => service_item_sleep,
+                    None => {
+                        tracing::info!("item sleep from item is Null so imputing from group");
+                        group_item_sleep
+                    }
                 };
                 //substitute the priority in struct
                 item.item_sleep = Some(item_item_sleep);
@@ -222,7 +233,7 @@ impl Settings {
             fs::read_to_string("configurations/read_config.json").expect("Unable to read file");
         let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
         serialised.default_fill();
-        let item_proprity = serialised.groups.list[0].items[0].priority;
+        let item_proprity = serialised.groups[0].items[0].priority;
         //println!("new item priority {:?}", &item_proprity);
         serialised
     }
