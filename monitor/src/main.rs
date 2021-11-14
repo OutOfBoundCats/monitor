@@ -27,17 +27,21 @@ async fn main() {
         .with_level(true)
         .with_ansi(true)
         .compact()
-        //.pretty()
-        ;
+        .pretty();
+
+    let file_layer = fmt::layer()
+        .with_target(true) // don't include event targets when logging
+        .with_level(true)
+        .with_ansi(false)
+        .compact()
+        .with_writer(non_blocking);
 
     let subscriber = Registry::default()
         .with(env_filter)
         .with(fmt_layer)
         //.with(tracing_subscriber::fmt::layer())
-        .with(fmt::Layer::default().with_writer(non_blocking).with_target(true) // don't include event targets when logging
-        .with_level(true)
-        .with_ansi(true)
-        .compact())
+        //.with(fmt::Layer::default().with_writer(non_blocking))
+        .with(file_layer)
         //.with(JsonStorageLayer)
         //.with(formatting_layer)
         ;
@@ -47,7 +51,7 @@ async fn main() {
 
     tracing::info!("hello");
 
-    tracing::info!("Subsciber set");
+    tracing::error!("Subsciber set");
 
     //new implementation of reading json config file
     let settings = Settings::from_setting();
