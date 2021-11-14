@@ -36,7 +36,7 @@ pub struct Notifications {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct General {
-    // pub inactive_times: i32,
+    // pub inactive_times: i32,  //https://rust-lang-nursery.github.io/rust-cookbook/datetime/parse.html#parse-string-into-datetime-struct
     // pub inactive_days: i32,
     pub log_messages_delay: i32,
     pub item_sleep: i32,
