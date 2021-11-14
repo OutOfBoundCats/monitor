@@ -2,6 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Write};
+use tracing::info;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Settings {
@@ -138,7 +139,7 @@ pub fn write_struct() {
 }
 
 impl Settings {
-    #[tracing::instrument]
+    #[tracing::instrument(skip(self))]
     pub fn default_fill(&mut self) {
         //get values form notification section
         let general_send_limit = self.main.notification.send_limit;
@@ -173,7 +174,10 @@ impl Settings {
             let group_item_sleep = match l.item_sleep {
                 Some(value) => value,
                 None => {
-                    tracing::info!("item sleep from group is Null so imputing from general");
+                    tracing::info!(
+                        "item sleep from group is Null so imputing from general {}",
+                        general_item_sleep
+                    );
                     general_item_sleep
                 }
             };
@@ -216,7 +220,10 @@ impl Settings {
                 let item_item_sleep = match item.item_sleep {
                     Some(value) => value,
                     None => {
-                        tracing::info!("item sleep from item is Null so imputing from group");
+                        info!(
+                            "item sleep from item is Null so imputing from group {}",
+                            &group_item_sleep
+                        );
                         group_item_sleep
                     }
                 };
@@ -233,7 +240,7 @@ impl Settings {
             fs::read_to_string("configurations/read_config.json").expect("Unable to read file");
         let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
         serialised.default_fill();
-        let item_proprity = serialised.groups[0].items[0].priority;
+        let item_proprity = serialised.groups[0].items[0].item_sleep;
         //println!("new item priority {:?}", &item_proprity);
         serialised
     }
