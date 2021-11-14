@@ -16,7 +16,47 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 
 #[actix_web::main]
 async fn main() {
-    let subscriber = get_subcriber();
+    let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
+    let formatting_layer = BunyanFormattingLayer::new("monitor".into(), std::io::stdout);
+
+    let file_appender = tracing_appender::rolling::never("application_log", "application.log");
+    let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
+
+    //layer to log to standard output
+    // let fmt_layer = fmt::layer()
+    //     .with_target(true) // don't include event targets when logging
+    //     .with_level(true)
+    //     .with_ansi(true)
+    //     .compact()
+    //     .pretty();
+
+    //layer to log to file
+    let file_layer = fmt::layer()
+        .with_target(true) // don't include event targets when logging
+        .with_level(true)
+        .with_ansi(false)
+        .compact()
+        .pretty()
+        .with_writer(non_blocking);
+
+    //http layer
+    let (non_blocking_http, _guard_http) = tracing_appender::non_blocking(HttpWriter);
+    let http_layer = fmt::layer()
+        .with_target(true) // don't include event targets when logging
+        .with_level(true)
+        .with_ansi(false)
+        .compact()
+        .with_writer(non_blocking_http);
+
+    let subscriber = Registry::default()
+        .with(env_filter)
+        //.with(fmt_layer)
+        .with(file_layer)
+        .with(JsonStorageLayer)
+        //.with(formatting_layer)
+        .with(http_layer);
+
+    //let subscriber = get_subcriber();
 
     set_global_default(subscriber).expect("Failed to set subscriber");
 
@@ -30,4 +70,18 @@ async fn main() {
 
     let i = settings.groups[0].items[0].item_sleep;
     //println!("i is {:?}", &i);
+
+    let mut children = vec![];
+
+    for i in 0..5 {
+        // Spin up another thread
+        children.push(thread::spawn(move || {
+            println!("this is thread number {}", i);
+        }));
+    }
+
+    for child in children {
+        // Wait for the thread to finish. Returns a result.
+        let _ = child.join();
+    }
 }
