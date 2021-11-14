@@ -17,7 +17,6 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 #[actix_web::main]
 async fn main() {
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
-    let formatting_layer = BunyanFormattingLayer::new("monitor".into(), std::io::stdout);
 
     let file_appender = tracing_appender::rolling::never("application_log", "application.log");
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
@@ -41,20 +40,22 @@ async fn main() {
 
     //http layer  the gaurd has to be in main to work as per documentation
     let (non_blocking_http, _guard_http) = tracing_appender::non_blocking(HttpWriter);
-    let http_layer = fmt::layer()
-        .with_target(true) // don't include event targets when logging
-        .with_level(true)
-        .with_ansi(false)
-        .compact()
-        .with_writer(non_blocking_http);
+    let formatting_layer = BunyanFormattingLayer::new("monitor".into(), non_blocking_http);
+    // let http_layer = fmt::layer()
+    //     .with_target(true) // don't include event targets when logging
+    //     .with_level(true)
+    //     .with_ansi(false)
+    //     .compact()
+    //     .with_writer(non_blocking_http);
 
     let subscriber = Registry::default()
         .with(env_filter)
         //.with(fmt_layer)
         .with(file_layer)
         .with(JsonStorageLayer)
-        //.with(formatting_layer)
-        .with(http_layer);
+        .with(formatting_layer)
+        //.with(http_layer)
+        ;
 
     //let subscriber = get_subcriber();
 

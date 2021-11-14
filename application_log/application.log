@@ -70,3 +70,57 @@
     at monitor/src/config/common.rs:223
     in monitor::config::common::default_fill
 
+  2021-11-14T15:32:16.610226Z  INFO monitor: hello
+    at monitor/src/main.rs:63
+
+  2021-11-14T15:32:16.610372Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-14T15:32:16.611510Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:151
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:32:16.611697Z  INFO monitor::config::common: item sleep from group is Null so imputing from general 2
+    at monitor/src/config/common.rs:177
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:32:16.611809Z  INFO monitor::config::common: item sleep from item is Null so imputing from group 2
+    at monitor/src/config/common.rs:223
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:32:33.957729Z  INFO monitor: hello
+    at monitor/src/main.rs:63
+
+  2021-11-14T15:32:33.958021Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-14T15:32:33.958809Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:151
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:32:33.959097Z  INFO monitor::config::common: item sleep from group is Null so imputing from general 2
+    at monitor/src/config/common.rs:177
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:32:33.959316Z  INFO monitor::config::common: item sleep from item is Null so imputing from group 2
+    at monitor/src/config/common.rs:223
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:35:27.783801Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-14T15:35:27.783998Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-14T15:35:27.784624Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:151
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:35:27.784770Z  INFO monitor::config::common: item sleep from group is Null so imputing from general 2
+    at monitor/src/config/common.rs:177
+    in monitor::config::common::default_fill
+
+  2021-11-14T15:35:27.784979Z  INFO monitor::config::common: item sleep from item is Null so imputing from group 2
+    at monitor/src/config/common.rs:223
+    in monitor::config::common::default_fill
+
