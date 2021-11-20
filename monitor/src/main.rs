@@ -62,19 +62,19 @@ async fn main() {
 
     set_global_default(subscriber).expect("Failed to set subscriber");
 
-    tracing::info!("hello");
-
-    tracing::error!("Subsciber set");
+    tracing::info!("Subsciber set");
 
     //new implementation of reading json config file
     let settings = Settings::from_setting();
 
-    let children = monitors::monitor(
+    //start monitoring services and get the handle to all the thread started so we can join in main thread
+    let child_threads = monitors::monitor(
         &settings.groups,
         &settings.main.general.inactive_times,
         &settings.main.general.inactive_days,
     );
-    for child in children {
+
+    for child in child_threads {
         // Wait for the thread to finish. Returns a result.
         let _ = child.join();
     }

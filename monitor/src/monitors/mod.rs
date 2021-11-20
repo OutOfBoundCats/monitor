@@ -32,7 +32,7 @@ pub fn monitor(
     inactive_times: &Vec<(String, String)>,
     inactive_days: &Vec<String>,
 ) -> Vec<JoinHandle<()>> {
-    let mut children = vec![];
+    let mut thread_handle = vec![];
 
     for group in groups.iter() {
         for item in group.items.iter() {
@@ -51,11 +51,11 @@ pub fn monitor(
             let local_inactive_times = inactive_times.clone();
 
             if item.name == "CPU" {
-                children.push(thread::spawn(move || {
+                thread_handle.push(thread::spawn(move || {
                     cpu_monitor(local_item, local_inactive_times, local_inactive_days)
                 }));
             } else if item.name == "DISK" {
-                children.push(thread::spawn(move || {
+                thread_handle.push(thread::spawn(move || {
                     disk_monitor(local_item, local_inactive_times, local_inactive_days)
                 }));
             } else {
@@ -64,13 +64,10 @@ pub fn monitor(
         }
     }
 
-    for i in 0..5 {
-        // Spin up another thread
-        children.push(thread::spawn(move || {}));
-    }
-
-    children
+    thread_handle
 }
+
+//starts CPU monitoring
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn cpu_monitor(
     item: LocalItems,
@@ -89,6 +86,7 @@ pub fn cpu_monitor(
     }
 }
 
+//starts disk monitoring
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn disk_monitor(
     item: LocalItems,
@@ -97,6 +95,7 @@ pub fn disk_monitor(
 ) {
 }
 
+//function to sleep thread based on configuration inactive dates
 #[tracing::instrument(skip(inactive_times, inactive_days))]
 pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<String>) {
     let local_time = Local::now().timestamp_millis();
