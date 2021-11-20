@@ -66,3 +66,23 @@
     at monitor/src/config/common.rs:163
     in monitor::config::common::default_fill
 
+  2021-11-20T11:38:10.105992Z  INFO monitor: hello
+    at monitor/src/main.rs:65
+
+  2021-11-20T11:38:10.106230Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-11-20T11:38:10.107204Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:163
+    in monitor::config::common::default_fill
+
+  2021-11-20T12:41:50.018654Z  INFO monitor: hello
+    at monitor/src/main.rs:65
+
+  2021-11-20T12:41:50.018947Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-11-20T12:41:50.020158Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:163
+    in monitor::config::common::default_fill
+

@@ -10,7 +10,7 @@ use tracing::info;
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Settings {
     pub main: NotifyGeneral,
-    pub groups: Vec<Services>,
+    pub groups: Vec<Groups>,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -49,7 +49,7 @@ pub struct General {
 }
 
 #[derive(Deserialize, Serialize, Debug)]
-pub struct Services {
+pub struct Groups {
     pub messages: String,
 
     pub priority: Option<i32>,
@@ -120,7 +120,7 @@ pub fn write_struct() {
         send_limit: Some(2),
         item_sleep: Some(2),
     };
-    let service = Services {
+    let service = Groups {
         messages: "message".to_owned(),
         priority: Some(2),
         first_wait: Some(2),

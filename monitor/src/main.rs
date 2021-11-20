@@ -73,21 +73,15 @@ async fn main() {
     let i = settings.groups[0].items[0].item_sleep;
     //println!("i is {:?}", &i);
 
-    let mut children = vec![];
-
-    monitors::monitor();
-
     let percentage = monitors::cpu::get_percentage_cpu_usage().await;
 
-    tracing::info!("cpu usage is {}", percentage);
+    tracing::info!("cpu usage is {}", percentage); //only works on linux machines no VM
 
-    for i in 0..5 {
-        // Spin up another thread
-        children.push(thread::spawn(move || {
-            //println!("this is thread number {}", i);
-        }));
-    }
-
+    let children = monitors::monitor(
+        &settings.groups,
+        &settings.main.general.inactive_times,
+        &settings.main.general.inactive_days,
+    );
     for child in children {
         // Wait for the thread to finish. Returns a result.
         let _ = child.join();
