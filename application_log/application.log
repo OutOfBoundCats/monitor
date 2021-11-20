@@ -18,3 +18,240 @@
     in monitor::monitors::thread_sleep
     in monitor::monitors::cpu_monitor
 
+  2021-11-20T19:42:23.418633Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:42:23.420028Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:43:29.980710Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:43:29.981442Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:43:29.981907Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:43:29.982283Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:45:13.910596Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:45:13.911452Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:45:13.911955Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:45:13.912231Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:36
+    in monitor::monitors::monitor
+
+  2021-11-20T19:45:13.912552Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:45:49.417588Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:45:49.419187Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:45:49.419670Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:45:49.419894Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:37
+    in monitor::monitors::monitor
+
+  2021-11-20T19:45:49.420207Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:57
+
+  2021-11-20T19:45:49.420229Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:46:33.610029Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:46:33.611439Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:46:33.612134Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:46:33.612390Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:37
+    in monitor::monitors::monitor
+
+  2021-11-20T19:46:33.612712Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:57
+
+  2021-11-20T19:46:33.612761Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:47:05.285927Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:47:05.287805Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:47:05.288407Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:47:05.288671Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:37
+    in monitor::monitors::monitor
+
+  2021-11-20T19:47:05.289104Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:57
+
+  2021-11-20T19:47:05.289148Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:47:05.289438Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:05.289816Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:05.290046Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:07.322241Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:07.322486Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:07.322688Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:09.332149Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:09.332482Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:09.332740Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:11.341717Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:11.342097Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:11.342409Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:13.351320Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:13.351625Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:13.351849Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:15.399181Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:15.399523Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:113
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:15.399761Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:134
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:42.012790Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-11-20T19:47:42.013789Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T19:47:42.014551Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-11-20T19:47:42.015009Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:37
+    in monitor::monitors::monitor
+
+  2021-11-20T19:47:42.015290Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:57
+
+  2021-11-20T19:47:42.015322Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-11-20T19:47:42.015592Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:42.015891Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:114
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:42.016123Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:135
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:42.030919Z  INFO monitor::monitors: CPU uasge is 0
+    at monitor/src/monitors/mod.rs:87
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:44.031513Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:81
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:44.031925Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:114
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:44.032140Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:135
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T19:47:44.042092Z  INFO monitor::monitors: CPU uasge is 0
+    at monitor/src/monitors/mod.rs:87
+    in monitor::monitors::cpu_monitor
+

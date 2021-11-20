@@ -25,7 +25,7 @@ pub struct LocalItems {
     pub send_limit: i32,
     pub item_sleep: i32,
 }
-
+use actix_rt::{Arbiter, System};
 #[tracing::instrument(skip(inactive_times, inactive_days, groups))]
 pub fn monitor(
     groups: &Vec<Groups>,
@@ -33,6 +33,8 @@ pub fn monitor(
     inactive_days: &Vec<String>,
 ) -> Vec<JoinHandle<()>> {
     let mut thread_handle = vec![];
+
+    tracing::info!("In Monitor method");
 
     for group in groups.iter() {
         for item in group.items.iter() {
@@ -52,7 +54,8 @@ pub fn monitor(
 
             if item.name == "CPU" {
                 thread_handle.push(thread::spawn(move || {
-                    cpu_monitor(local_item, local_inactive_times, local_inactive_days)
+                    tracing::info!("Started CPU Monitor");
+                    cpu_monitor(local_item, local_inactive_times, local_inactive_days);
                 }));
             } else if item.name == "DISK" {
                 thread_handle.push(thread::spawn(move || {
@@ -75,11 +78,17 @@ pub fn cpu_monitor(
     inactive_days: Vec<String>,
 ) {
     loop {
+        tracing::info!("CPU monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
         let item_sleep_mili = &item.item_sleep * 1000;
-        let cpu_usage = get_percentage_cpu_usage();
-
+        //let cpu_usage = get_percentage_cpu_usage().await;
+        let cpu_usage = cpu::cpu_usage();
+        tracing::info!("CPU uasge is {}", &cpu_usage);
+        if cpu_usage > 90.0 {
+            //notify
+            tracing::info!("Cpu usage more than 90%");
+        }
         thread::sleep(std::time::Duration::from_millis(
             item_sleep_mili.try_into().unwrap(),
         ));
