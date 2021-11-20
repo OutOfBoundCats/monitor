@@ -1,7 +1,12 @@
+use chrono::prelude::*;
+
 use std::{
+    convert::TryInto,
     os::unix::prelude::JoinHandleExt,
     thread::{self, JoinHandle},
 };
+
+use chrono::{DateTime, Duration, Utc};
 
 use crate::config::common::Groups;
 
@@ -17,7 +22,7 @@ pub struct LocalItems {
     pub send_limit: i32,
     pub item_sleep: i32,
 }
-
+#[tracing::instrument]
 pub fn monitor(
     groups: &Vec<Groups>,
     inactive_times: &Vec<(String, String)>,
@@ -68,10 +73,56 @@ pub fn cpu_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    loop {
+        thread_sleep(&inactive_times, &inactive_days);
+    }
 }
 pub fn disk_monitor(
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+}
+
+pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<String>) {
+    let local_time = Local::now().timestamp_millis();
+
+    //if current date is marked inactive sllep untill next day
+    for inactive_day in inactive_days {
+        let inactive_date = DateTime::parse_from_str(inactive_day, "%Y-%d-%m %H:%M %P %z")
+            .unwrap()
+            .date();
+        let inactive_local_date = Local::now().date();
+
+        if inactive_local_date == inactive_date {
+            let next_day = Local::now().checked_add_signed(Duration::days(1)).unwrap();
+            let sleep_time = next_day.timestamp_millis() - Local::now().timestamp_millis();
+            tracing::info!("Current date is marked inactive sleeping till next day");
+            thread::sleep(std::time::Duration::from_millis(
+                sleep_time.try_into().unwrap(),
+            ));
+        }
+    }
+
+    //if current time is in between inactivity tuple sleep till end time
+    for inactive_time in inactive_times {
+        let (start, end) = inactive_time;
+        let start_dateTime = DateTime::parse_from_str(start, "%Y-%d-%m %H:%M %P %z")
+            .unwrap()
+            .timestamp_millis();
+        let end_dateTime = DateTime::parse_from_str(end, "%Y-%d-%m %H:%M %P %z")
+            .unwrap()
+            .timestamp_millis();
+
+        if local_time > start_dateTime && local_time < end_dateTime {
+            let sleep_time = end_dateTime - local_time;
+            tracing::info!(
+                "System time lies between time specified in tuple sleeping for {} sec",
+                &sleep_time
+            );
+            thread::sleep(std::time::Duration::from_millis(
+                sleep_time.try_into().unwrap(),
+            ));
+        }
+    }
 }
