@@ -1,0 +1,20 @@
+  2021-11-20T17:59:21.778751Z  INFO monitor: hello
+    at monitor/src/main.rs:65
+
+  2021-11-20T17:59:21.779080Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-11-20T17:59:21.780161Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-11-20T17:59:21.781550Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:106
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-11-20T17:59:21.781802Z  INFO monitor::monitors: Current date is marked inactive sleeping till next day
+    at monitor/src/monitors/mod.rs:117
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
