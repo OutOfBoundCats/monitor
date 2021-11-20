@@ -18,6 +18,8 @@ impl std::io::Write for HttpWriter {
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
         };
 
+        //http post
+
         //tracing::info!("buffer in string is {}", &s);
         Ok(buf_len)
     }

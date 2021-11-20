@@ -1,3 +1,6 @@
+use chrono::offset::LocalResult;
+use chrono::prelude::*;
+
 use serde::{Deserialize, Serialize};
 use std::fs;
 use std::fs::File;
@@ -36,8 +39,8 @@ pub struct Notifications {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct General {
-    // pub inactive_times: i32,  //https://rust-lang-nursery.github.io/rust-cookbook/datetime/parse.html#parse-string-into-datetime-struct
-    // pub inactive_days: i32,
+    pub inactive_times: Vec<(String, String)>,
+    pub inactive_days: Vec<String>,
     pub log_messages_delay: i32,
     pub item_sleep: i32,
     pub service_sleep: i32,
@@ -75,6 +78,11 @@ pub struct Items {
 }
 
 pub fn write_struct() {
+    let start_date = Local.ymd(2021, 8, 9).and_hms(9, 10, 11);
+    let end_date = Local.ymd(2021, 8, 10).and_hms(9, 10, 11);
+
+    let inactive_day1 = Local.ymd(2021, 8, 10).and_hms(9, 10, 11);
+
     let notification = Notifications {
         version: "2.2".to_owned(),
         send_limit: 32,
@@ -93,6 +101,8 @@ pub fn write_struct() {
         notify_model: "email".to_owned(),
     };
     let general = General {
+        inactive_times: vec![(start_date.to_string(), end_date.to_string())],
+        inactive_days: vec![inactive_day1.to_string()],
         log_messages_delay: 2,
         item_sleep: 2,
         service_sleep: 2,

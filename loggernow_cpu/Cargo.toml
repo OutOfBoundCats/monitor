@@ -16,5 +16,5 @@ opt-level = 3
 codegen-units = 1
 
 [dependencies]
-heim = { version = "0.1.0-rc.1", features = [ "cpu","host"] }
+heim = { version = "0.1.0-rc.1", features = ["cpu", "host"] }
 loggernow_common = { path = "../loggernow_common" }

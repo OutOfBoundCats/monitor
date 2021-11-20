@@ -1,4 +1,2 @@
 [workspace]
-members = [
-    "monitor"
-]
+members = ["monitor", "loggernow_cpu"]

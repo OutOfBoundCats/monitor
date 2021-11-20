@@ -29,3 +29,6 @@ tracing-subscriber = { version = "0.3.1", features = [
 ] }
 tracing-bunyan-formatter = "0.3.0"
 tracing-log = "0.1.1"
+
+
+loggernow_cpu = { path = "../loggernow_cpu" }

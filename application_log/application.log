@@ -1,18 +1,68 @@
-  2021-11-14T19:01:29.372538Z  INFO monitor: hello
+  2021-11-15T08:06:26.404098Z  INFO monitor: hello
     at monitor/src/main.rs:64
 
-  2021-11-14T19:01:29.372754Z ERROR monitor: Subsciber set
+  2021-11-15T08:06:26.404458Z ERROR monitor: Subsciber set
     at monitor/src/main.rs:66
 
-  2021-11-14T19:01:29.373386Z  INFO monitor::config::common: item sleep from notification is 2
+  2021-11-15T08:06:26.406156Z  INFO monitor::config::common: item sleep from notification is 2
     at monitor/src/config/common.rs:153
     in monitor::config::common::default_fill
 
-  2021-11-14T19:01:29.373590Z  INFO monitor::config::common: item sleep from group is Null so imputing from general 2
+  2021-11-15T08:06:26.406345Z  INFO monitor::config::common: item sleep from group is Null so imputing from general 2
     at monitor/src/config/common.rs:179
     in monitor::config::common::default_fill
 
-  2021-11-14T19:01:29.373789Z  INFO monitor::config::common: item sleep from item is Null so imputing from group 2
+  2021-11-15T08:06:26.406554Z  INFO monitor::config::common: item sleep from item is Null so imputing from group 2
     at monitor/src/config/common.rs:225
+    in monitor::config::common::default_fill
+
+  2021-11-20T09:48:57.878576Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T09:48:57.878804Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:00:48.766960Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T10:00:48.767146Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:01:18.155625Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T10:01:18.155933Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:01:50.962258Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T10:01:50.962495Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:01:53.422428Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T10:01:53.422626Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:02:19.740105Z  INFO monitor: hello
+    at monitor/src/main.rs:64
+
+  2021-11-20T10:02:19.740288Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:66
+
+  2021-11-20T10:02:19.741202Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:163
+    in monitor::config::common::default_fill
+
+  2021-11-20T11:12:52.578247Z  INFO monitor: hello
+    at monitor/src/main.rs:65
+
+  2021-11-20T11:12:52.578535Z ERROR monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-11-20T11:12:52.580059Z  INFO monitor::config::common: item sleep from notification is 2
+    at monitor/src/config/common.rs:163
     in monitor::config::common::default_fill
 

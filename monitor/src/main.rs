@@ -5,6 +5,7 @@ use std::{panic, thread};
 mod config;
 use crate::config::common::Settings;
 use crate::config::tracing::*;
+mod monitors;
 
 use env_logger::Env;
 use tracing::subscriber::set_global_default;
@@ -73,6 +74,12 @@ async fn main() {
     //println!("i is {:?}", &i);
 
     let mut children = vec![];
+
+    monitors::monitor();
+
+    let percentage = monitors::cpu::get_percentage_cpu_usage().await;
+
+    tracing::info!("cpu usage is {}", percentage);
 
     for i in 0..5 {
         // Spin up another thread

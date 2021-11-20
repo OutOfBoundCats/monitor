@@ -1,4 +1,7 @@
-use heim::{cpu, host, units};
+use heim::{
+    cpu::{self, CpuFrequency},
+    host, units,
+};
 use loggernow_common;
 
 ///get thread count of running instance
@@ -18,11 +21,40 @@ pub async fn get_physical_cpu_cores() -> String {
 ///get cpu frequncy of running machine
 pub async fn get_cpu_frequncy() -> String {
     let frequency = cpu::frequency().await;
+
     frequency
         .unwrap()
         .current()
         .get::<units::frequency::megahertz>()
         .to_string()
+}
+
+///get max cpu frequncy of running machine
+pub async fn get_max_cpu_frequncy() -> String {
+    let local = cpu::frequency().await;
+    local
+        .unwrap()
+        .max()
+        .unwrap()
+        .get::<units::frequency::megahertz>()
+        .to_string()
+}
+
+pub async fn get_percentage_cpu_usage() -> u64 {
+    let frequency = cpu::frequency().await;
+    let max = frequency
+        .unwrap()
+        .max()
+        .unwrap()
+        .get::<units::frequency::megahertz>();
+
+    let frequency1 = cpu::frequency().await;
+    let current = frequency1
+        .unwrap()
+        .current()
+        .get::<units::frequency::megahertz>();
+    let percentage = (max - current / max) * 100;
+    percentage
 }
 
 ///get system info of machine
