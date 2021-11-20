@@ -68,14 +68,6 @@ async fn main() {
 
     //new implementation of reading json config file
     let settings = Settings::from_setting();
-    //println!("{:?}", &settings);
-
-    let i = settings.groups[0].items[0].item_sleep;
-    //println!("i is {:?}", &i);
-
-    let percentage = monitors::cpu::get_percentage_cpu_usage().await;
-
-    tracing::info!("cpu usage is {}", percentage); //only works on linux machines no VM
 
     let children = monitors::monitor(
         &settings.groups,
