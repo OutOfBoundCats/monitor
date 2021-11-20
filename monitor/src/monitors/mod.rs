@@ -12,6 +12,7 @@ use chrono::{DateTime, Duration, Utc};
 use crate::config::common::Groups;
 
 pub mod cpu;
+use cpu::get_percentage_cpu_usage;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct LocalItems {
@@ -78,6 +79,13 @@ pub fn cpu_monitor(
 ) {
     loop {
         thread_sleep(&inactive_times, &inactive_days);
+
+        let item_sleep_mili = &item.item_sleep * 1000;
+        let cpu_usage = get_percentage_cpu_usage();
+
+        thread::sleep(std::time::Duration::from_millis(
+            item_sleep_mili.try_into().unwrap(),
+        ));
     }
 }
 
