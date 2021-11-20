@@ -77,11 +77,19 @@ pub struct Items {
     pub item_sleep: Option<i32>,
 }
 
+#[tracing::instrument]
 pub fn write_struct() {
-    let start_date = Local.ymd(2021, 8, 9).and_hms(9, 10, 11);
-    let end_date = Local.ymd(2021, 8, 10).and_hms(9, 10, 11);
+    let start_date = Local.ymd(2021, 11, 20).and_hms(9, 10, 11);
+    let new_start_date = start_date.format("%d.%m.%Y %H:%M %P %:z");
+    //tracing::info!("inactive date is {}", &new_start_date);
 
-    let inactive_day1 = Local.ymd(2021, 8, 10).and_hms(9, 10, 11);
+    let end_date = Local.ymd(2021, 8, 10).and_hms(10, 10, 11);
+    let new_end_date = end_date.format("%d.%m.%Y %H:%M %P %:z");
+    //tracing::info!("inactive date is {}", &new_end_date);
+
+    let inactive_day1 = Local.ymd(2021, 11, 20).and_hms(0, 0, 0);
+    let new_inactive_day1 = inactive_day1.format("%d.%m.%Y");
+    //tracing::info!("inactive date is {}", &new_inactive_day1);
 
     let notification = Notifications {
         version: "2.2".to_owned(),
@@ -111,7 +119,7 @@ pub fn write_struct() {
     };
 
     let item = Items {
-        name: "Server".to_owned(),
+        name: "CPU".to_owned(),
         label: "label".to_owned(),
         target: "target".to_owned(),
         priority: Some(2),
@@ -160,7 +168,7 @@ impl Settings {
         let general_priority = self.main.notification.priority;
         let general_item_sleep = self.main.notification.item_sleep;
 
-        tracing::info!("item sleep from notification is {}", &general_item_sleep);
+        //tracing::info!("item sleep from notification is {}", &general_item_sleep);
 
         //iterate over all groups in group
         for l in self.groups.iter_mut() {
@@ -245,8 +253,10 @@ impl Settings {
         }
     }
 
+    #[tracing::instrument]
     pub fn from_setting() -> Settings {
         write_struct();
+        tracing::info!("wrote sample configuration file");
 
         let data =
             fs::read_to_string("configurations/read_config.json").expect("Unable to read file");

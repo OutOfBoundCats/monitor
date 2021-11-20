@@ -1,4 +1,5 @@
 use chrono::prelude::*;
+use serde::{Deserialize, Serialize};
 
 use std::{
     convert::TryInto,
@@ -12,6 +13,7 @@ use crate::config::common::Groups;
 
 pub mod cpu;
 
+#[derive(Deserialize, Serialize, Debug)]
 pub struct LocalItems {
     pub name: String,
     pub label: String,
@@ -22,7 +24,8 @@ pub struct LocalItems {
     pub send_limit: i32,
     pub item_sleep: i32,
 }
-#[tracing::instrument]
+
+#[tracing::instrument(skip(inactive_times, inactive_days, groups))]
 pub fn monitor(
     groups: &Vec<Groups>,
     inactive_times: &Vec<(String, String)>,
@@ -67,7 +70,7 @@ pub fn monitor(
 
     children
 }
-
+#[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn cpu_monitor(
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
@@ -77,6 +80,8 @@ pub fn cpu_monitor(
         thread_sleep(&inactive_times, &inactive_days);
     }
 }
+
+#[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn disk_monitor(
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
@@ -84,14 +89,18 @@ pub fn disk_monitor(
 ) {
 }
 
+#[tracing::instrument(skip(inactive_times, inactive_days))]
 pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<String>) {
     let local_time = Local::now().timestamp_millis();
 
     //if current date is marked inactive sllep untill next day
     for inactive_day in inactive_days {
-        let inactive_date = DateTime::parse_from_str(inactive_day, "%Y-%d-%m %H:%M %P %z")
+        tracing::info!("inactive day is {}", &inactive_day);
+
+        let inactive_date = DateTime::parse_from_str(inactive_day, "%Y-%m-%d %H:%M:%S %:z")
             .unwrap()
             .date();
+
         let inactive_local_date = Local::now().date();
 
         if inactive_local_date == inactive_date {
@@ -107,10 +116,11 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
     //if current time is in between inactivity tuple sleep till end time
     for inactive_time in inactive_times {
         let (start, end) = inactive_time;
-        let start_dateTime = DateTime::parse_from_str(start, "%Y-%d-%m %H:%M %P %z")
+        tracing::info!("inactivee time is from {} to {}", &start, &end);
+        let start_dateTime = DateTime::parse_from_str(start, "%Y-%m-%d %H:%M:%S %:z")
             .unwrap()
             .timestamp_millis();
-        let end_dateTime = DateTime::parse_from_str(end, "%Y-%d-%m %H:%M %P %z")
+        let end_dateTime = DateTime::parse_from_str(end, "%Y-%m-%d %H:%M:%S %:z")
             .unwrap()
             .timestamp_millis();
 
