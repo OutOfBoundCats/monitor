@@ -12,6 +12,7 @@ use chrono::{DateTime, Duration, Utc};
 use crate::config::common::Groups;
 
 pub mod cpu;
+pub mod disk;
 //use cpu::get_percentage_cpu_usage;
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -103,6 +104,28 @@ pub fn disk_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    loop {
+        tracing::info!("Disk monitor loop");
+        thread_sleep(&inactive_times, &inactive_days);
+
+        let item_sleep_mili = &item.item_sleep * 1000;
+
+        let disk_usage = disk::disk_capacity_usage();
+
+        for (disk_usage, mounted_on) in disk_usage {
+            if disk_usage > 90 {
+                tracing::info!(
+                    "Mounted disk  on path {} is {} full",
+                    &mounted_on,
+                    &disk_usage
+                );
+            }
+        }
+
+        thread::sleep(std::time::Duration::from_millis(
+            item_sleep_mili.try_into().unwrap(),
+        ));
+    }
 }
 
 //function to sleep thread based on configuration inactive dates

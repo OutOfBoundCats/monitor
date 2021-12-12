@@ -451,3 +451,231 @@
     in monitor::monitors::thread_sleep
     in monitor::monitors::cpu_monitor
 
+  2021-12-12T16:40:36.472582Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-12-12T16:40:36.473717Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-12-12T16:40:36.474518Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-12-12T16:40:36.474861Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2021-12-12T16:40:36.475203Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-12-12T16:40:36.475238Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:58
+
+  2021-12-12T16:40:36.475575Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:36.475933Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:36.476227Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:37.477639Z  INFO monitor::monitors: CPU uasge is 25.0625
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:49.311258Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-12-12T16:40:49.312423Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-12-12T16:40:49.313170Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-12-12T16:40:49.313440Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2021-12-12T16:40:49.313808Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:58
+
+  2021-12-12T16:40:49.313843Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-12-12T16:40:49.314139Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:49.314454Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:49.314721Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:50.315806Z  INFO monitor::monitors: CPU uasge is 12.577507
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:52.316183Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:52.316496Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:52.316728Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:53.317949Z  INFO monitor::monitors: CPU uasge is 13.5
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:55.318324Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:55.318662Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:55.318917Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:56.320082Z  INFO monitor::monitors: CPU uasge is 12.593758
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:58.320460Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:58.320791Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:58.321154Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:40:59.322218Z  INFO monitor::monitors: CPU uasge is 12.561882
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:41:01.322606Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:41:01.322966Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:41:01.323156Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:41:02.324148Z  INFO monitor::monitors: CPU uasge is 12.5
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:17.257980Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-12-12T16:43:17.258824Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:259
+    in monitor::config::common::from_setting
+
+  2021-12-12T16:43:17.259422Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-12-12T16:43:17.259631Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2021-12-12T16:43:17.260017Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:58
+
+  2021-12-12T16:43:17.260069Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-12-12T16:43:17.260169Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:108
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:17.260318Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:17.260479Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:17.260597Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:17.260714Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:17.260810Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:18.261998Z  INFO monitor::monitors: CPU uasge is 2.483284
+    at monitor/src/monitors/mod.rs:88
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:19.265135Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:108
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:19.265385Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:19.265560Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-12T16:43:20.262326Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:82
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:20.262624Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:128
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-12T16:43:20.262853Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:149
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
