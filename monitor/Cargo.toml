@@ -36,3 +36,5 @@ tracing-log = "0.1.1"
 loggernow_cpu = { path = "../loggernow_cpu" }
 sysinfo = "0.21.1"
 systemstat = "0.1.10"
+netdiag = "0.2.1"
+pinger = "*"

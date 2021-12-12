@@ -13,6 +13,8 @@ use crate::config::common::Groups;
 
 pub mod cpu;
 pub mod disk;
+pub mod memory;
+pub mod ping;
 //use cpu::get_percentage_cpu_usage;
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -61,6 +63,14 @@ pub fn monitor(
             } else if item.name == "DISK" {
                 thread_handle.push(thread::spawn(move || {
                     disk_monitor(local_item, local_inactive_times, local_inactive_days)
+                }));
+            } else if item.name == "MEMORY" {
+                thread_handle.push(thread::spawn(move || {
+                    memory_monitor(local_item, local_inactive_times, local_inactive_days)
+                }));
+            } else if item.name == "PING" {
+                thread_handle.push(thread::spawn(move || {
+                    memory_monitor(local_item, local_inactive_times, local_inactive_days)
                 }));
             } else {
                 tracing::error!("item unspecified {}", &local_item.name);
@@ -121,6 +131,48 @@ pub fn disk_monitor(
                 );
             }
         }
+
+        thread::sleep(std::time::Duration::from_millis(
+            item_sleep_mili.try_into().unwrap(),
+        ));
+    }
+}
+
+//starts memory monitoring
+#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+pub fn memory_monitor(
+    item: LocalItems,
+    inactive_times: Vec<(String, String)>,
+    inactive_days: Vec<String>,
+) {
+    loop {
+        tracing::info!("Disk monitor loop");
+        thread_sleep(&inactive_times, &inactive_days);
+
+        let item_sleep_mili = &item.item_sleep * 1000;
+
+        let memory_usage = memory::memory_usage();
+
+        thread::sleep(std::time::Duration::from_millis(
+            item_sleep_mili.try_into().unwrap(),
+        ));
+    }
+}
+
+//ping monitor
+#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+pub fn ping_monitor(
+    item: LocalItems,
+    inactive_times: Vec<(String, String)>,
+    inactive_days: Vec<String>,
+) {
+    loop {
+        tracing::info!("Disk monitor loop");
+        thread_sleep(&inactive_times, &inactive_days);
+
+        let item_sleep_mili = &item.item_sleep * 1000;
+
+        let ping_respose = ping::pin_host("google.com".to_string());
 
         thread::sleep(std::time::Duration::from_millis(
             item_sleep_mili.try_into().unwrap(),
