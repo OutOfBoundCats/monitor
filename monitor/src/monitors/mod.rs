@@ -15,6 +15,7 @@ pub mod cpu;
 pub mod disk;
 pub mod memory;
 pub mod ping;
+pub mod services;
 //use cpu::get_percentage_cpu_usage;
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -72,6 +73,10 @@ pub fn monitor(
                 let url = item.target.clone();
                 thread_handle.push(thread::spawn(move || {
                     ping_monitor(url, local_item, local_inactive_times, local_inactive_days)
+                }));
+            } else if item.name == "SERVICE" {
+                thread_handle.push(thread::spawn(move || {
+                    service_monitor(local_item, local_inactive_times, local_inactive_days)
                 }));
             } else {
                 tracing::error!("item unspecified {}", &local_item.name);
@@ -175,7 +180,44 @@ pub fn ping_monitor(
 
         let item_sleep_mili = &item.item_sleep * 1000;
 
-        let ping_respose = ping::pin_host(url);
+        let ping_respose = ping::pin_host(url.clone());
+        if ping_respose == true {
+            tracing::info!("{} responded succesfully", &url);
+        } else {
+            tracing::error!("{} not responding ", &url);
+        }
+
+        thread::sleep(std::time::Duration::from_millis(
+            item_sleep_mili.try_into().unwrap(),
+        ));
+    }
+}
+
+//service monitor
+#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+pub fn service_monitor(
+    item: LocalItems,
+    inactive_times: Vec<(String, String)>,
+    inactive_days: Vec<String>,
+) {
+    loop {
+        tracing::info!("Service monitor loop");
+        thread_sleep(&inactive_times, &inactive_days);
+
+        let item_sleep_mili = &item.item_sleep * 1000;
+
+        let (service_status, service_msg) = services::check_service();
+
+        if service_status == 0 {
+            tracing::info!("Service functioning properly");
+            tracing::info!("{}", service_msg);
+        } else if service_status == 1 {
+            tracing::info!("Warning Service not functioning properly");
+            tracing::info!("{}", service_msg);
+        } else if service_status == 2 {
+            tracing::info!("Error Service not functioning");
+            tracing::info!("{}", service_msg);
+        }
 
         thread::sleep(std::time::Duration::from_millis(
             item_sleep_mili.try_into().unwrap(),
