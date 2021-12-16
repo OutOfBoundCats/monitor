@@ -1000,3 +1000,820 @@
     at monitor/src/monitors/mod.rs:108
     in monitor::monitors::cpu_monitor
 
+  2021-12-16T16:03:35.173082Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:03:35.176636Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:03:35.177602Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:03:35.179332Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:03:35.180341Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:03:35.180759Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:03:35.180887Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:03:35.181231Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:35.181618Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:35.181940Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:36.183432Z  INFO monitor::monitors: CPU uasge is 2.3032684
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:38.183863Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:38.184403Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:38.184692Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:39.185971Z  INFO monitor::monitors: CPU uasge is 0.84438324
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:41.186436Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:41.187034Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:41.187366Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:42.188682Z  INFO monitor::monitors: CPU uasge is 0.9231415
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:44.189025Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:44.189351Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:44.189567Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:45.191009Z  INFO monitor::monitors: CPU uasge is 2.4354248
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:47.191424Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:47.191842Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:47.192160Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:48.193367Z  INFO monitor::monitors: CPU uasge is 0.78125
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:50.193753Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:50.194298Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:50.194790Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:51.196248Z  INFO monitor::monitors: CPU uasge is 1.9214096
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:53.196673Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:53.197093Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:53.197372Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:03:54.198556Z  INFO monitor::monitors: CPU uasge is 0.7967224
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:08.056130Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:04:08.057089Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:04:08.057761Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:04:08.058966Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:04:08.059752Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:04:08.060165Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:04:08.060536Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:04:08.060798Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:08.061241Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:08.061594Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:09.063098Z  INFO monitor::monitors: CPU uasge is 12.8196945
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:10.500370Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:158
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:12.500816Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:12.501362Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:12.501661Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:13.503515Z  INFO monitor::monitors: CPU uasge is 14.424141
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:14.868688Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:158
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:16.869035Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:16.869386Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:292
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:16.869827Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:313
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:04:17.871025Z  INFO monitor::monitors: CPU uasge is 12.879173
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:53.914425Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:09:53.915180Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:09:53.915644Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:09:53.916480Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:09:53.917216Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:09:53.917587Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:09:53.917695Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:09:53.918029Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:53.918429Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:53.918757Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:54.919929Z  INFO monitor::monitors: CPU uasge is 35.982025
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:55.379228Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:57.379951Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:57.380340Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:57.380601Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:58.381838Z  INFO monitor::monitors: CPU uasge is 50.0625
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:09:59.682153Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:01.682545Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:01.683128Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:01.683355Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:02.684410Z  INFO monitor::monitors: CPU uasge is 50.052555
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:03.029654Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor with , [1mgoogle_chat[0m: Mutex { data: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }, poisoned: false, .. }
+
+  2021-12-16T16:10:41.255320Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:10:41.256057Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:10:41.256524Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:10:41.257465Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:10:41.258247Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:10:41.258602Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:10:41.258786Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:10:41.258973Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:41.259281Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:41.259529Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:42.260684Z  INFO monitor::monitors: CPU uasge is 2.0410995
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:42.680285Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:44.680799Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:44.681116Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:44.681355Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:45.682974Z  INFO monitor::monitors: CPU uasge is 0.7891388
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:10:46.999032Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:31.287966Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:12:31.288806Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:12:31.289386Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:12:31.290414Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:12:31.291558Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:12:31.292460Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:12:31.292865Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:12:31.292897Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:31.293290Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:31.293562Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:32.294752Z  INFO monitor::monitors: CPU uasge is 1.2068405
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:33.591410Z  INFO monitor::notifications::google_chat: "{\n  \"error\": {\n    \"code\": 400,\n    \"message\": \"Invalid JSON payload received. Unexpected end of string. Expected , or } after key:value pair.\\n\\n^\",\n    \"status\": \"INVALID_ARGUMENT\"\n  }\n}\n"
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg with , [1mself[0m: GoogleChatConfig { general: General { management: ["107583083364112988124"], employees: ["107583083364112988124"], good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, groups: [Item { name: "CPU", management: Some(["107583083364112988124"]), employees: Some(["107583083364112988124"]) }], chaturl: Some("https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D") }
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:12:33.593261Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:02.615353Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:14:02.616326Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:14:02.616914Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:14:02.618002Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:14:02.619009Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:14:02.619427Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:14:02.619686Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:14:02.619762Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:02.620038Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:02.620310Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:03.621525Z  INFO monitor::monitors: CPU uasge is 40.739
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:04.928775Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unexpected end of string. Expected , or } after key:value pair.\n\n^",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:14:04.930575Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:01.590054Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:16:01.590780Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:16:01.591229Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:16:01.592206Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:16:01.592818Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:16:01.593174Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:16:01.593242Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:16:01.593484Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:01.593785Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:01.594011Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:02.595267Z  INFO monitor::monitors: CPU uasge is 9.604286
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:03.996811Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+                "text": "Hey <users/107583083364112988124> <users/107583083364112988124>! demo message please ignore!_"
+    at monitor/src/notifications/google_chat.rs:25
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:03.997006Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Unexpected end of string. Expected , or } after key:value pair.\n\n^",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:03.998133Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:43.090123Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T16:16:43.091033Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T16:16:43.091723Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T16:16:43.092943Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:16:43.093800Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:54
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T16:16:43.094207Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:75
+
+  2021-12-16T16:16:43.094511Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T16:16:43.094548Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:43.094821Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:43.095027Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:44.096302Z  INFO monitor::monitors: CPU uasge is 1.9836884
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:45.666188Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+                "text": "Hey <users/107583083364112988124> <users/107583083364112988124>! demo message from rust please ignore!_"}
+    at monitor/src/notifications/google_chat.rs:25
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:45.666472Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/sktTK2WsbTU.sktTK2WsbTU",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "Hey @Alfonso Pastor Roux - IST @Alfonso Pastor Roux - IST! demo message from rust please ignore!_",
+  "cards": [],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 4,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    },
+    {
+      "type": "USER_MENTION",
+      "startIndex": 31,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/sktTK2WsbTU"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "Hey @Alfonso Pastor Roux - IST @Alfonso Pastor Roux - IST! demo message from rust please ignore!_",
+  "attachment": [],
+  "createTime": "2021-12-16T16:16:45.212271Z",
+  "lastUpdateTime": "2021-12-16T16:16:45.212271Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:45.668034Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:47.668398Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:47.668763Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:47.669057Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:48.670884Z  INFO monitor::monitors: CPU uasge is 1.7809372
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:50.327598Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+                "text": "Hey <users/107583083364112988124> <users/107583083364112988124>! demo message from rust please ignore!_"}
+    at monitor/src/notifications/google_chat.rs:25
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:50.327881Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/Ap-lM-tBHWw.Ap-lM-tBHWw",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "Hey @Alfonso Pastor Roux - IST @Alfonso Pastor Roux - IST! demo message from rust please ignore!_",
+  "cards": [],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 4,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    },
+    {
+      "type": "USER_MENTION",
+      "startIndex": 31,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/Ap-lM-tBHWw"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "Hey @Alfonso Pastor Roux - IST @Alfonso Pastor Roux - IST! demo message from rust please ignore!_",
+  "attachment": [],
+  "createTime": "2021-12-16T16:16:49.791183Z",
+  "lastUpdateTime": "2021-12-16T16:16:49.791183Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:50.329643Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:159
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:52.330016Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:146
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:52.330390Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:293
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:52.330648Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:314
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T16:16:53.332778Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:152
+    in monitor::monitors::cpu_monitor
+

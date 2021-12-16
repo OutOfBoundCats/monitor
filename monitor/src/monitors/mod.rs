@@ -2,8 +2,12 @@ use chrono::prelude::*;
 use serde::{Deserialize, Serialize};
 
 use std::{
+    borrow::BorrowMut,
+    cell::RefCell,
     convert::TryInto,
+    ops::{Deref, DerefMut},
     os::unix::prelude::JoinHandleExt,
+    sync::{Arc, Mutex},
     thread::{self, JoinHandle},
 };
 
@@ -43,6 +47,8 @@ pub fn monitor(
 
     let g_chat_info = GoogleChatConfig::read_from_file(g_url.clone());
 
+    let g_chat_info = Arc::new(Mutex::new(g_chat_info));
+
     let mut thread_handle = vec![];
 
     tracing::info!("In Monitor method");
@@ -64,26 +70,58 @@ pub fn monitor(
             let local_inactive_times = inactive_times.clone();
 
             if item.name == "CPU" {
+                let local_g_chat_info = g_chat_info.clone();
                 thread_handle.push(thread::spawn(move || {
                     tracing::info!("Started CPU Monitor");
-                    cpu_monitor(local_item, local_inactive_times, local_inactive_days);
+
+                    cpu_monitor(
+                        local_g_chat_info,
+                        local_item,
+                        local_inactive_times,
+                        local_inactive_days,
+                    );
                 }));
             } else if item.name == "DISK" {
+                let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    disk_monitor(local_item, local_inactive_times, local_inactive_days)
+                    // disk_monitor(
+                    //     local_g_chat_info,
+                    //     local_item,
+                    //     local_inactive_times,
+                    //     local_inactive_days,
+                    // )
                 }));
             } else if item.name == "MEMORY" {
+                let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    memory_monitor(local_item, local_inactive_times, local_inactive_days)
+                    // memory_monitor(
+                    //     local_g_chat_info,
+                    //     local_item,
+                    //     local_inactive_times,
+                    //     local_inactive_days,
+                    // )
                 }));
             } else if item.name == "PING" {
+                let local_g_chat_info = g_chat_info.clone();
                 let url = item.target.clone();
                 thread_handle.push(thread::spawn(move || {
-                    ping_monitor(url, local_item, local_inactive_times, local_inactive_days)
+                    // ping_monitor(
+                    //     local_g_chat_info,
+                    //     url,
+                    //     local_item,
+                    //     local_inactive_times,
+                    //     local_inactive_days,
+                    // )
                 }));
             } else if item.name == "SERVICE" {
+                let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    service_monitor(local_item, local_inactive_times, local_inactive_days)
+                    // service_monitor(
+                    //     local_g_chat_info,
+                    //     local_item,
+                    //     local_inactive_times,
+                    //     local_inactive_days,
+                    // )
                 }));
             } else {
                 tracing::error!("item unspecified {}", &local_item.name);
@@ -95,12 +133,15 @@ pub fn monitor(
 }
 
 //starts CPU monitoring
-#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+#[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn cpu_monitor(
+    google_chat: Arc<Mutex<GoogleChatConfig>>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    let google_chat_mutex = google_chat.lock().unwrap();
+    // let mut res;
     loop {
         tracing::info!("CPU monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
@@ -109,8 +150,12 @@ pub fn cpu_monitor(
 
         let cpu_usage = cpu::cpu_usage();
         tracing::info!("CPU uasge is {}", &cpu_usage);
-        if cpu_usage > 90.0 {
+        if cpu_usage > 0.0 {
             //notify
+
+            let res = google_chat_mutex.send_chat_msg(r#"{
+                "text": "Hey <users/107583083364112988124> <users/107583083364112988124>! demo message from rust please ignore!_"}"#.to_string());
+
             tracing::error!("Cpu usage more than 90%");
         }
 
@@ -123,6 +168,7 @@ pub fn cpu_monitor(
 //starts disk monitoring
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn disk_monitor(
+    google_chat: Arc<Mutex<GoogleChatConfig>>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
@@ -154,6 +200,7 @@ pub fn disk_monitor(
 //starts memory monitoring
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn memory_monitor(
+    google_chat: Arc<Mutex<GoogleChatConfig>>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
@@ -178,6 +225,7 @@ pub fn memory_monitor(
 //ping monitor
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn ping_monitor(
+    google_chat: Arc<Mutex<GoogleChatConfig>>,
     url: String,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
@@ -205,6 +253,7 @@ pub fn ping_monitor(
 //service monitor
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn service_monitor(
+    google_chat: Arc<Mutex<GoogleChatConfig>>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
