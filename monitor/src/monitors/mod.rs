@@ -9,7 +9,7 @@ use std::{
 
 use chrono::{DateTime, Duration, Utc};
 
-use crate::config::common::Groups;
+use crate::config::common::{Groups, Settings};
 
 pub mod cpu;
 pub mod disk;
@@ -17,6 +17,8 @@ pub mod memory;
 pub mod ping;
 pub mod services;
 //use cpu::get_percentage_cpu_usage;
+
+use crate::notifications::read_google_config::GoogleChatConfig;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct LocalItems {
@@ -32,10 +34,15 @@ pub struct LocalItems {
 use actix_rt::{Arbiter, System};
 #[tracing::instrument(skip(inactive_times, inactive_days, groups))]
 pub fn monitor(
+    settings: &Settings,
     groups: &Vec<Groups>,
     inactive_times: &Vec<(String, String)>,
     inactive_days: &Vec<String>,
 ) -> Vec<JoinHandle<()>> {
+    let g_url = &settings.main.notification.url;
+
+    let g_chat_info = GoogleChatConfig::read_from_file(g_url.clone());
+
     let mut thread_handle = vec![];
 
     tracing::info!("In Monitor method");

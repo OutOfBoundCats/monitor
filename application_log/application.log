@@ -904,3 +904,99 @@
     at monitor/src/monitors/mod.rs:104
     in monitor::monitors::cpu_monitor
 
+  2021-12-16T14:45:16.940335Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:79
+
+  2021-12-16T14:45:16.941398Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T14:45:16.942399Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:83
+
+  2021-12-16T14:45:16.942769Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:43
+    in monitor::monitors::monitor
+
+  2021-12-16T14:45:16.943170Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:63
+
+  2021-12-16T14:45:16.943470Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:91
+
+  2021-12-16T14:45:16.943516Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:100
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:45:16.943875Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:239
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:45:16.944189Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:260
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:45:17.945424Z  INFO monitor::monitors: CPU uasge is 1.78125
+    at monitor/src/monitors/mod.rs:106
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:46:42.243935Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:79
+
+  2021-12-16T14:46:42.244667Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T14:46:42.245151Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:83
+
+  2021-12-16T14:46:42.245922Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:91
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2021-12-16T14:47:21.232424Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:79
+
+  2021-12-16T14:47:21.233280Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T14:47:21.233841Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:83
+
+  2021-12-16T14:47:21.234654Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:91
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2021-12-16T14:47:21.235420Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:45
+    in monitor::monitors::monitor
+
+  2021-12-16T14:47:21.235819Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:65
+
+  2021-12-16T14:47:21.235852Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:91
+
+  2021-12-16T14:47:21.236201Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:102
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:47:21.236541Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:241
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:47:21.236826Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:262
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T14:47:22.238059Z  INFO monitor::monitors: CPU uasge is 1.8828125
+    at monitor/src/monitors/mod.rs:108
+    in monitor::monitors::cpu_monitor
+

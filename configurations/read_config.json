@@ -25,7 +25,7 @@
             "item_sleep": 2,
             "notification_ended_delay": 5,
             "notify_wait": 5,
-            "url": "loggernow.com",
+            "url": "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D",
             "button": "button",
             "notify": "notify",
             "notify_not_relaxed": "notidfy_not_relaxxed",

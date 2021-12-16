@@ -15,20 +15,10 @@ use tracing_log::LogTracer;
 use tracing_subscriber::prelude::*;
 use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 
+pub mod notifications;
+
 #[actix_web::main]
 async fn main() {
-    let mut b = "{} hi there";
-    let a = 5;
-    //let xyz = format!(b, &a);
-
-    use std::fmt::Write;
-
-    let mut output = String::new();
-    write!(&mut output, "{} {}", b, "world")
-        .expect("Error occurred while trying to write in String");
-
-    ///////////
-
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
 
     let file_appender = tracing_appender::rolling::never("application_log", "application.log");
@@ -82,6 +72,7 @@ async fn main() {
 
     //start monitoring services and get the handle to all the thread started so we can join in main thread
     let child_threads = monitors::monitor(
+        &settings,
         &settings.groups,
         &settings.main.general.inactive_times,
         &settings.main.general.inactive_days,
