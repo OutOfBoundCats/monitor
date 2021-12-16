@@ -866,3 +866,41 @@
     at monitor/src/monitors/mod.rs:98
     in monitor::monitors::cpu_monitor
 
+  2021-12-16T09:10:57.272298Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:65
+
+  2021-12-16T09:10:57.273190Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T09:10:57.273696Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:69
+
+  2021-12-16T09:10:57.273906Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:41
+    in monitor::monitors::monitor
+
+  2021-12-16T09:10:57.274195Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:61
+
+  2021-12-16T09:10:57.274206Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:77
+
+  2021-12-16T09:10:57.274508Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:98
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T09:10:57.274771Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:237
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T09:10:57.274994Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:258
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T09:10:58.276046Z  INFO monitor::monitors: CPU uasge is 3.4609375
+    at monitor/src/monitors/mod.rs:104
+    in monitor::monitors::cpu_monitor
+
