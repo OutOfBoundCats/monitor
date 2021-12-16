@@ -104,8 +104,7 @@ pub fn cpu_monitor(
         tracing::info!("CPU uasge is {}", &cpu_usage);
         if cpu_usage > 90.0 {
             //notify
-
-            tracing::info!("Cpu usage more than 90%");
+            tracing::error!("Cpu usage more than 90%");
         }
 
         thread::sleep(std::time::Duration::from_millis(
@@ -131,7 +130,7 @@ pub fn disk_monitor(
 
         for (disk_usage, mounted_on) in disk_usage {
             if disk_usage > 90 {
-                tracing::info!(
+                tracing::error!(
                     "Mounted disk  on path {} is {} full",
                     &mounted_on,
                     &disk_usage
