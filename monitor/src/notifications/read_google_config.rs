@@ -89,7 +89,7 @@ impl GoogleChatConfig {
 
     #[tracing::instrument]
     pub fn read_from_file(url: String) -> GoogleChatConfig {
-        write_struct();
+        //write_struct();
         tracing::info!("wrote sample configuration file");
 
         let data = fs::read_to_string("configurations/google_chat_config.json")
