@@ -158,6 +158,9 @@ pub fn memory_monitor(
         let item_sleep_mili = &item.item_sleep * 1000;
 
         let memory_usage = memory::memory_usage();
+        if memory_usage > 90 {
+            tracing::error!("Memory usage very high at {} ", &memory_usage);
+        }
 
         thread::sleep(std::time::Duration::from_millis(
             item_sleep_mili.try_into().unwrap(),
@@ -211,11 +214,11 @@ pub fn service_monitor(
             tracing::info!("Service functioning properly");
             tracing::info!("{}", service_msg);
         } else if service_status == 1 {
-            tracing::info!("Warning Service not functioning properly");
-            tracing::info!("{}", service_msg);
+            tracing::error!("Warning Service not functioning properly");
+            tracing::error!("{}", service_msg);
         } else if service_status == 2 {
-            tracing::info!("Error Service not functioning");
-            tracing::info!("{}", service_msg);
+            tracing::error!("Error Service not functioning");
+            tracing::error!("{}", service_msg);
         }
 
         thread::sleep(std::time::Duration::from_millis(
