@@ -1,0 +1,39 @@
+{
+    "general": {
+        "management": [
+            [
+                "107583083364112988124"
+            ]
+        ],
+        "employees": [
+            "107583083364112988124"
+        ],
+        "good_msg": "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg",
+        "error_sev2": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "error_sev1": "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png"
+    },
+    "groups": [
+        {
+            "name": "CPU",
+            "management": [
+                [
+                    "107583083364112988124"
+                ]
+            ],
+            "employees": [
+                "107583083364112988124"
+            ]
+        },
+        {
+            "name": "SERVICE",
+            "management": [
+                [
+                    "107583083364112988124"
+                ]
+            ],
+            "employees": [
+                "107583083364112988124"
+            ]
+        }
+    ]
+}

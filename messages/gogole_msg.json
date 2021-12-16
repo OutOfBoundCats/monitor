@@ -1,0 +1,24 @@
+{
+    "text": "{} not working fine {} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{}",
+                "subtitle": "{}",
+                "imageUrl": "{}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
