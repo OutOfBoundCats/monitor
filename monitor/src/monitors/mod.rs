@@ -181,7 +181,9 @@ pub fn disk_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    let google_chat_mutex = google_chat.lock().unwrap();
     loop {
+        let severity = 2;
         tracing::info!("Disk monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
@@ -191,6 +193,17 @@ pub fn disk_monitor(
 
         for (disk_usage, mounted_on) in disk_usage {
             if disk_usage > 90 {
+                let message = google_chat_mutex.build_msg(
+                    &item,
+                    "ERROR",
+                    severity,
+                    format!(
+                        "Mounted disk  on path {} is {} full",
+                        &mounted_on, &disk_usage
+                    ),
+                );
+                let res = google_chat_mutex.send_chat_msg(message);
+
                 tracing::error!(
                     "Mounted disk  on path {} is {} full",
                     &mounted_on,
@@ -213,7 +226,9 @@ pub fn memory_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    let google_chat_mutex = google_chat.lock().unwrap();
     loop {
+        let severity = 2;
         tracing::info!("Disk monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
@@ -221,6 +236,13 @@ pub fn memory_monitor(
 
         let memory_usage = memory::memory_usage();
         if memory_usage > 90 {
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                format!("Memory usage very high at {} ", &memory_usage),
+            );
+            let res = google_chat_mutex.send_chat_msg(message);
             tracing::error!("Memory usage very high at {} ", &memory_usage);
         }
 
@@ -239,7 +261,9 @@ pub fn ping_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    let google_chat_mutex = google_chat.lock().unwrap();
     loop {
+        let severity = 2;
         tracing::info!("Disk monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
@@ -249,6 +273,15 @@ pub fn ping_monitor(
         if ping_respose == true {
             tracing::info!("{} responded succesfully", &url);
         } else {
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                format!("{} not responding ", &url),
+            );
+
+            let res = google_chat_mutex.send_chat_msg(message);
+
             tracing::error!("{} not responding ", &url);
         }
 
@@ -266,7 +299,9 @@ pub fn service_monitor(
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
+    let google_chat_mutex = google_chat.lock().unwrap();
     loop {
+        let severity = 2;
         tracing::info!("Service monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
