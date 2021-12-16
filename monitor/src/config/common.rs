@@ -50,7 +50,7 @@ pub struct General {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Groups {
-    pub messages: String,
+    pub messages: Vec<String>,
 
     pub priority: Option<i32>,
 
@@ -129,7 +129,10 @@ pub fn write_struct() {
         item_sleep: Some(2),
     };
     let service = Groups {
-        messages: "message".to_owned(),
+        messages: vec![
+            "Service {{label}} not running".to_string(),
+            "Service {{label}} is active".to_string(),
+        ],
         priority: Some(2),
         first_wait: Some(2),
         wait_between: Some(2),

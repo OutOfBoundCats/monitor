@@ -36,7 +36,10 @@
     },
     "groups": [
         {
-            "messages": "message",
+            "messages": [
+                "Service {{label}} not running",
+                "Service {{label}} is active"
+            ],
             "priority": 2,
             "first_wait": 2,
             "wait_between": 2,
@@ -45,26 +48,6 @@
             "items": [
                 {
                     "name": "CPU",
-                    "label": "label",
-                    "target": "target",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 2
-                }
-            ]
-        },
-        {
-            "messages": "message",
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
-            "items": [
-                {
-                    "name": "DISK",
                     "label": "label",
                     "target": "target",
                     "priority": 2,

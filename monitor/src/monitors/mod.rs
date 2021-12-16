@@ -69,8 +69,9 @@ pub fn monitor(
                     memory_monitor(local_item, local_inactive_times, local_inactive_days)
                 }));
             } else if item.name == "PING" {
+                let url = item.target.clone();
                 thread_handle.push(thread::spawn(move || {
-                    memory_monitor(local_item, local_inactive_times, local_inactive_days)
+                    ping_monitor(url, local_item, local_inactive_times, local_inactive_days)
                 }));
             } else {
                 tracing::error!("item unspecified {}", &local_item.name);
@@ -98,6 +99,7 @@ pub fn cpu_monitor(
         tracing::info!("CPU uasge is {}", &cpu_usage);
         if cpu_usage > 90.0 {
             //notify
+
             tracing::info!("Cpu usage more than 90%");
         }
 
@@ -162,6 +164,7 @@ pub fn memory_monitor(
 //ping monitor
 #[tracing::instrument(skip(item, inactive_times, inactive_days))]
 pub fn ping_monitor(
+    url: String,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
@@ -172,7 +175,7 @@ pub fn ping_monitor(
 
         let item_sleep_mili = &item.item_sleep * 1000;
 
-        let ping_respose = ping::pin_host("google.com".to_string());
+        let ping_respose = ping::pin_host(url);
 
         thread::sleep(std::time::Duration::from_millis(
             item_sleep_mili.try_into().unwrap(),
