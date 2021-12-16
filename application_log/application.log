@@ -1817,3 +1817,1719 @@
     at monitor/src/monitors/mod.rs:152
     in monitor::monitors::cpu_monitor
 
+  2021-12-16T17:34:22.317605Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:34:22.318619Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:34:22.319278Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:34:22.320478Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:34:22.321442Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:34:22.321871Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:34:22.322244Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:22.322351Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:34:22.322540Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:22.322797Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:23.324084Z  INFO monitor::monitors: CPU uasge is 6.981453
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:25.324428Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:25.324713Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:25.324902Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:26.339193Z  INFO monitor::monitors: CPU uasge is 6.3790894
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:28.339609Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:28.339951Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:28.340164Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:29.341183Z  INFO monitor::monitors: CPU uasge is 6.2654724
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:31.341611Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:31.341932Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:31.342166Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:34:32.343253Z  INFO monitor::monitors: CPU uasge is 12.5
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:06.339467Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:35:06.340279Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:35:06.340733Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:35:06.341600Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:35:06.342287Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:35:06.342655Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:35:06.342782Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:35:06.342977Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:06.343307Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:06.343550Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:07.344757Z  INFO monitor::monitors: CPU uasge is 25.648285
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:07.898316Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "{}  {} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{}",
+                "subtitle": "{}",
+                "imageUrl": "{}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:07.898598Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:07.900123Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:09.900529Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:09.900924Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:09.901222Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:10.902613Z  INFO monitor::monitors: CPU uasge is 50.08657
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:11.339565Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "{}  {} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{}",
+                "subtitle": "{}",
+                "imageUrl": "{}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:11.339769Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:11.340919Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:13.341212Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:13.341553Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:35:13.341787Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:57.419668Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:36:57.420421Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:36:57.420859Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:36:57.421720Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:36:57.422585Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:36:57.423023Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:36:57.423095Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:36:57.423390Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:57.423768Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:57.424029Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:58.425214Z  INFO monitor::monitors: CPU uasge is 50.061882
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:58.425638Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "{}  {} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{}",
+                "subtitle": "{}",
+                "imageUrl": "{}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:91
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:58.962239Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "{}  {} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{}",
+                "subtitle": "{}",
+                "imageUrl": "{}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:58.962542Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:36:58.964443Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:04.394544Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:39:04.395643Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:39:04.396216Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:39:04.397551Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:39:04.398354Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:39:04.398841Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:39:04.398935Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:39:04.399184Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:04.399507Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:04.399766Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:05.400992Z  INFO monitor::monitors: CPU uasge is 2.610756
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:07.401315Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:07.401656Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:07.401879Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:08.403035Z  INFO monitor::monitors: CPU uasge is 1.609375
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:10.403394Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:10.403779Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:10.404167Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:11.405248Z  INFO monitor::monitors: CPU uasge is 1.624382
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:13.405643Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:13.405892Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:13.406077Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:14.407201Z  INFO monitor::monitors: CPU uasge is 1.8100281
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:16.407579Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:16.407872Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:16.408151Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:17.409347Z  INFO monitor::monitors: CPU uasge is 3.2649918
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:19.409691Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:19.410053Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:19.410325Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:20.411419Z  INFO monitor::monitors: CPU uasge is 1.5703125
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:22.411814Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:22.412198Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:22.412504Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:23.413571Z  INFO monitor::monitors: CPU uasge is 1.6007996
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:25.414025Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:25.414349Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:25.414533Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:26.415763Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:28.416178Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:28.416430Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:28.416635Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:29.417639Z  INFO monitor::monitors: CPU uasge is 1.6927872
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:31.417950Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:31.418467Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:31.418849Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:32.420462Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:34.420770Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:34.421091Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:34.421340Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:35.422607Z  INFO monitor::monitors: CPU uasge is 1.8725281
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:37.422986Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:37.423296Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:37.423528Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:38.424550Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:40.424904Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:40.425200Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:40.425420Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:41.426474Z  INFO monitor::monitors: CPU uasge is 1.6940002
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:43.426809Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:43.427082Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:43.427264Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:44.428240Z  INFO monitor::monitors: CPU uasge is 1.8100281
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:46.428607Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:46.428917Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:46.429172Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:47.430252Z  INFO monitor::monitors: CPU uasge is 2.3240433
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:49.430649Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:49.431066Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:49.431366Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:50.432454Z  INFO monitor::monitors: CPU uasge is 1.9505234
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:52.432815Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:52.433222Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:52.433577Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:53.435091Z  INFO monitor::monitors: CPU uasge is 2.073021
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:55.435515Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:55.436032Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:55.436365Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:56.437875Z  INFO monitor::monitors: CPU uasge is 1.6940002
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:58.438323Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:58.438645Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:58.438861Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:39:59.439886Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:01.440306Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:01.440719Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:01.441037Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:02.442648Z  INFO monitor::monitors: CPU uasge is 1.5625
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:04.443112Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:04.443492Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:04.443776Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:05.445442Z  INFO monitor::monitors: CPU uasge is 3.019165
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:07.448381Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:07.448755Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:07.449056Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:08.450505Z  INFO monitor::monitors: CPU uasge is 0.78125
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:11.669410Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:40:11.670248Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:40:11.670911Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:40:11.672153Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:40:11.672909Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:40:11.673442Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:40:11.673779Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:11.674003Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:40:11.674110Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:11.674355Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:12.675549Z  INFO monitor::monitors: CPU uasge is 1.5165482
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:14.675973Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:14.676409Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:14.676673Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:15.678058Z  INFO monitor::monitors: CPU uasge is 1.4478683
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:17.678472Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:17.678847Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:17.679122Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:18.680570Z  INFO monitor::monitors: CPU uasge is 0.78125
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:20.680986Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:20.681348Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:20.681591Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:21.682814Z  INFO monitor::monitors: CPU uasge is 0.87438965
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:23.683301Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:23.683761Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:23.684039Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:24.685651Z  INFO monitor::monitors: CPU uasge is 1.2788696
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:26.686091Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:26.686490Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:26.686761Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:27.688187Z  INFO monitor::monitors: CPU uasge is 0.8121872
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:29.688662Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:29.689279Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:29.689596Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:30.691413Z  INFO monitor::monitors: CPU uasge is 1.771347
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:32.691835Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:32.692264Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:32.692571Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:33.694031Z  INFO monitor::monitors: CPU uasge is 0.875
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:35.694426Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:35.694970Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:35.695203Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:36.696426Z  INFO monitor::monitors: CPU uasge is 0.7967224
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:38.696807Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:38.697156Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:38.697356Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:39.698436Z  INFO monitor::monitors: CPU uasge is 1.3265991
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:41.698816Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:41.699199Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:41.699417Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:42.700519Z  INFO monitor::monitors: CPU uasge is 0.78125
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:44.701007Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:44.701495Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:44.701739Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:45.703220Z  INFO monitor::monitors: CPU uasge is 1.8744965
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:57.523704Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:40:57.524658Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:40:57.525291Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:40:57.526314Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:40:57.527194Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "label", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:40:57.527582Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:40:57.527684Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:40:57.527914Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:57.528232Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:57.528514Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:58.529836Z  INFO monitor::monitors: CPU uasge is 50.50505
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:58.530355Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:58.530744Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "CPU CPU under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU CPU under load",
+                "subtitle": "Cpu usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Cpu usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:59.219881Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "CPU CPU under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU CPU under load",
+                "subtitle": "Cpu usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Cpu usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:59.220234Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/sgcuHxr2_HE.sgcuHxr2_HE",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "CPU CPU under load  @Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "CPU CPU under load",
+        "subtitle": "Cpu usage more than 90%",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Cpu usage more than 90%"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 20,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/sgcuHxr2_HE"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "CPU CPU under load  @Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2021-12-16T17:40:58.724863Z",
+  "lastUpdateTime": "2021-12-16T17:40:58.724863Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:40:59.221958Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:43.858577Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:42:43.859558Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:42:43.860064Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:42:43.860977Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "RAJ PC", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:42:43.861842Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "RAJ PC", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:42:43.862148Z ERROR monitor::monitors: item unspecified RAJ PC
+    at monitor/src/monitors/mod.rs:130
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "RAJ PC", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:42:43.862561Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:42:55.976215Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:42:55.977195Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:42:55.977802Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:42:55.979027Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:42:55.980227Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:42:55.980739Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:42:55.980992Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:42:55.981151Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:55.981559Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:55.981802Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:56.982986Z  INFO monitor::monitors: CPU uasge is 1.2865067
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:56.983487Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:56.983858Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "CPU CPU under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU CPU under load",
+                "subtitle": "Cpu usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Cpu usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:57.623974Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "CPU CPU under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU CPU under load",
+                "subtitle": "Cpu usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Cpu usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:57.624305Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/fy67oSQIc0k.fy67oSQIc0k",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "CPU CPU under load  @Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "CPU CPU under load",
+        "subtitle": "Cpu usage more than 90%",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Cpu usage more than 90%"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 20,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/fy67oSQIc0k"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "CPU CPU under load  @Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2021-12-16T17:42:57.097599Z",
+  "lastUpdateTime": "2021-12-16T17:42:57.097599Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:57.626161Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:59.626597Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:59.626853Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:42:59.627036Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:41.773221Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-16T17:44:41.776381Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-16T17:44:41.777831Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-16T17:44:41.780737Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:44:41.781997Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor with , [1msettings[0m: Settings { main: NotifyGeneral { general: General { inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { version: "2.2", send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", token: "xyz", room: "room", notify_model: "email" } }, groups: [Groups { messages: ["CPU {TXT} under load", "CPU {TXT} is fine"], priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2), items: [Items { name: "CPU", label: "RAJ PC", target: "target", priority: Some(2), first_wait: Some(2), wait_between: Some(2), send_limit: Some(2), item_sleep: Some(2) }] }] }
+
+  2021-12-16T17:44:41.782477Z  INFO monitor::monitors: Started CPU Monitor
+    at monitor/src/monitors/mod.rs:78
+
+  2021-12-16T17:44:41.782698Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-16T17:44:41.782860Z  INFO monitor::monitors: CPU monitor loop
+    at monitor/src/monitors/mod.rs:150
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:41.783244Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:301
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:41.783528Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:322
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:42.784903Z  INFO monitor::monitors: CPU uasge is 51.55221
+    at monitor/src/monitors/mod.rs:156
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:42.785210Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:42.785469Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "CPU RAJ PC under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU RAJ PC under load",
+                "subtitle": "CPU usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "CPU usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:43.618228Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "CPU RAJ PC under load  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "CPU RAJ PC under load",
+                "subtitle": "CPU usage more than 90%",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "CPU usage more than 90%"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:43.618578Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/6h2Do-dK9dQ.6h2Do-dK9dQ",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "CPU RAJ PC under load  @Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "CPU RAJ PC under load",
+        "subtitle": "CPU usage more than 90%",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "CPU usage more than 90%"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 23,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/6h2Do-dK9dQ"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "CPU RAJ PC under load  @Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2021-12-16T17:44:43.074639Z",
+  "lastUpdateTime": "2021-12-16T17:44:43.074639Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::cpu_monitor
+
+  2021-12-16T17:44:43.620913Z ERROR monitor::monitors: Cpu usage more than 90%
+    at monitor/src/monitors/mod.rs:167
+    in monitor::monitors::cpu_monitor
+

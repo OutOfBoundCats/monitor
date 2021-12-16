@@ -34,6 +34,7 @@ pub struct LocalItems {
     pub wait_between: i32,
     pub send_limit: i32,
     pub item_sleep: i32,
+    pub message: Vec<String>,
 }
 use actix_rt::{Arbiter, System};
 #[tracing::instrument(skip(inactive_times, inactive_days, groups))]
@@ -54,17 +55,19 @@ pub fn monitor(
     tracing::info!("In Monitor method");
 
     for group in groups.iter() {
+        let group_msg = group.messages.clone();
         for item in group.items.iter() {
             //each thread gets its own copy of data
             let local_item = LocalItems {
                 name: item.name.clone(),
-                label: item.name.clone(),
-                target: item.name.clone(),
+                label: item.label.clone(),
+                target: item.target.clone(),
                 priority: item.priority.unwrap().clone(),
-                first_wait: item.priority.unwrap().clone(),
-                wait_between: item.priority.unwrap().clone(),
-                send_limit: item.priority.unwrap().clone(),
-                item_sleep: item.priority.unwrap().clone(),
+                first_wait: item.first_wait.unwrap().clone(),
+                wait_between: item.wait_between.unwrap().clone(),
+                send_limit: item.send_limit.unwrap().clone(),
+                item_sleep: item.item_sleep.unwrap().clone(),
+                message: group_msg.clone(),
             };
             let local_inactive_days = inactive_days.clone();
             let local_inactive_times = inactive_times.clone();
@@ -84,44 +87,44 @@ pub fn monitor(
             } else if item.name == "DISK" {
                 let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    // disk_monitor(
-                    //     local_g_chat_info,
-                    //     local_item,
-                    //     local_inactive_times,
-                    //     local_inactive_days,
-                    // )
+                    disk_monitor(
+                        local_g_chat_info,
+                        local_item,
+                        local_inactive_times,
+                        local_inactive_days,
+                    )
                 }));
             } else if item.name == "MEMORY" {
                 let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    // memory_monitor(
-                    //     local_g_chat_info,
-                    //     local_item,
-                    //     local_inactive_times,
-                    //     local_inactive_days,
-                    // )
+                    memory_monitor(
+                        local_g_chat_info,
+                        local_item,
+                        local_inactive_times,
+                        local_inactive_days,
+                    )
                 }));
             } else if item.name == "PING" {
                 let local_g_chat_info = g_chat_info.clone();
                 let url = item.target.clone();
                 thread_handle.push(thread::spawn(move || {
-                    // ping_monitor(
-                    //     local_g_chat_info,
-                    //     url,
-                    //     local_item,
-                    //     local_inactive_times,
-                    //     local_inactive_days,
-                    // )
+                    ping_monitor(
+                        local_g_chat_info,
+                        url,
+                        local_item,
+                        local_inactive_times,
+                        local_inactive_days,
+                    )
                 }));
             } else if item.name == "SERVICE" {
                 let local_g_chat_info = Arc::clone(&g_chat_info);
                 thread_handle.push(thread::spawn(move || {
-                    // service_monitor(
-                    //     local_g_chat_info,
-                    //     local_item,
-                    //     local_inactive_times,
-                    //     local_inactive_days,
-                    // )
+                    service_monitor(
+                        local_g_chat_info,
+                        local_item,
+                        local_inactive_times,
+                        local_inactive_days,
+                    )
                 }));
             } else {
                 tracing::error!("item unspecified {}", &local_item.name);
@@ -143,6 +146,7 @@ pub fn cpu_monitor(
     let google_chat_mutex = google_chat.lock().unwrap();
     // let mut res;
     loop {
+        let severity = 2;
         tracing::info!("CPU monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
@@ -150,11 +154,15 @@ pub fn cpu_monitor(
 
         let cpu_usage = cpu::cpu_usage();
         tracing::info!("CPU uasge is {}", &cpu_usage);
-        if cpu_usage > 0.0 {
+        if cpu_usage > 90.0 {
             //notify
-
-            let res = google_chat_mutex.send_chat_msg(r#"{
-                "text": "Hey <users/107583083364112988124> <users/107583083364112988124>! demo message from rust please ignore!_"}"#.to_string());
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                "CPU usage more than 90%".to_string(),
+            );
+            let res = google_chat_mutex.send_chat_msg(message);
 
             tracing::error!("Cpu usage more than 90%");
         }

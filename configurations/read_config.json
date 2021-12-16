@@ -37,8 +37,8 @@
     "groups": [
         {
             "messages": [
-                "Service {{label}} not running",
-                "Service {{label}} is active"
+                "CPU {TXT} under load",
+                "CPU {TXT} is fine"
             ],
             "priority": 2,
             "first_wait": 2,
@@ -48,7 +48,7 @@
             "items": [
                 {
                     "name": "CPU",
-                    "label": "label",
+                    "label": "RAJ PC",
                     "target": "target",
                     "priority": 2,
                     "first_wait": 2,
