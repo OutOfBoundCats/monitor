@@ -16,7 +16,10 @@ pub fn check_service() -> (i32, String) {
     )
     .unwrap();
 
-    let output_int: i32 = output.parse().unwrap();
+    let output_int: i32 = match output.parse() {
+        Ok(value) => value,
+        Err(err) => 2,
+    };
     if output_int == 0 {
         return_msg = format!("Service is running fine");
         return_int = 0;

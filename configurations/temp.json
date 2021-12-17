@@ -1,0 +1,92 @@
+{
+    "messages": [
+        "CPU {TXT} under load",
+        "CPU {TXT} is fine"
+    ],
+    "priority": 2,
+    "first_wait": 2,
+    "wait_between": 2,
+    "send_limit": 2,
+    "item_sleep": 2,
+    "items": [
+        {
+            "name": "CPU",
+            "label": "RAJ PC",
+            "target": "target",
+            "priority": 2,
+            "first_wait": 2,
+            "wait_between": 2,
+            "send_limit": 2,
+            "item_sleep": 3
+        }
+    ]
+},
+{
+    "messages": [
+        "DISK {TXT} is full",
+        "Disk {TXT} is fine"
+    ],
+    "priority": 2,
+    "first_wait": 2,
+    "wait_between": 2,
+    "send_limit": 2,
+    "item_sleep": 2,
+    "items": [
+        {
+            "name": "DISK",
+            "label": "RAJ PC",
+            "target": "target",
+            "priority": 2,
+            "first_wait": 2,
+            "wait_between": 2,
+            "send_limit": 2,
+            "item_sleep": 3
+        }
+    ]
+},
+{
+    "messages": [
+        "Memory {TXT} almost full",
+        "Memory {TXT} is fine"
+    ],
+    "priority": 2,
+    "first_wait": 2,
+    "wait_between": 2,
+    "send_limit": 2,
+    "item_sleep": 2,
+    "items": [
+        {
+            "name": "MEMORY",
+            "label": "RAJ PC",
+            "target": "target",
+            "priority": 2,
+            "first_wait": 2,
+            "wait_between": 2,
+            "send_limit": 2,
+            "item_sleep": 3
+        }
+    ]
+},
+{
+    "messages": [
+        "{TXT} Not responding",
+        "{TXT} is now responding"
+    ],
+    "priority": 2,
+    "first_wait": 2,
+    "wait_between": 2,
+    "send_limit": 2,
+    "item_sleep": 2,
+    "items": [
+        {
+            "name": "PING",
+            "label": "RAJ PC",
+            "target": "google.com",
+            "priority": 2,
+            "first_wait": 2,
+            "wait_between": 2,
+            "send_limit": 2,
+            "item_sleep": 3
+        }
+    ]
+},

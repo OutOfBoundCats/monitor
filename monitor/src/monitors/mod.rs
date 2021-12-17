@@ -48,7 +48,7 @@ pub fn monitor(
 
     let g_chat_info = GoogleChatConfig::read_from_file(g_url.clone());
 
-    let g_chat_info = Arc::new(Mutex::new(g_chat_info));
+    let g_chat_info = Arc::new(g_chat_info);
 
     let mut thread_handle = vec![];
 
@@ -138,12 +138,12 @@ pub fn monitor(
 //starts CPU monitoring
 #[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn cpu_monitor(
-    google_chat: Arc<Mutex<GoogleChatConfig>>,
+    google_chat: Arc<GoogleChatConfig>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
-    let google_chat_mutex = google_chat.lock().unwrap();
+    let google_chat_mutex = google_chat;
     let mut notified: bool = false;
     let mut notification_count = 0;
     loop {
@@ -193,14 +193,14 @@ pub fn cpu_monitor(
 }
 
 //starts disk monitoring
-#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+#[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn disk_monitor(
-    google_chat: Arc<Mutex<GoogleChatConfig>>,
+    google_chat: Arc<GoogleChatConfig>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
-    let google_chat_mutex = google_chat.lock().unwrap();
+    let google_chat_mutex = google_chat;
 
     let mut notified: bool = false;
     let mut notification_count = 0;
@@ -265,14 +265,14 @@ pub fn disk_monitor(
 }
 
 //starts memory monitoring
-#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+#[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn memory_monitor(
-    google_chat: Arc<Mutex<GoogleChatConfig>>,
+    google_chat: Arc<GoogleChatConfig>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
-    let google_chat_mutex = google_chat.lock().unwrap();
+    let google_chat_mutex = google_chat;
 
     let mut notified: bool = false;
     let mut notification_count = 0;
@@ -322,15 +322,15 @@ pub fn memory_monitor(
 }
 
 //ping monitor
-#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+#[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn ping_monitor(
-    google_chat: Arc<Mutex<GoogleChatConfig>>,
+    google_chat: Arc<GoogleChatConfig>,
     url: String,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
-    let google_chat_mutex = google_chat.lock().unwrap();
+    let google_chat_mutex = google_chat;
 
     let mut notified: bool = false;
     let mut notification_count = 0;
@@ -382,14 +382,14 @@ pub fn ping_monitor(
 }
 
 //service monitor
-#[tracing::instrument(skip(item, inactive_times, inactive_days))]
+#[tracing::instrument(skip(item, inactive_times, inactive_days, google_chat))]
 pub fn service_monitor(
-    google_chat: Arc<Mutex<GoogleChatConfig>>,
+    google_chat: Arc<GoogleChatConfig>,
     item: LocalItems,
     inactive_times: Vec<(String, String)>,
     inactive_days: Vec<String>,
 ) {
-    let google_chat_mutex = google_chat.lock().unwrap();
+    let google_chat_mutex = google_chat;
 
     let mut notified: bool = false;
     let mut notification_count = 0;
