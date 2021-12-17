@@ -235,12 +235,8 @@ pub fn disk_monitor(
 
         let msg_len: usize = 0;
         if &messsage.len() != &msg_len && notification_count <= item.send_limit {
-            let message = google_chat_mutex.build_msg(
-                &item,
-                "ERROR",
-                severity,
-                "CPU usage more than 90%".to_string(),
-            );
+            let message =
+                google_chat_mutex.build_msg(&item, "ERROR", severity, format!("{}", &messsage));
 
             let res = google_chat_mutex.send_chat_msg(message);
 
@@ -283,7 +279,7 @@ pub fn memory_monitor(
 
     loop {
         let severity = 2;
-        tracing::info!("Disk monitor loop");
+        tracing::info!("Memory monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
         let item_sleep_mili = &item.item_sleep * 1000;
@@ -341,7 +337,7 @@ pub fn ping_monitor(
 
     loop {
         let severity = 2;
-        tracing::info!("Disk monitor loop");
+        tracing::info!("Ping monitor loop");
         thread_sleep(&inactive_times, &inactive_days);
 
         let item_sleep_mili = &item.item_sleep * 1000;
@@ -415,7 +411,7 @@ pub fn service_monitor(
                 &item,
                 "ERROR",
                 severity,
-                format!("{} not responding ", &item.name),
+                format!("{}  ", &service_msg),
             );
 
             let res = google_chat_mutex.send_chat_msg(message);
@@ -435,12 +431,8 @@ pub fn service_monitor(
             tracing::error!("Warning Service not functioning properly");
             tracing::error!("{}", service_msg);
         } else if notification_count <= item.send_limit {
-            let message = google_chat_mutex.build_msg(
-                &item,
-                "ERROR",
-                severity,
-                format!("{} not functioning properly ", &item.name),
-            );
+            let message =
+                google_chat_mutex.build_msg(&item, "ERROR", severity, format!("{} ", &service_msg));
 
             let res = google_chat_mutex.send_chat_msg(message);
 
