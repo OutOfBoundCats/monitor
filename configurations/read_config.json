@@ -37,8 +37,8 @@
     "groups": [
         {
             "messages": [
-                "{TXT} service Not responding",
-                "{TXT} service is now responding"
+                "DISK {TXT} is full",
+                "Disk {TXT} is fine"
             ],
             "priority": 2,
             "first_wait": 2,
@@ -47,9 +47,9 @@
             "item_sleep": 2,
             "items": [
                 {
-                    "name": "SERVICE",
+                    "name": "DISK",
                     "label": "RAJ PC",
-                    "target": "google.com",
+                    "target": "target",
                     "priority": 2,
                     "first_wait": 2,
                     "wait_between": 2,

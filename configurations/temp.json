@@ -44,10 +44,12 @@
         }
     ]
 },
+,
+///////////////
 {
     "messages": [
-        "Memory {TXT} almost full",
-        "Memory {TXT} is fine"
+        "{TXT} service Not responding",
+        "{TXT} service is now responding"
     ],
     "priority": 2,
     "first_wait": 2,
@@ -56,9 +58,9 @@
     "item_sleep": 2,
     "items": [
         {
-            "name": "MEMORY",
+            "name": "SERVICE",
             "label": "RAJ PC",
-            "target": "target",
+            "target": "google.com",
             "priority": 2,
             "first_wait": 2,
             "wait_between": 2,
@@ -90,3 +92,26 @@
         }
     ]
 },
+{
+    "messages": [
+        "Memory {TXT} almost full",
+        "Memory {TXT} is fine"
+    ],
+    "priority": 2,
+    "first_wait": 2,
+    "wait_between": 2,
+    "send_limit": 2,
+    "item_sleep": 2,
+    "items": [
+        {
+            "name": "MEMORY",
+            "label": "RAJ PC",
+            "target": "target",
+            "priority": 2,
+            "first_wait": 2,
+            "wait_between": 2,
+            "send_limit": 2,
+            "item_sleep": 3
+        }
+    ]
+}

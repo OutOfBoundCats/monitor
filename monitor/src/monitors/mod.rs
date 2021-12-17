@@ -284,8 +284,16 @@ pub fn memory_monitor(
 
         let item_sleep_mili = &item.item_sleep * 1000;
 
-        let memory_usage = memory::memory_usage();
-        if memory_usage > 90 && notification_count <= item.send_limit {
+        let (used_memory, total_memory, err) = memory::memory_usage();
+        let mut memory_usage: i64 = 0;
+        if err == false {
+            memory_usage = ((used_memory / total_memory) * 100).try_into().unwrap();
+        } else {
+            memory_usage = -2;
+        }
+
+        tracing::info!("memory usage is {}", &memory_usage);
+        if memory_usage > 10 && notification_count <= item.send_limit {
             let message = google_chat_mutex.build_msg(
                 &item,
                 "ERROR",
