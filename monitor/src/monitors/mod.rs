@@ -37,7 +37,7 @@ pub struct LocalItems {
     pub message: Vec<String>,
 }
 use actix_rt::{Arbiter, System};
-#[tracing::instrument(skip(inactive_times, inactive_days, groups))]
+#[tracing::instrument(skip(settings, inactive_times, inactive_days, groups))]
 pub fn monitor(
     settings: &Settings,
     groups: &Vec<Groups>,
