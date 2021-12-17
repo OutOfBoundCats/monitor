@@ -1,0 +1,7 @@
+  2021-12-17T12:14:32.447287Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-17T12:14:32.448764Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
