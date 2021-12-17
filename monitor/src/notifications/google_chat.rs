@@ -80,6 +80,17 @@ impl GoogleChatConfig {
                 }
             }
         } else {
+            if severity == 2 {
+                for employees in &self.general.employees {
+                    let temp2 = temp.replacen("{}", &employees, 1);
+                    header2.push_str(&temp2);
+                }
+            } else if severity == 1 {
+                for managers in &self.general.management {
+                    let temp2 = temp.replacen("{}", &managers, 1);
+                    header2.push_str(&temp2);
+                }
+            }
         }
 
         //text 2

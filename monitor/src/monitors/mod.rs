@@ -225,7 +225,7 @@ pub fn disk_monitor(
                 );
 
                 let temp = format!(
-                    "Mounted disk  on path {} is <font color=\"#ff0000\"> {} %</font> full <br>",
+                    "Mounted disk  on path {} is {} %  full <br>",
                     &mounted_on, &disk_usage
                 );
 

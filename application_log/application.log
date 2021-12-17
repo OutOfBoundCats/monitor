@@ -1183,3 +1183,629 @@
     in monitor::monitors::thread_sleep
     in monitor::monitors::disk_monitor
 
+  2021-12-17T11:00:36.723894Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-17T11:00:36.724760Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-17T11:00:36.725385Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-17T11:00:36.725751Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor
+
+  2021-12-17T11:00:36.726433Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor
+
+  2021-12-17T11:00:36.726856Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-17T11:00:36.726924Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:210
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:00:36.727315Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:481
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:00:36.727582Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:502
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.598016Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-17T11:03:02.598848Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-17T11:03:02.599298Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-17T11:03:02.599639Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor
+
+  2021-12-17T11:03:02.600084Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor
+
+  2021-12-17T11:03:02.600395Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-17T11:03:02.600540Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:210
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.600880Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:481
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.601124Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:502
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.602997Z ERROR monitor::monitors: Mounted disk  on path /dev is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.603207Z ERROR monitor::monitors: Mounted disk  on path /run is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.603401Z ERROR monitor::monitors: Mounted disk  on path /run/lock is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.603603Z ERROR monitor::monitors: Mounted disk  on path /run/shm is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.603797Z ERROR monitor::monitors: Mounted disk  on path /run/user is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.603992Z ERROR monitor::monitors: Mounted disk  on path /sys/fs/cgroup is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.604314Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:02.604576Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "DISK RAJ PC is full   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/lock is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/shm is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/user is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /sys/fs/cgroup is <font color="#ff0000"> 100 %</font> full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/lock is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/shm is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/user is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /sys/fs/cgroup is <font color="#ff0000"> 100 %</font> full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:100
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:04.027584Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "DISK RAJ PC is full   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/lock is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/shm is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/user is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /sys/fs/cgroup is <font color="#ff0000"> 100 %</font> full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/lock is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/shm is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /run/user is <font color="#ff0000"> 100 %</font> full <br>Mounted disk  on path /sys/fs/cgroup is <font color="#ff0000"> 100 %</font> full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:03:04.027929Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Invalid JSON payload received. Expected , or } after key:value pair.\n#ff0000\"\u003e 100 %\u003c/fon\n^",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.895180Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-17T11:07:32.895963Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-17T11:07:32.896472Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-17T11:07:32.896788Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor
+
+  2021-12-17T11:07:32.897283Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor
+
+  2021-12-17T11:07:32.897623Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-17T11:07:32.897751Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:210
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.898056Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:481
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.898287Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:502
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.900545Z ERROR monitor::monitors: Mounted disk  on path /dev is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.900742Z ERROR monitor::monitors: Mounted disk  on path /run is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.900902Z ERROR monitor::monitors: Mounted disk  on path /run/lock is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.901045Z ERROR monitor::monitors: Mounted disk  on path /run/shm is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.901186Z ERROR monitor::monitors: Mounted disk  on path /run/user is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.901326Z ERROR monitor::monitors: Mounted disk  on path /sys/fs/cgroup is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.901584Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:32.901889Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "DISK RAJ PC is full   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:100
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:34.507135Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "DISK RAJ PC is full   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:07:34.507514Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/kco5C9n0FeQ.kco5C9n0FeQ",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "DISK RAJ PC is full   can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "DISK RAJ PC is full",
+        "subtitle": "Mounted disk  on path /dev is 100 %  full \u003cbr\u003eMounted disk  on path /run is 100 %  full \u003cbr\u003eMounted disk  on path /run/lock is 100 %  full \u003cbr\u003eMounted disk  on path /run/shm is 100 %  full \u003cbr\u003eMounted disk  on path /run/user is 100 %  full \u003cbr\u003eMounted disk  on path /sys/fs/cgroup is 100 %  full \u003cbr\u003e",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Mounted disk  on path /dev is 100 %  full \u003cbr\u003eMounted disk  on path /run is 100 %  full \u003cbr\u003eMounted disk  on path /run/lock is 100 %  full \u003cbr\u003eMounted disk  on path /run/shm is 100 %  full \u003cbr\u003eMounted disk  on path /run/user is 100 %  full \u003cbr\u003eMounted disk  on path /sys/fs/cgroup is 100 %  full \u003cbr\u003e"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/kco5C9n0FeQ"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "DISK RAJ PC is full   can you please check",
+  "attachment": [],
+  "createTime": "2021-12-17T11:07:35.018783Z",
+  "lastUpdateTime": "2021-12-17T11:07:35.018783Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.604679Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:67
+
+  2021-12-17T11:10:52.605610Z  INFO monitor::config::common: wrote sample configuration file
+    at monitor/src/config/common.rs:262
+    in monitor::config::common::from_setting
+
+  2021-12-17T11:10:52.606244Z  INFO monitor: Read configuration file
+    at monitor/src/main.rs:71
+
+  2021-12-17T11:10:52.606689Z  INFO monitor::notifications::read_google_config: wrote sample configuration file
+    at monitor/src/notifications/read_google_config.rs:93
+    in monitor::notifications::read_google_config::read_from_file with , [1murl[0m: "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"
+    in monitor::monitors::monitor
+
+  2021-12-17T11:10:52.607370Z  INFO monitor::monitors: In Monitor method
+    at monitor/src/monitors/mod.rs:55
+    in monitor::monitors::monitor
+
+  2021-12-17T11:10:52.607804Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:80
+
+  2021-12-17T11:10:52.607940Z  INFO monitor::monitors: Disk monitor loop
+    at monitor/src/monitors/mod.rs:210
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.608498Z  INFO monitor::monitors: inactive day is 2021-11-20 00:00:00 +05:30
+    at monitor/src/monitors/mod.rs:481
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.608789Z  INFO monitor::monitors: inactivee time is from 2021-11-20 09:10:11 +05:30 to 2021-08-10 10:10:11 +05:30
+    at monitor/src/monitors/mod.rs:502
+    in monitor::monitors::thread_sleep
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.611046Z ERROR monitor::monitors: Mounted disk  on path /dev is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.611262Z ERROR monitor::monitors: Mounted disk  on path /run is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.611455Z ERROR monitor::monitors: Mounted disk  on path /run/lock is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.611652Z ERROR monitor::monitors: Mounted disk  on path /run/shm is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.611841Z ERROR monitor::monitors: Mounted disk  on path /run/user is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.612015Z ERROR monitor::monitors: Mounted disk  on path /sys/fs/cgroup is 100 full
+    at monitor/src/monitors/mod.rs:221
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.612316Z  INFO monitor::notifications::google_chat: file data read is {
+    "text": "{TXT}  {TXT} can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "{TXT}",
+                "subtitle": "{TXT}",
+                "imageUrl": "{TXT}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{TXT}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:35
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:52.612584Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "DISK RAJ PC is full  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:111
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:53.497532Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "DISK RAJ PC is full  <users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "DISK RAJ PC is full",
+                "subtitle": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Mounted disk  on path /dev is 100 %  full <br>Mounted disk  on path /run is 100 %  full <br>Mounted disk  on path /run/lock is 100 %  full <br>Mounted disk  on path /run/shm is 100 %  full <br>Mounted disk  on path /run/user is 100 %  full <br>Mounted disk  on path /sys/fs/cgroup is 100 %  full <br>"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
+  2021-12-17T11:10:53.497851Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/hgHflP_00Lg.hgHflP_00Lg",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "DISK RAJ PC is full  @Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "DISK RAJ PC is full",
+        "subtitle": "Mounted disk  on path /dev is 100 %  full \u003cbr\u003eMounted disk  on path /run is 100 %  full \u003cbr\u003eMounted disk  on path /run/lock is 100 %  full \u003cbr\u003eMounted disk  on path /run/shm is 100 %  full \u003cbr\u003eMounted disk  on path /run/user is 100 %  full \u003cbr\u003eMounted disk  on path /sys/fs/cgroup is 100 %  full \u003cbr\u003e",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Mounted disk  on path /dev is 100 %  full \u003cbr\u003eMounted disk  on path /run is 100 %  full \u003cbr\u003eMounted disk  on path /run/lock is 100 %  full \u003cbr\u003eMounted disk  on path /run/shm is 100 %  full \u003cbr\u003eMounted disk  on path /run/user is 100 %  full \u003cbr\u003eMounted disk  on path /sys/fs/cgroup is 100 %  full \u003cbr\u003e"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 21,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/hgHflP_00Lg"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "DISK RAJ PC is full  @Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2021-12-17T11:10:53.924031Z",
+  "lastUpdateTime": "2021-12-17T11:10:53.924031Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::disk_monitor
+
