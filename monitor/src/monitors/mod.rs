@@ -144,7 +144,8 @@ pub fn cpu_monitor(
     inactive_days: Vec<String>,
 ) {
     let google_chat_mutex = google_chat.lock().unwrap();
-    // let mut res;
+    let mut notified: bool = false;
+    let mut notification_count = 0;
     loop {
         let severity = 2;
         tracing::info!("CPU monitor loop");
@@ -154,7 +155,7 @@ pub fn cpu_monitor(
 
         let cpu_usage = cpu::cpu_usage();
         tracing::info!("CPU uasge is {}", &cpu_usage);
-        if cpu_usage > 90.0 {
+        if cpu_usage > 90.0 && notification_count <= item.send_limit {
             //notify
             let message = google_chat_mutex.build_msg(
                 &item,
@@ -162,14 +163,32 @@ pub fn cpu_monitor(
                 severity,
                 "CPU usage more than 90%".to_string(),
             );
+
             let res = google_chat_mutex.send_chat_msg(message);
 
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
             tracing::error!("Cpu usage more than 90%");
+        } else {
+            notification_count = 0;
+            notified = false;
         }
 
-        thread::sleep(std::time::Duration::from_millis(
-            item_sleep_mili.try_into().unwrap(),
-        ));
+        if notified == false {
+            thread::sleep(std::time::Duration::from_millis(
+                item_sleep_mili.try_into().unwrap(),
+            ));
+        }
     }
 }
 
@@ -182,6 +201,10 @@ pub fn disk_monitor(
     inactive_days: Vec<String>,
 ) {
     let google_chat_mutex = google_chat.lock().unwrap();
+
+    let mut notified: bool = false;
+    let mut notification_count = 0;
+
     loop {
         let severity = 2;
         tracing::info!("Disk monitor loop");
@@ -191,30 +214,57 @@ pub fn disk_monitor(
 
         let disk_usage = disk::disk_capacity_usage();
 
+        let mut messsage: String = "".to_string();
+
         for (disk_usage, mounted_on) in disk_usage {
             if disk_usage > 90 {
-                let message = google_chat_mutex.build_msg(
-                    &item,
-                    "ERROR",
-                    severity,
-                    format!(
-                        "Mounted disk  on path {} is {} full",
-                        &mounted_on, &disk_usage
-                    ),
-                );
-                let res = google_chat_mutex.send_chat_msg(message);
-
                 tracing::error!(
                     "Mounted disk  on path {} is {} full",
                     &mounted_on,
                     &disk_usage
                 );
+
+                let temp = format!(
+                    "Mounted disk  on path {} is <font color=\"#ff0000\"> {} %</font> full <br>",
+                    &mounted_on, &disk_usage
+                );
+
+                messsage.push_str(&temp);
             }
         }
 
-        thread::sleep(std::time::Duration::from_millis(
-            item_sleep_mili.try_into().unwrap(),
-        ));
+        let msg_len: usize = 0;
+        if &messsage.len() != &msg_len && notification_count <= item.send_limit {
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                "CPU usage more than 90%".to_string(),
+            );
+
+            let res = google_chat_mutex.send_chat_msg(message);
+
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+        } else {
+            notification_count = 0;
+            notified = false;
+        }
+
+        if notified == false {
+            thread::sleep(std::time::Duration::from_millis(
+                item_sleep_mili.try_into().unwrap(),
+            ));
+        }
     }
 }
 
@@ -227,6 +277,10 @@ pub fn memory_monitor(
     inactive_days: Vec<String>,
 ) {
     let google_chat_mutex = google_chat.lock().unwrap();
+
+    let mut notified: bool = false;
+    let mut notification_count = 0;
+
     loop {
         let severity = 2;
         tracing::info!("Disk monitor loop");
@@ -235,20 +289,39 @@ pub fn memory_monitor(
         let item_sleep_mili = &item.item_sleep * 1000;
 
         let memory_usage = memory::memory_usage();
-        if memory_usage > 90 {
+        if memory_usage > 90 && notification_count <= item.send_limit {
             let message = google_chat_mutex.build_msg(
                 &item,
                 "ERROR",
                 severity,
                 format!("Memory usage very high at {} ", &memory_usage),
             );
+
             let res = google_chat_mutex.send_chat_msg(message);
+
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
             tracing::error!("Memory usage very high at {} ", &memory_usage);
+        } else {
+            notification_count = 0;
+            notified = false;
         }
 
-        thread::sleep(std::time::Duration::from_millis(
-            item_sleep_mili.try_into().unwrap(),
-        ));
+        if notified == false {
+            thread::sleep(std::time::Duration::from_millis(
+                item_sleep_mili.try_into().unwrap(),
+            ));
+        }
     }
 }
 
@@ -262,6 +335,10 @@ pub fn ping_monitor(
     inactive_days: Vec<String>,
 ) {
     let google_chat_mutex = google_chat.lock().unwrap();
+
+    let mut notified: bool = false;
+    let mut notification_count = 0;
+
     loop {
         let severity = 2;
         tracing::info!("Disk monitor loop");
@@ -272,7 +349,7 @@ pub fn ping_monitor(
         let ping_respose = ping::pin_host(url.clone());
         if ping_respose == true {
             tracing::info!("{} responded succesfully", &url);
-        } else {
+        } else if ping_respose == false && notification_count <= item.send_limit {
             let message = google_chat_mutex.build_msg(
                 &item,
                 "ERROR",
@@ -282,12 +359,29 @@ pub fn ping_monitor(
 
             let res = google_chat_mutex.send_chat_msg(message);
 
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
             tracing::error!("{} not responding ", &url);
+        } else {
+            notification_count = 0;
+            notified = false;
         }
 
-        thread::sleep(std::time::Duration::from_millis(
-            item_sleep_mili.try_into().unwrap(),
-        ));
+        if notified == false {
+            thread::sleep(std::time::Duration::from_millis(
+                item_sleep_mili.try_into().unwrap(),
+            ));
+        }
     }
 }
 
@@ -300,6 +394,10 @@ pub fn service_monitor(
     inactive_days: Vec<String>,
 ) {
     let google_chat_mutex = google_chat.lock().unwrap();
+
+    let mut notified: bool = false;
+    let mut notification_count = 0;
+
     loop {
         let severity = 2;
         tracing::info!("Service monitor loop");
@@ -312,17 +410,64 @@ pub fn service_monitor(
         if service_status == 0 {
             tracing::info!("Service functioning properly");
             tracing::info!("{}", service_msg);
-        } else if service_status == 1 {
+        } else if service_status == 1 && notification_count <= item.send_limit {
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                format!("{} not responding ", &item.name),
+            );
+
+            let res = google_chat_mutex.send_chat_msg(message);
+
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
             tracing::error!("Warning Service not functioning properly");
             tracing::error!("{}", service_msg);
-        } else if service_status == 2 {
+        } else if notification_count <= item.send_limit {
+            let message = google_chat_mutex.build_msg(
+                &item,
+                "ERROR",
+                severity,
+                format!("{} not functioning properly ", &item.name),
+            );
+
+            let res = google_chat_mutex.send_chat_msg(message);
+
+            notified = true;
+            notification_count = notification_count + 1;
+            if notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.first_wait * 1000).try_into().unwrap(),
+                ));
+            } else {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item.wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
             tracing::error!("Error Service not functioning");
             tracing::error!("{}", service_msg);
+        } else {
+            notification_count = 0;
+            notified = false;
         }
 
-        thread::sleep(std::time::Duration::from_millis(
-            item_sleep_mili.try_into().unwrap(),
-        ));
+        if notified == false {
+            thread::sleep(std::time::Duration::from_millis(
+                item_sleep_mili.try_into().unwrap(),
+            ));
+        }
     }
 }
 

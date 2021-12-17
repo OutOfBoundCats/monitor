@@ -69,6 +69,13 @@ impl GoogleChatConfig {
                                 header2.push_str(&temp2);
                             }
                         }
+                    } else if severity == 1 {
+                        for managers in &group.management {
+                            for manager in managers {
+                                let temp2 = temp.replacen("{}", &manager, 1);
+                                header2.push_str(&temp2);
+                            }
+                        }
                     }
                 }
             }
