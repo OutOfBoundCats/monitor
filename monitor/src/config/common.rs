@@ -7,10 +7,12 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Write};
 use tracing::info;
 
+use crate::monitors::ping;
+
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Settings {
     pub main: NotifyGeneral,
-    pub groups: Vec<Groups>,
+    pub groups: Groups,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
@@ -20,7 +22,6 @@ pub struct NotifyGeneral {
 }
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Notifications {
-    pub version: String,
     pub send_limit: i32,
     pub first_wait: i32,
     pub wait_between: i32,
@@ -32,13 +33,12 @@ pub struct Notifications {
     pub button: String,
     pub notify: String,
     pub notify_not_relaxed: String,
-    pub token: String,
-    pub room: String,
     pub notify_model: String,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct General {
+    pub version: String,
     pub inactive_times: Vec<(String, String)>,
     pub inactive_days: Vec<String>,
     pub log_messages_delay: i32,
@@ -50,32 +50,158 @@ pub struct General {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Groups {
-    pub messages: Vec<String>,
-
-    pub priority: Option<i32>,
-
-    pub first_wait: Option<i32>,
-
-    pub wait_between: Option<i32>,
-
-    pub send_limit: Option<i32>,
-
-    pub item_sleep: Option<i32>,
-
-    pub items: Vec<Items>,
+    pub services: services,
+    pub volumes: volumes,
+    pub pings: pings,
+    pub memory: memory,
 }
 
 #[derive(Deserialize, Serialize, Debug)]
-pub struct Items {
-    pub name: String,
-    pub label: String,
-    pub target: String,
+pub struct services {
+    pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
     pub wait_between: Option<i32>,
     pub send_limit: Option<i32>,
     pub item_sleep: Option<i32>,
+    pub items: Vec<ServiceItems>,
 }
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct ServiceItems {
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub label: String,
+    pub target: String,
+    pub command: String,
+    pub output: String,
+    pub enabled: bool,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct volumes {
+    pub messages: Vec<String>,
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub items: Vec<VolumeItems>,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct VolumeItems {
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub label: String,
+    pub target: String,
+    pub measurement: i32, // in GB
+    pub enabled: bool,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct pings {
+    pub messages: Vec<String>,
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub items: Vec<PingItems>,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct PingItems {
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub label: String,
+    pub target: String,
+    pub enabled: bool,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct memory {
+    pub messages: Vec<String>,
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub items: Vec<MemoryItems>,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct MemoryItems {
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub label: String,
+    pub target: String,
+    pub enabled: bool,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct cpu {
+    pub messages: Vec<String>,
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub items: Vec<CpuItems>,
+}
+
+#[derive(Deserialize, Serialize, Debug)]
+pub struct CpuItems {
+    pub priority: Option<i32>,
+    pub first_wait: Option<i32>,
+    pub wait_between: Option<i32>,
+    pub send_limit: Option<i32>,
+    pub item_sleep: Option<i32>,
+    pub label: String,
+    pub target: String,
+    pub enabled: bool,
+}
+
+// #[derive(Deserialize, Serialize, Debug)]
+// pub struct Groups {
+//     pub messages: Vec<String>,
+
+//     pub priority: Option<i32>,
+
+//     pub first_wait: Option<i32>,
+
+//     pub wait_between: Option<i32>,
+
+//     pub send_limit: Option<i32>,
+
+//     pub item_sleep: Option<i32>,
+
+//     pub items: Vec<Items>,
+// }
+
+// #[derive(Deserialize, Serialize, Debug)]
+// pub struct Items {
+//     pub name: String,
+//     pub label: String,
+//     pub target: String,
+//     pub priority: Option<i32>,
+//     pub first_wait: Option<i32>,
+//     pub wait_between: Option<i32>,
+//     pub send_limit: Option<i32>,
+//     pub item_sleep: Option<i32>,
+// }
 
 #[tracing::instrument]
 pub fn write_struct() {
@@ -92,7 +218,6 @@ pub fn write_struct() {
     //tracing::info!("inactive date is {}", &new_inactive_day1);
 
     let notification = Notifications {
-        version: "2.2".to_owned(),
         send_limit: 32,
         first_wait: 5,
         wait_between: 3,
@@ -104,11 +229,10 @@ pub fn write_struct() {
         button: "button".to_owned(),
         notify: "notify".to_owned(),
         notify_not_relaxed: "notidfy_not_relaxxed".to_owned(),
-        token: "xyz".to_owned(),
-        room: "room".to_owned(),
         notify_model: "email".to_owned(),
     };
     let general = General {
+        version: "1.0.1".to_string(),
         inactive_times: vec![(start_date.to_string(), end_date.to_string())],
         inactive_days: vec![inactive_day1.to_string()],
         log_messages_delay: 2,
@@ -118,27 +242,141 @@ pub fn write_struct() {
         log: true,
     };
 
-    let item = Items {
-        name: "CPU".to_owned(),
-        label: "label".to_owned(),
-        target: "target".to_owned(),
-        priority: Some(2),
-        first_wait: Some(2),
-        wait_between: Some(2),
-        send_limit: Some(2),
-        item_sleep: Some(2),
+    //write services
+    let service_item1 = ServiceItems {
+        priority: Some(3),
+        first_wait: Some(30),
+        wait_between: Some(30),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        label: "cron".to_string(),
+        target: "cron".to_string(),
+        command: "".to_string(),
+        output: "2".to_string(),
+        enabled: true,
     };
-    let service = Groups {
+
+    let l_services = services {
         messages: vec![
             "Service {{label}} not running".to_string(),
             "Service {{label}} is active".to_string(),
         ],
-        priority: Some(2),
-        first_wait: Some(2),
-        wait_between: Some(2),
-        send_limit: Some(2),
-        item_sleep: Some(2),
-        items: vec![item],
+        priority: Some(3),
+        first_wait: Some(10),
+        wait_between: Some(15),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        items: vec![service_item1],
+    };
+
+    //make volume
+    let volume_item = VolumeItems {
+        priority: Some(3),
+        first_wait: Some(30),
+        wait_between: Some(30),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        label: "root".to_string(),
+        target: "/".to_string(),
+        measurement: 2, // in GB
+        enabled: true,
+    };
+
+    let l_volume = volumes {
+        messages: vec![
+            "Volume capacity low in {{label}}. Under {{measurement}}".to_string(),
+            "Volume size is stable".to_string(),
+        ],
+        priority: Some(3),
+        first_wait: Some(10),
+        wait_between: Some(15),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        items: vec![volume_item],
+    };
+
+    //make ping
+    let ping_item = PingItems {
+        priority: Some(3),
+        first_wait: Some(30),
+        wait_between: Some(30),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        label: "google".to_string(),
+        target: "www.google.com:443".to_string(),
+        enabled: true,
+    };
+
+    let l_pings = pings {
+        messages: vec![
+            "Host {{label}} not responding to ping".to_string(),
+            "Pîng sucess".to_string(),
+        ],
+        priority: Some(3),
+        first_wait: Some(10),
+        wait_between: Some(15),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        items: vec![ping_item],
+    };
+
+    // make memory
+
+    let memory_item = MemoryItems {
+        priority: Some(3),
+        first_wait: Some(30),
+        wait_between: Some(30),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        label: "critical".to_string(),
+        target: "20%".to_string(),
+        enabled: true,
+    };
+
+    let l_memory = memory {
+        messages: vec![
+            "Memory usage notice ({{label}})".to_string(),
+            "Memory usage is under the limit".to_string(),
+        ],
+        priority: Some(3),
+        first_wait: Some(10),
+        wait_between: Some(15),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        items: vec![memory_item],
+    };
+
+    //make cpu
+
+    let cpu_item = CpuItems {
+        priority: Some(3),
+        first_wait: Some(30),
+        wait_between: Some(30),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        label: "critical".to_string(),
+        target: "100%".to_string(),
+        enabled: true,
+    };
+
+    let l_cpu = cpu {
+        messages: vec![
+            "CPU usage notice ({{label}})".to_string(),
+            "CPU usage is valid".to_string(),
+        ],
+        priority: Some(3),
+        first_wait: Some(10),
+        wait_between: Some(15),
+        send_limit: Some(3),
+        item_sleep: Some(30),
+        items: vec![cpu_item],
+    };
+
+    let groups = Groups {
+        services: l_services,
+        volumes: l_volume,
+        pings: l_pings,
+        memory: l_memory,
     };
 
     let main = NotifyGeneral {
@@ -148,7 +386,7 @@ pub fn write_struct() {
 
     let settings = Settings {
         main: main,
-        groups: vec![service],
+        groups: groups,
     };
     let serialized_setting = serde_json::to_string(&settings).unwrap();
 
@@ -258,14 +496,14 @@ impl Settings {
 
     #[tracing::instrument]
     pub fn from_setting() -> Settings {
-        write_struct();
+        //write_struct();
         tracing::info!("wrote sample configuration file");
 
         let data =
             fs::read_to_string("configurations/read_config.json").expect("Unable to read file");
         let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
         serialised.default_fill();
-        let item_proprity = serialised.groups[0].items[0].item_sleep;
+        //let item_proprity = serialised.groups[0].items[0].item_sleep;
         //println!("new item priority {:?}", &item_proprity);
         serialised
     }

@@ -9,25 +9,14 @@ use tracing::info;
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct GoogleChatConfig {
-    pub general: General,
-    pub groups: Vec<Item>,
-    pub chaturl: Option<String>,
-}
-
-#[derive(Deserialize, Serialize, Debug)]
-pub struct General {
     pub management: Vec<String>,
     pub employees: Vec<String>,
+    //https://chat.googleapis.com/v1/spaces
+    pub token: String, //AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D
+    pub room: String,  // AAAAFy1gKzE
     pub good_msg: String,
     pub error_sev2: String,
     pub error_sev1: String,
-}
-
-#[derive(Deserialize, Serialize, Debug)]
-pub struct Item {
-    pub name: String,
-    pub management: Option<Vec<String>>,
-    pub employees: Option<Vec<String>>,
 }
 
 #[tracing::instrument]
