@@ -1,6 +1,7 @@
 {
     "main": {
         "general": {
+            "version": "1.0.1",
             "inactive_times": [
                 [
                     "2021-11-20 09:10:11 +05:30",
@@ -17,7 +18,6 @@
             "log": true
         },
         "notification": {
-            "version": "2.2",
             "send_limit": 32,
             "first_wait": 5,
             "wait_between": 3,
@@ -25,130 +25,131 @@
             "item_sleep": 2,
             "notification_ended_delay": 5,
             "notify_wait": 5,
-            "url": "https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D",
+            "url": "loggernow.com",
             "button": "button",
             "notify": "notify",
             "notify_not_relaxed": "notidfy_not_relaxxed",
-            "token": "xyz",
-            "room": "room",
             "notify_model": "email"
         }
     },
-    "groups": [
-        {
+    "groups": {
+        "services": {
             "messages": [
-                "DISK {TXT} is full",
-                "Disk {TXT} is fine"
+                "Service {{label}} not running",
+                "Service {{label}} is active"
             ],
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
+            "priority": 3,
+            "first_wait": 10,
+            "wait_between": 15,
+            "send_limit": 3,
+            "item_sleep": 30,
             "items": [
                 {
-                    "name": "DISK",
-                    "label": "RAJ PC",
-                    "target": "target",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 3
+                    "priority": 3,
+                    "first_wait": 30,
+                    "wait_between": 30,
+                    "send_limit": 3,
+                    "item_sleep": 30,
+                    "label": "cron",
+                    "target": "cron",
+                    "command": "",
+                    "output": "2",
+                    "enabled": true
                 }
             ]
         },
-        {
+        "volumes": {
             "messages": [
-                "{TXT} service Not responding",
-                "{TXT} service is now responding"
+                "Volume capacity low in {{label}}. Under {{measurement}}",
+                "Volume size is stable"
             ],
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
+            "priority": 3,
+            "first_wait": 10,
+            "wait_between": 15,
+            "send_limit": 3,
+            "item_sleep": 30,
             "items": [
                 {
-                    "name": "SERVICE",
-                    "label": "RAJ PC",
-                    "target": "google.com",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 3
+                    "priority": 3,
+                    "first_wait": 30,
+                    "wait_between": 30,
+                    "send_limit": 3,
+                    "item_sleep": 30,
+                    "label": "root",
+                    "target": "/",
+                    "measurement": 2,
+                    "enabled": true
                 }
             ]
         },
-        {
+        "pings": {
             "messages": [
-                "{TXT} Not responding",
-                "{TXT} is now responding"
+                "Host {{label}} not responding to ping",
+                "Pîng sucess"
             ],
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
+            "priority": 3,
+            "first_wait": 10,
+            "wait_between": 15,
+            "send_limit": 3,
+            "item_sleep": 30,
             "items": [
                 {
-                    "name": "PING",
-                    "label": "RAJ PC",
-                    "target": "google.com",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 3
+                    "priority": 3,
+                    "first_wait": 30,
+                    "wait_between": 30,
+                    "send_limit": 3,
+                    "item_sleep": 30,
+                    "label": "google",
+                    "target": "www.google.com:443",
+                    "enabled": true
                 }
             ]
         },
-        {
+        "memory": {
             "messages": [
-                "Memory {TXT} almost full",
-                "Memory {TXT} is fine"
+                "Memory usage notice ({{label}})",
+                "Memory usage is under the limit"
             ],
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
+            "priority": 3,
+            "first_wait": 10,
+            "wait_between": 15,
+            "send_limit": 3,
+            "item_sleep": 30,
             "items": [
                 {
-                    "name": "MEMORY",
-                    "label": "RAJ PC",
-                    "target": "target",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 3
+                    "priority": 3,
+                    "first_wait": 30,
+                    "wait_between": 30,
+                    "send_limit": 3,
+                    "item_sleep": 30,
+                    "label": "critical",
+                    "target": "20%",
+                    "enabled": true
                 }
             ]
         },
-        {
+        "cpu": {
             "messages": [
-                "CPU {TXT} under load",
-                "CPU {TXT} is fine"
+                "CPU usage notice ({{label}})",
+                "CPU usage is valid"
             ],
-            "priority": 2,
-            "first_wait": 2,
-            "wait_between": 2,
-            "send_limit": 2,
-            "item_sleep": 2,
+            "priority": 3,
+            "first_wait": 10,
+            "wait_between": 15,
+            "send_limit": 3,
+            "item_sleep": 30,
             "items": [
                 {
-                    "name": "CPU",
-                    "label": "RAJ PC",
-                    "target": "target",
-                    "priority": 2,
-                    "first_wait": 2,
-                    "wait_between": 2,
-                    "send_limit": 2,
-                    "item_sleep": 3
+                    "priority": 3,
+                    "first_wait": 30,
+                    "wait_between": 30,
+                    "send_limit": 3,
+                    "item_sleep": 30,
+                    "label": "critical",
+                    "target": "100%",
+                    "enabled": true
                 }
             ]
         }
-    ]
+    }
 }

@@ -70,17 +70,17 @@ async fn main() {
     let settings = Settings::from_setting();
     tracing::info!("Read configuration file");
 
-    //start monitoring services and get the handle to all the thread started so we can join in main thread
-    let child_threads = monitors::monitor(
-        &settings,
-        &settings.groups,
-        &settings.main.general.inactive_times,
-        &settings.main.general.inactive_days,
-    );
-    tracing::info!("Started monitoring threads");
+    // start monitoring services and get the handle to all the thread started so we can join in main thread
+    // let child_threads = monitors::monitor(
+    //     &settings,
+    //     &settings.groups,
+    //     &settings.main.general.inactive_times,
+    //     &settings.main.general.inactive_days,
+    // );
+    // tracing::info!("Started monitoring threads");
 
-    for child in child_threads {
-        // Wait for the thread to finish. Returns a result.
-        let _ = child.join();
-    }
+    // for child in child_threads {
+    //     // Wait for the thread to finish. Returns a result.
+    //     let _ = child.join();
+    // }
 }
