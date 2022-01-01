@@ -74,6 +74,35 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
         let cpu_usage = cpu_usage();
 
+        //find which item with max threashold is getting crossed
+        let vec_index: Vec<i32> = vec![];
+        let vec_value: Vec<i32> = vec![];
+        let mut i = 0;
+        for item in settings.groups.cpu.items {
+            if cpu_usage > item.target.parse().unwrap() {
+                vec_index.push(i);
+                let target = item.target.clone().parse().unwrap();
+                vec_value.push(target);
+            }
+
+            i = i + 1;
+        }
+        //check the maximum threadshold which is gettign breached by current cpu usage
+        let max_value: i32 = -1;
+        match vec_value.iter().max() {
+            Some(value) => {
+                max_value = *value;
+            }
+            None => {
+                tracing::error!("No element in Cpu item vector ");
+            }
+        }
+
+        let max_index = vec_value.iter().position(|&r| r == max_value).unwrap();
+        let item_index = vec_index[max_index];
+
+        //got the item with highest threshold being croseed by cpu usage
+
         for item in settings.groups.cpu.items {
             let mut l_first_wait;
             match item.first_wait {
