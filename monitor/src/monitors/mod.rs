@@ -15,30 +15,17 @@ use chrono::{DateTime, Duration, Utc};
 
 use crate::{
     config::common::{Groups, Settings},
-    monitors::{cpu::cpu_monitor, disk::volume_monitor},
+    monitors::{cpu::cpu_monitor, volume::volume_monitor},
 };
 
 pub mod cpu;
-pub mod disk;
 pub mod memory;
 pub mod ping;
 pub mod services;
+pub mod volume;
 //use cpu::get_percentage_cpu_usage;
 
 use crate::notifications::read_google_config::GoogleChatConfig;
-
-#[derive(Deserialize, Serialize, Debug)]
-pub struct LocalItems {
-    pub name: String,
-    pub label: String,
-    pub target: String,
-    pub priority: i32,
-    pub first_wait: i32,
-    pub wait_between: i32,
-    pub send_limit: i32,
-    pub item_sleep: i32,
-    pub message: Vec<String>,
-}
 
 #[tracing::instrument(skip(settings))]
 pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
@@ -57,19 +44,32 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
     let l_google_chat_config = google_chat_config.clone();
     let l_settings = settings.clone();
     thread_handle.push(thread::spawn(move || {
-        tracing::info!("Started CPU Monitor");
-
         cpu_monitor(l_google_chat_config, l_settings);
     }));
 
     //2. volume moonitor
     let l_google_chat_config = google_chat_config.clone();
     let l_settings = settings.clone();
-    thread_handle.push(thread::spawn(move || {
-        tracing::info!("Started CPU Monitor");
 
-        volume_monitor(l_google_chat_config, l_settings);
-    }));
+    //create different thread to monitor each mounting point mentioend in Item
+    for item in settings.groups.volumes.items {
+        let l_item = item;
+        thread_handle.push(thread::spawn(move || {
+            volume_monitor(l_google_chat_config, l_settings, l_item);
+        }));
+    }
+
+    // 3. memory
+    let l_google_chat_config = google_chat_config.clone();
+    let l_settings = settings.clone();
+
+    // 4. pings
+    let l_google_chat_config = google_chat_config.clone();
+    let l_settings = settings.clone();
+
+    // 5. services
+    let l_google_chat_config = google_chat_config.clone();
+    let l_settings = settings.clone();
 
     thread_handle
 }

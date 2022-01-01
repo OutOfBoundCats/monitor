@@ -1,3 +1,5 @@
+use std::sync::Arc;
+
 use pinger::{ping, PingResult};
 
 use crate::{config::common::Settings, notifications::read_google_config::GoogleChatConfig};

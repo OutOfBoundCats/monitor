@@ -39,6 +39,8 @@ pub fn cpu_usage() -> f32 {
 //starts CPU monitoring
 #[tracing::instrument(skip(google_chat_config, settings))]
 pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
+    tracing::info!("Started CPU Monitor");
+
     let inactive_days = settings.main.general.inactive_days;
     let inactive_times = settings.main.general.inactive_times;
     let notified: bool = false;
