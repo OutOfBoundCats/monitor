@@ -1,24 +1,10 @@
 use std::{convert::TryInto, sync::Arc, thread};
 
-//pub use loggernow_cpu::cpu::get_percentage_cpu_usage;
-use sysinfo::{ProcessorExt, System, SystemExt};
-use systemstat::{saturating_sub_bytes, Platform};
+use systemstat::Platform;
 
 use crate::{config::common::Settings, notifications::read_google_config::GoogleChatConfig};
 
 use super::thread_sleep;
-
-// pub fn cpu_usage() -> f32 {
-//     let mut s = System::new_all();
-//     let mut sum = 0.0;
-//     let mut count = 0.0;
-//     for processor in s.processors() {
-//         sum = sum + processor.cpu_usage();
-//         count = count + 1.0;
-//     }
-//     let average_cpu = sum / count;
-//     average_cpu
-// }
 
 pub fn cpu_usage() -> f32 {
     let sys = systemstat::System::new();

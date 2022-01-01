@@ -1,6 +1,6 @@
 use std::{convert::TryInto, sync::Arc, thread};
 
-use systemstat::{saturating_sub_bytes, ByteSize, Platform};
+use systemstat::Platform;
 
 use crate::{
     config::common::{Settings, VolumeItems},

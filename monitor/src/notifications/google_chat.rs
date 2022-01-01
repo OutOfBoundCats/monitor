@@ -49,13 +49,13 @@ impl GoogleChatConfig {
         if status == "ERROR" {
             header1 = &item.message[0];
             if severity == 2 {
-                image_url = self.general.error_sev2.clone();
+                image_url = self.error_sev2.clone();
             } else if severity == 1 {
-                image_url = self.general.error_sev1.clone();
+                image_url = self.error_sev1.clone();
             }
         } else {
             header1 = &item.message[1];
-            image_url = self.general.good_msg.clone();
+            image_url = self.good_msg.clone();
         }
 
         let new_header1 = &header1.replacen("{TXT}", &item.label, 1);
@@ -69,12 +69,12 @@ impl GoogleChatConfig {
         //IF item name is CPU put CPU list in header mesage 2
 
         if severity == 2 {
-            for employees in &self.general.employees {
+            for employees in &self.employees {
                 let temp2 = temp.replacen("{}", &employees, 1);
                 header2.push_str(&temp2);
             }
         } else if severity == 1 {
-            for managers in &self.general.management {
+            for managers in &self.management {
                 let temp2 = temp.replacen("{}", &managers, 1);
                 header2.push_str(&temp2);
             }
