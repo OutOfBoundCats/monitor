@@ -82,6 +82,17 @@ pub fn volume_monitor(
         //sleep thread if current time falls between inactive time specified in json config
         thread_sleep(&inactive_times, &inactive_days);
 
+        let item_sleep_mili: i32;
+        match item.item_sleep {
+            Some(value) => {
+                item_sleep_mili = value * 1000;
+            }
+            None => {
+                tracing::error!("Error in getting the cpu group item_sleep time");
+                item_sleep_mili = settings.main.notification.item_sleep * 1000;
+            }
+        }
+
         let mut l_first_wait;
         match item.first_wait {
             Some(value) => {
@@ -159,6 +170,32 @@ pub fn volume_monitor(
 
                 notification_count = 0;
                 notified = false;
+            } else if disk_usage < item.measurement.try_into().unwrap()
+                && mounted_on == item.target
+                && notification_count > send_limit
+            {
+                notified = false;
+                notification_count = 0;
+                severity = 2;
+                msg_index = 1; // select positive msg from array
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    settings.groups.cpu.messages,
+                    msg_index,
+                    settings.groups.cpu.priority,
+                    None,
+                    None,
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
+                notification_count = 0;
+
+                notified = false;
+
+                thread::sleep(std::time::Duration::from_millis(
+                    (item_sleep_mili).try_into().unwrap(),
+                ));
             }
         }
     }

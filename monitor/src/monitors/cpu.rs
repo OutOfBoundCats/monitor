@@ -69,6 +69,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             }
             None => {
                 tracing::error!("Error in getting the cpu group item_sleep time");
+                item_sleep_mili = settings.main.notification.item_sleep * 1000;
             }
         }
 
@@ -200,7 +201,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
         //if suers were already notified before and cpu usage is normal now notify with +ve message
 
-        if max_value == 1 && notified == true {
+        if max_value == -1 && notified == true {
             notified = false;
             notification_count = 0;
             severity = 2;
@@ -214,6 +215,15 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 None,
                 None,
             );
+
+            google_chat_config.send_chat_msg(l_msg);
+            notification_count = 0;
+
+            notified = false;
+
+            thread::sleep(std::time::Duration::from_millis(
+                (item_sleep_mili).try_into().unwrap(),
+            ));
         }
     }
 }

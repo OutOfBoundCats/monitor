@@ -64,6 +64,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
                 item_sleep_mili = value * 1000;
             }
             None => {
+                item_sleep_mili = settings.main.notification.item_sleep;
                 tracing::error!("Error in getting the cpu group item_sleep time");
             }
         }
@@ -212,6 +213,17 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
                 None,
                 None,
             );
+
+            google_chat_config.send_chat_msg(l_msg);
+
+            notification_count = 0;
+
+            notified = false;
+
+            //for subsequent messages wait for wait between
+            thread::sleep(std::time::Duration::from_millis(
+                (item_sleep_mili).try_into().unwrap(),
+            ));
         }
     }
 }

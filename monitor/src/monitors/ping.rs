@@ -1,8 +1,11 @@
-use std::sync::Arc;
+use std::{convert::TryInto, sync::Arc, thread};
 
 use pinger::{ping, PingResult};
 
-use crate::{config::common::Settings, notifications::read_google_config::GoogleChatConfig};
+use crate::{
+    config::common::{PingItems, Settings},
+    notifications::read_google_config::GoogleChatConfig,
+};
 
 use super::thread_sleep;
 
@@ -28,54 +31,138 @@ pub fn pin_host(host: String) -> bool {
 
 //ping monitor
 #[tracing::instrument(skip())]
-pub fn ping_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
-    let google_chat_mutex = google_chat;
+pub fn ping_monitor(
+    google_chat_config: Arc<GoogleChatConfig>,
+    settings: Settings,
+    item: PingItems,
+) {
+    tracing::info!("Started Volume Monitor");
 
-    let mut notified: bool = false;
+    let inactive_days = settings.main.general.inactive_days;
+    let inactive_times = settings.main.general.inactive_times;
+    let notified: bool = false;
+    let mut msg_index: i32;
     let mut notification_count = 0;
+    let mut send_limit: i32;
+
+    match item.send_limit {
+        Some(value) => {
+            send_limit = value;
+        }
+        None => {
+            send_limit = settings.main.notification.send_limit;
+        }
+    }
 
     loop {
         let severity = 2;
-        tracing::info!("Ping monitor loop");
+
+        //sleep thread if current time falls between inactive time specified in json config
         thread_sleep(&inactive_times, &inactive_days);
 
-        let item_sleep_mili = &item.item_sleep * 1000;
+        let item_sleep_mili: i32;
+        match item.item_sleep {
+            Some(value) => {
+                item_sleep_mili = value * 1000;
+            }
+            None => {
+                tracing::error!("Error in getting the cpu group item_sleep time");
+                item_sleep_mili = settings.main.notification.item_sleep * 1000;
+            }
+        }
 
-        let ping_respose = ping::pin_host(url.clone());
-        if ping_respose == true {
-            tracing::info!("{} responded succesfully", &url);
-        } else if ping_respose == false && notification_count <= item.send_limit {
-            let message = google_chat_mutex.build_msg(
-                &item,
-                "ERROR",
+        let mut l_first_wait;
+        match item.first_wait {
+            Some(value) => {
+                l_first_wait = value;
+            }
+            None => {
+                l_first_wait = settings.main.notification.first_wait;
+            }
+        };
+
+        let mut l_wait_between;
+        match item.wait_between {
+            Some(value) => {
+                l_wait_between = value;
+            }
+            None => {
+                l_wait_between = settings.main.notification.wait_between;
+            }
+        };
+
+        let disk_usage = pin_host(item.target);
+
+        if disk_usage && notified == true {
+            notified = false;
+            notification_count = 0;
+            severity = 2;
+            msg_index = 1; // select positive msg from array
+
+            let l_msg = google_chat_config.build_msg(
                 severity,
-                format!("{} not responding ", &url),
+                settings.groups.cpu.messages,
+                msg_index,
+                settings.groups.cpu.priority,
+                None,
+                None,
             );
 
-            let res = google_chat_mutex.send_chat_msg(message);
+            google_chat_config.send_chat_msg(l_msg);
+            notification_count = 0;
 
-            notified = true;
-            notification_count = notification_count + 1;
-            if notification_count == 1 {
+            notified = false;
+
+            thread::sleep(std::time::Duration::from_millis(
+                (item_sleep_mili).try_into().unwrap(),
+            ));
+        } else if disk_usage == false && notification_count <= send_limit {
+            severity = 2;
+            tracing::error!("");
+
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.volumes.messages,
+                msg_index,
+                settings.groups.volumes.priority,
+                Some(item.label),
+                Some(item.target),
+            );
+
+            google_chat_config.send_chat_msg(l_msg);
+
+            //for 1st msg wait for first wait
+            if notified == false {
                 thread::sleep(std::time::Duration::from_millis(
-                    (item.first_wait * 1000).try_into().unwrap(),
-                ));
-            } else {
-                thread::sleep(std::time::Duration::from_millis(
-                    (item.wait_between * 1000).try_into().unwrap(),
+                    (l_first_wait * 1000).try_into().unwrap(),
                 ));
             }
 
-            tracing::error!("{} not responding ", &url);
-        } else {
+            //for subsequent messages wait for wait between
+            if notified == true {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
+            //increase count and set nofified to true to keep track
+            notification_count = notification_count + 1;
+            notified = true;
+        } else if disk_usage == false && notification_count > send_limit {
+            severity = 1;
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.volumes.messages,
+                msg_index,
+                settings.groups.volumes.priority,
+                Some(item.label),
+                Some(item.target),
+            );
+
+            google_chat_config.send_chat_msg(l_msg);
+
             notification_count = 0;
             notified = false;
-        }
-
-        if notified == false {
-            thread::sleep(std::time::Duration::from_millis(
-                item_sleep_mili.try_into().unwrap(),
-            ));
         }
     }
 }

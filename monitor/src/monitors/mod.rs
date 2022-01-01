@@ -15,7 +15,9 @@ use chrono::{DateTime, Duration, Utc};
 
 use crate::{
     config::common::{Groups, Settings},
-    monitors::{cpu::cpu_monitor, volume::volume_monitor},
+    monitors::{
+        cpu::cpu_monitor, memory::memory_monitor, ping::ping_monitor, volume::volume_monitor,
+    },
 };
 
 pub mod cpu;
@@ -62,10 +64,19 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
     // 3. memory
     let l_google_chat_config = google_chat_config.clone();
     let l_settings = settings.clone();
+    thread_handle.push(thread::spawn(move || {
+        memory_monitor(l_google_chat_config, l_settings);
+    }));
 
     // 4. pings
     let l_google_chat_config = google_chat_config.clone();
     let l_settings = settings.clone();
+    for item in settings.groups.pings.items {
+        let l_item = item;
+        thread_handle.push(thread::spawn(move || {
+            ping_monitor(l_google_chat_config, l_settings, l_item);
+        }));
+    }
 
     // 5. services
     let l_google_chat_config = google_chat_config.clone();
