@@ -118,8 +118,8 @@ pub fn volume_monitor(
                     settings.groups.volumes.messages,
                     msg_index,
                     settings.groups.volumes.priority,
-                    item.label,
-                    item.target,
+                    Some(item.label),
+                    Some(item.target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
@@ -151,8 +151,8 @@ pub fn volume_monitor(
                     settings.groups.volumes.messages,
                     msg_index,
                     settings.groups.volumes.priority,
-                    item.label,
-                    item.target,
+                    Some(item.label),
+                    Some(item.target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);

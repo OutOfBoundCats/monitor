@@ -35,8 +35,8 @@ impl GoogleChatConfig {
         messages: Vec<String>,
         msg_index: i32,
         priority: Option<i32>,
-        label: String,
-        target: String,
+        label: Option<String>,
+        target: Option<String>,
     ) -> String {
         let mut data = fs::read_to_string("messages/google_msg.json").expect("Unable to read file");
 

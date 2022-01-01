@@ -88,24 +88,25 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             i = i + 1;
         }
         //check the maximum threadshold which is gettign breached by current cpu usage
-        let max_value: i32 = -1;
+        let mut max_value: i32 = -1;
         match vec_value.iter().max() {
             Some(value) => {
                 max_value = *value;
             }
             None => {
-                tracing::error!("No element in Cpu item vector ");
+                max_value = -1;
             }
         }
 
-        let max_index = vec_value.iter().position(|&r| r == max_value).unwrap();
-        let item_index = vec_index[max_index];
+        if max_value != -1 {
+            let max_index = vec_value.iter().position(|&r| r == max_value).unwrap();
+            let item_index: usize = vec_index[max_index].try_into().unwrap();
 
-        //got the item with highest threshold being croseed by cpu usage
+            //got the item with highest threshold being croseed by cpu usage
+            let l_item = settings.groups.cpu.items[item_index];
 
-        for item in settings.groups.cpu.items {
             let mut l_first_wait;
-            match item.first_wait {
+            match l_item.first_wait {
                 Some(value) => {
                     l_first_wait = value;
                 }
@@ -115,7 +116,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             };
 
             let mut l_wait_between;
-            match item.wait_between {
+            match l_item.wait_between {
                 Some(value) => {
                     l_wait_between = value;
                 }
@@ -124,38 +125,52 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 }
             };
 
-            if cpu_usage > item.target.parse().unwrap() && notification_count <= send_limit {
+            //for 1st msg wait for first wait
+            if notified == false {
                 msg_index = 0; //select negative msg from array
                 severity = 2; //inform employees
+
                 let l_msg = google_chat_config.build_msg(
                     severity,
                     settings.groups.cpu.messages,
                     msg_index,
                     settings.groups.cpu.priority,
-                    item.label,
-                    item.target,
+                    Some(l_item.label),
+                    Some(l_item.target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
 
-                //for 1st msg wait for first wait
-                if notified == false {
-                    thread::sleep(std::time::Duration::from_millis(
-                        (l_first_wait * 1000).try_into().unwrap(),
-                    ));
-                }
+                notified = true;
 
-                //for subsequent messages wait for wait between
-                if notified == true {
-                    thread::sleep(std::time::Duration::from_millis(
-                        (l_wait_between * 1000).try_into().unwrap(),
-                    ));
-                }
+                notification_count = notification_count + 1; // increament notification count
+
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_first_wait * 1000).try_into().unwrap(),
+                ));
+            } else if notified == true && notification_count <= send_limit {
+                msg_index = 0; //select negative msg from array
+                severity = 2; //inform employees
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    settings.groups.cpu.messages,
+                    msg_index,
+                    settings.groups.cpu.priority,
+                    Some(l_item.label),
+                    Some(l_item.target),
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
 
                 notified = true;
 
                 notification_count = notification_count + 1; // increament notification count
-            } else if cpu_usage > item.target.parse().unwrap() && notification_count > send_limit {
+
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between * 1000).try_into().unwrap(),
+                ));
+            } else if notified == true && notification_count > send_limit {
                 //notify management
 
                 msg_index = 0; // select negative msg from array
@@ -166,8 +181,8 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                     settings.groups.cpu.messages,
                     msg_index,
                     settings.groups.cpu.priority,
-                    item.label,
-                    item.target,
+                    Some(l_item.label),
+                    Some(l_item.target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
@@ -180,21 +195,25 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 notification_count = 0;
 
                 notified = true;
-            } else if cpu_usage < item.target.parse().unwrap() && notified == true {
-                notified = false;
-                notification_count = 0;
-                severity = 2;
-                msg_index = 1; // select positive msg from array
-
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    settings.groups.cpu.messages,
-                    msg_index,
-                    settings.groups.cpu.priority,
-                    item.label,
-                    item.target,
-                );
             }
+        }
+
+        //if suers were already notified before and cpu usage is normal now notify with +ve message
+
+        if max_value == 1 && notified == true {
+            notified = false;
+            notification_count = 0;
+            severity = 2;
+            msg_index = 1; // select positive msg from array
+
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.cpu.messages,
+                msg_index,
+                settings.groups.cpu.priority,
+                None,
+                None,
+            );
         }
     }
 }
