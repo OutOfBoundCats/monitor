@@ -1,11 +1,11 @@
 {
-    "text": "{TXT}  {TXT} can you please check",
+    "text": "{{}}  {{}} can you please check",
     "cards": [
         {
             "header": {
-                "title": "{TXT}",
-                "subtitle": "{TXT}",
-                "imageUrl": "{TXT}",
+                "title": "{{}}",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
                 "imageStyle": "IMAGE"
             },
             "sections": [
@@ -13,7 +13,7 @@
                     "widgets": [
                         {
                             "textParagraph": {
-                                "text": "{TXT}"
+                                "text": "{{}}"
                             }
                         }
                     ]

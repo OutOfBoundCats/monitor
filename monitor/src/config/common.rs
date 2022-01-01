@@ -9,18 +9,18 @@ use tracing::info;
 
 //use crate::monitors::ping;
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Settings {
     pub main: NotifyGeneral,
     pub groups: Groups,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct NotifyGeneral {
     pub general: General,
     pub notification: Notifications,
 }
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Notifications {
     pub send_limit: i32,
     pub first_wait: i32,
@@ -36,7 +36,7 @@ pub struct Notifications {
     pub notify_model: String,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct General {
     pub version: String,
     pub inactive_times: Vec<(String, String)>,
@@ -48,7 +48,7 @@ pub struct General {
     pub log: bool,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Groups {
     pub services: services,
     pub volumes: volumes,
@@ -57,7 +57,7 @@ pub struct Groups {
     pub cpu: cpu,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct services {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
@@ -68,7 +68,7 @@ pub struct services {
     pub items: Vec<ServiceItems>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct ServiceItems {
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -82,7 +82,7 @@ pub struct ServiceItems {
     pub enabled: bool,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct volumes {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
@@ -93,7 +93,7 @@ pub struct volumes {
     pub items: Vec<VolumeItems>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct VolumeItems {
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -106,7 +106,7 @@ pub struct VolumeItems {
     pub enabled: bool,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct pings {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
@@ -117,7 +117,7 @@ pub struct pings {
     pub items: Vec<PingItems>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct PingItems {
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -129,7 +129,7 @@ pub struct PingItems {
     pub enabled: bool,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct memory {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
@@ -140,7 +140,7 @@ pub struct memory {
     pub items: Vec<MemoryItems>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct MemoryItems {
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -152,7 +152,7 @@ pub struct MemoryItems {
     pub enabled: bool,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct cpu {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
@@ -163,7 +163,7 @@ pub struct cpu {
     pub items: Vec<CpuItems>,
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct CpuItems {
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -301,7 +301,7 @@ pub fn write_struct() {
         send_limit: Some(3),
         item_sleep: Some(30),
         label: "critical".to_string(),
-        target: "20%".to_string(),
+        target: "20".to_string(),
         enabled: true,
     };
 
@@ -327,7 +327,7 @@ pub fn write_struct() {
         send_limit: Some(3),
         item_sleep: Some(30),
         label: "critical".to_string(),
-        target: "100%".to_string(),
+        target: "100".to_string(),
         enabled: true,
     };
 
@@ -635,12 +635,28 @@ impl Settings {
         write_struct();
         tracing::info!("wrote sample configuration file");
 
-        let data =
-            fs::read_to_string("configurations/read_config.json").expect("Unable to read file");
+        let mut data: String;
+        let res = fs::read_to_string("configurations/read_config.json");
+
+        match res {
+            Ok(value) => data = value.to_string(),
+            Err(err) => {
+                tracing::error!(
+                    "Error occured while reading configuratioon file => {}",
+                    &err
+                );
+                panic!(
+                    "Error occured while reading configuratioon file => {}",
+                    &err
+                );
+            }
+        }
+        tracing::info!("Configuration file read succesfully");
+
         let mut serialised: Settings = serde_json::from_str(data.as_str()).unwrap();
-        // serialised.default_fill();
-        //let item_proprity = serialised.groups[0].items[0].item_sleep;
-        //println!("new item priority {:?}", &item_proprity);
+        serialised.default_fill();
+        tracing::info!("Filled item data from parent data");
+
         serialised
     }
 }

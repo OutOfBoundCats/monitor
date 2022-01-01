@@ -17,9 +17,10 @@ use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
 
 pub mod notifications;
 
-#[actix_web::main]
-async fn main() {
+fn main() {
     let env_filter = EnvFilter::try_from_default_env().unwrap_or_else(|_| EnvFilter::new("info"));
+
+    tracing::info!("initialising  logging ");
 
     let file_appender = tracing_appender::rolling::never("application_log", "application.log");
     let (non_blocking, _guard) = tracing_appender::non_blocking(file_appender);
@@ -67,17 +68,12 @@ async fn main() {
     tracing::info!("Subsciber set");
 
     //new implementation of reading json config file
+    tracing::info!("Started Reading the configuration file");
     let settings = Settings::from_setting();
-    tracing::info!("Read configuration file");
 
     // start monitoring services and get the handle to all the thread started so we can join in main thread
-    // let child_threads = monitors::monitor(
-    //     &settings,
-    //     &settings.groups,
-    //     &settings.main.general.inactive_times,
-    //     &settings.main.general.inactive_days,
-    // );
-    // tracing::info!("Started monitoring threads");
+    let child_threads = monitors::monitor(settings.clone());
+    tracing::info!("Started monitoring threads");
 
     // for child in child_threads {
     //     // Wait for the thread to finish. Returns a result.

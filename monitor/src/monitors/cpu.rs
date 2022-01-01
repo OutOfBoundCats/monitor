@@ -1,7 +1,12 @@
-use actix_web::http::header::IntoHeaderValue;
+use std::{convert::TryInto, sync::Arc, thread};
+
 //pub use loggernow_cpu::cpu::get_percentage_cpu_usage;
 use sysinfo::{ProcessorExt, System, SystemExt};
 use systemstat::{saturating_sub_bytes, Platform};
+
+use crate::{config::common::Settings, notifications::read_google_config::GoogleChatConfig};
+
+use super::thread_sleep;
 
 // pub fn cpu_usage() -> f32 {
 //     let mut s = System::new_all();
@@ -29,4 +34,136 @@ pub fn cpu_usage() -> f32 {
         Err(x) => println!("\nCPU load: error: {}", x),
     }
     cpu_usage
+}
+
+//starts CPU monitoring
+#[tracing::instrument(skip(google_chat_config, settings))]
+pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
+    let inactive_days = settings.main.general.inactive_days;
+    let inactive_times = settings.main.general.inactive_times;
+    let notified: bool = false;
+    let mut msg_index: i32;
+    let mut notification_count = 0;
+    let mut send_limit: i32;
+
+    match settings.groups.cpu.send_limit {
+        Some(value) => {
+            send_limit = value;
+        }
+        None => {
+            send_limit = settings.main.notification.send_limit;
+        }
+    }
+
+    loop {
+        let severity = 2;
+
+        //sleep thread if current time falls between inactive time specified in json config
+        thread_sleep(&inactive_times, &inactive_days);
+        let item_sleep_mili: i32;
+        match settings.groups.cpu.item_sleep {
+            Some(value) => {
+                item_sleep_mili = value * 1000;
+            }
+            None => {
+                tracing::error!("Error in getting the cpu group item_sleep time");
+            }
+        }
+
+        let cpu_usage = cpu_usage();
+
+        for item in settings.groups.cpu.items {
+            let mut l_first_wait;
+            match item.first_wait {
+                Some(value) => {
+                    l_first_wait = value;
+                }
+                None => {
+                    l_first_wait = settings.main.notification.first_wait;
+                }
+            };
+
+            let mut l_wait_between;
+            match item.wait_between {
+                Some(value) => {
+                    l_wait_between = value;
+                }
+                None => {
+                    l_wait_between = settings.main.notification.wait_between;
+                }
+            };
+
+            if cpu_usage > item.target.parse().unwrap() && notification_count <= send_limit {
+                msg_index = 0; //select negative msg from array
+                severity = 2; //inform employees
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    settings.groups.cpu.messages,
+                    msg_index,
+                    settings.groups.cpu.priority,
+                    item.label,
+                    item.target,
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
+
+                //for 1st msg wait for first wait
+                if notified == false {
+                    thread::sleep(std::time::Duration::from_millis(
+                        (l_first_wait * 1000).try_into().unwrap(),
+                    ));
+                }
+
+                //for subsequent messages wait for wait between
+                if notified == true {
+                    thread::sleep(std::time::Duration::from_millis(
+                        (l_wait_between * 1000).try_into().unwrap(),
+                    ));
+                }
+
+                notified = true;
+
+                notification_count = notification_count + 1; // increament notification count
+            } else if cpu_usage > item.target.parse().unwrap() && notification_count > send_limit {
+                //notify management
+
+                msg_index = 0; // select negative msg from array
+                severity = 1; //inform management
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    settings.groups.cpu.messages,
+                    msg_index,
+                    settings.groups.cpu.priority,
+                    item.label,
+                    item.target,
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
+
+                //for subsequent messages wait for wait between
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between * 1000).try_into().unwrap(),
+                ));
+
+                notification_count = 0;
+
+                notified = true;
+            } else if cpu_usage < item.target.parse().unwrap() && notified == true {
+                notified = false;
+                notification_count = 0;
+                severity = 2;
+                msg_index = 1; // select positive msg from array
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    settings.groups.cpu.messages,
+                    msg_index,
+                    settings.groups.cpu.priority,
+                    item.label,
+                    item.target,
+                );
+            }
+        }
+    }
 }

@@ -41,14 +41,33 @@ pub fn write_struct() {
     fs::write(path, &serialized_setting).expect("Unable to write file");
 }
 
-#[tracing::instrument]
-pub fn read_from_file(url: String) -> GoogleChatConfig {
-    write_struct();
-    tracing::info!("wrote sample configuration file");
+impl GoogleChatConfig {
+    #[tracing::instrument]
+    pub fn read_from_file() -> GoogleChatConfig {
+        write_struct(); // for making json quickly
+        tracing::info!("wrote sample configuration file");
 
-    let data =
-        fs::read_to_string("configurations/google_chat_config.json").expect("Unable to read file");
-    let mut serialised: GoogleChatConfig = serde_json::from_str(data.as_str()).unwrap();
+        let data: String;
+        let res = fs::read_to_string("configurations/google_chat_config.json");
 
-    serialised
+        match res {
+            Ok(value) => data = value.to_string(),
+            Err(err) => {
+                tracing::error!(
+                    "Error occured while reading google configuratioon file => {}",
+                    &err
+                );
+                panic!(
+                    "Error occured while reading google configuratioon file => {}",
+                    &err
+                );
+            }
+        }
+
+        tracing::info!("Google configuration file succesfullt read");
+
+        let mut serialised: GoogleChatConfig = serde_json::from_str(data.as_str()).unwrap();
+
+        serialised
+    }
 }
