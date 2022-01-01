@@ -36,7 +36,7 @@ pub fn ping_monitor(
     settings: Settings,
     item: PingItems,
 ) {
-    tracing::info!("Started Volume Monitor");
+    tracing::info!("Started Ping Monitor");
 
     let inactive_days = settings.main.general.inactive_days;
     let inactive_times = settings.main.general.inactive_times;

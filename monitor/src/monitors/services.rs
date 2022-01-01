@@ -1,116 +1,166 @@
-use std::sync::Arc;
+use std::{convert::TryInto, sync::Arc, thread};
 
-use actix_web::http::header::IntoHeaderValue;
 use run_script::ScriptOptions;
 
-use crate::{config::common::Settings, notifications::read_google_config::GoogleChatConfig};
+use crate::{
+    config::common::{ServiceItems, Settings},
+    monitors::thread_sleep,
+    notifications::read_google_config::GoogleChatConfig,
+};
 
-pub fn check_service() -> (i32, String) {
+pub fn check_service(command: String, expected_output: String) -> bool {
     let mut return_msg: String = "".to_string();
     let mut return_int: i32 = -1;
 
     let options = ScriptOptions::new();
 
     let args = vec![];
-    let (code, output, error) = run_script::run(
-        r#"systemctl is-active --quiet '+target+' 2>/dev/null
-        "#,
-        &args,
-        &options,
-    )
-    .unwrap();
+    let (code, output, error) =
+        run_script::run(format!("{}", &command).as_str(), &args, &options).unwrap();
 
-    let output_int: i32 = match output.parse() {
-        Ok(value) => value,
-        Err(err) => 2,
-    };
-    if output_int == 0 {
-        return_msg = format!("Service is running fine");
-        return_int = 0;
-    } else if output_int > 0 {
-        return_msg = format!("{} intsances of service detected", &output_int);
-        return_int = 1;
+    if expected_output == output {
+        return true;
     } else {
-        return_msg = format!("Unexpected error occured while checking the service");
-        return_int = 2;
+        return false;
     }
-
-    (return_int, return_msg)
 }
 
 //service monitor
 #[tracing::instrument(skip())]
-pub fn service_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
-    let google_chat_mutex = google_chat;
+pub fn service_monitor(
+    google_chat_config: Arc<GoogleChatConfig>,
+    settings: Settings,
+    item: ServiceItems,
+) {
+    tracing::info!("Started Ping Monitor");
 
-    let mut notified: bool = false;
+    let inactive_days = settings.main.general.inactive_days;
+    let inactive_times = settings.main.general.inactive_times;
+    let notified: bool = false;
+    let mut msg_index: i32;
     let mut notification_count = 0;
+    let mut send_limit: i32;
+
+    match item.send_limit {
+        Some(value) => {
+            send_limit = value;
+        }
+        None => {
+            send_limit = settings.main.notification.send_limit;
+        }
+    }
 
     loop {
         let severity = 2;
-        tracing::info!("Service monitor loop");
+
+        //sleep thread if current time falls between inactive time specified in json config
         thread_sleep(&inactive_times, &inactive_days);
 
-        let item_sleep_mili = &item.item_sleep * 1000;
-
-        let (service_status, service_msg) = services::check_service();
-
-        if service_status == 0 {
-            tracing::info!("Service functioning properly");
-            tracing::info!("{}", service_msg);
-        } else if service_status == 1 && notification_count <= item.send_limit {
-            let message = google_chat_mutex.build_msg(
-                &item,
-                "ERROR",
-                severity,
-                format!("{}  ", &service_msg),
-            );
-
-            let res = google_chat_mutex.send_chat_msg(message);
-
-            notified = true;
-            notification_count = notification_count + 1;
-            if notification_count == 1 {
-                thread::sleep(std::time::Duration::from_millis(
-                    (item.first_wait * 1000).try_into().unwrap(),
-                ));
-            } else {
-                thread::sleep(std::time::Duration::from_millis(
-                    (item.wait_between * 1000).try_into().unwrap(),
-                ));
+        let item_sleep_mili: i32;
+        match item.item_sleep {
+            Some(value) => {
+                item_sleep_mili = value * 1000;
             }
-
-            tracing::error!("Warning Service not functioning properly");
-            tracing::error!("{}", service_msg);
-        } else if notification_count <= item.send_limit {
-            let message =
-                google_chat_mutex.build_msg(&item, "ERROR", severity, format!("{} ", &service_msg));
-
-            let res = google_chat_mutex.send_chat_msg(message);
-
-            notified = true;
-            notification_count = notification_count + 1;
-            if notification_count == 1 {
-                thread::sleep(std::time::Duration::from_millis(
-                    (item.first_wait * 1000).try_into().unwrap(),
-                ));
-            } else {
-                thread::sleep(std::time::Duration::from_millis(
-                    (item.wait_between * 1000).try_into().unwrap(),
-                ));
+            None => {
+                tracing::error!("Error in getting the services group item_sleep time");
+                item_sleep_mili = settings.main.notification.item_sleep * 1000;
             }
-
-            tracing::error!("Error Service not functioning");
-            tracing::error!("{}", service_msg);
-        } else {
-            notification_count = 0;
-            notified = false;
         }
 
-        if notified == false {
+        let mut l_first_wait;
+        match item.first_wait {
+            Some(value) => {
+                l_first_wait = value;
+            }
+            None => {
+                l_first_wait = settings.main.notification.first_wait;
+            }
+        };
+
+        let mut l_wait_between;
+        match item.wait_between {
+            Some(value) => {
+                l_wait_between = value;
+            }
+            None => {
+                l_wait_between = settings.main.notification.wait_between;
+            }
+        };
+
+        let service_status = check_service(item.command, item.output);
+
+        if service_status && notified == true {
+            notified = false;
+            notification_count = 0;
+            severity = 2;
+            msg_index = 1; // select positive msg from array
+
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.services.messages,
+                msg_index,
+                settings.groups.services.priority,
+                None,
+                None,
+            );
+
+            google_chat_config.send_chat_msg(l_msg);
+            notification_count = 0;
+
+            notified = false;
+
             thread::sleep(std::time::Duration::from_millis(
-                item_sleep_mili.try_into().unwrap(),
+                (item_sleep_mili).try_into().unwrap(),
             ));
+        } else if service_status == false && notification_count <= send_limit {
+            severity = 2;
+            msg_index = 0;
+            tracing::error!("");
+
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.services.messages,
+                msg_index,
+                settings.groups.services.priority,
+                Some(item.label),
+                Some(item.target),
+            );
+
+            google_chat_config.send_chat_msg(l_msg);
+
+            //for 1st msg wait for first wait
+            if notified == false {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_first_wait * 1000).try_into().unwrap(),
+                ));
+            }
+
+            //for subsequent messages wait for wait between
+            if notified == true {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between * 1000).try_into().unwrap(),
+                ));
+            }
+
+            //increase count and set nofified to true to keep track
+            notification_count = notification_count + 1;
+            notified = true;
+        } else if service_status == false && notification_count > send_limit {
+            severity = 1;
+            msg_index = 0;
+            let l_msg = google_chat_config.build_msg(
+                severity,
+                settings.groups.services.messages,
+                msg_index,
+                settings.groups.services.priority,
+                Some(item.label),
+                Some(item.target),
+            );
+
+            google_chat_config.send_chat_msg(l_msg);
+
+            notification_count = 0;
+            notified = false;
         }
     }
 }
