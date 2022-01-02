@@ -109,7 +109,7 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
 
     //if current date is marked inactive sllep untill next day
     for inactive_day in inactive_days {
-        tracing::info!("inactive day is {}", &inactive_day);
+        // tracing::info!("inactive day is {}", &inactive_day);
 
         let inactive_date = DateTime::parse_from_str(inactive_day, "%Y-%m-%d %H:%M:%S %:z")
             .unwrap()
@@ -120,7 +120,7 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
         if inactive_local_date == inactive_date {
             let next_day = Local::now().checked_add_signed(Duration::days(1)).unwrap();
             let sleep_time = next_day.timestamp_millis() - Local::now().timestamp_millis();
-            tracing::info!("Current date is marked inactive sleeping till next day");
+            // tracing::info!("Current date is marked inactive sleeping till next day");
             thread::sleep(std::time::Duration::from_millis(
                 sleep_time.try_into().unwrap(),
             ));
@@ -130,7 +130,7 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
     //if current time is in between inactivity tuple sleep till end time
     for inactive_time in inactive_times {
         let (start, end) = inactive_time;
-        tracing::info!("inactivee time is from {} to {}", &start, &end);
+        // tracing::info!("inactivee time is from {} to {}", &start, &end);
         let start_dateTime = DateTime::parse_from_str(start, "%Y-%m-%d %H:%M:%S %:z")
             .unwrap()
             .timestamp_millis();
@@ -140,10 +140,10 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
 
         if local_time > start_dateTime && local_time < end_dateTime {
             let sleep_time = end_dateTime - local_time;
-            tracing::info!(
-                "System time lies between time specified in tuple sleeping for {} sec",
-                &sleep_time
-            );
+            // tracing::info!(
+            //     "System time lies between time specified in tuple sleeping for {} sec",
+            //     &sleep_time
+            // );
             thread::sleep(std::time::Duration::from_millis(
                 sleep_time.try_into().unwrap(),
             ));

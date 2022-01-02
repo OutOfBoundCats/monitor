@@ -41,8 +41,8 @@ pub fn write_struct() {
 impl GoogleChatConfig {
     #[tracing::instrument]
     pub fn read_from_file() -> GoogleChatConfig {
-        write_struct(); // for making json quickly
-        tracing::info!("wrote sample configuration file");
+        //write_struct(); // for making json quickly
+        //tracing::info!("wrote sample configuration file");
 
         let data: String;
         let res = fs::read_to_string("configurations/google_chat_config.json");

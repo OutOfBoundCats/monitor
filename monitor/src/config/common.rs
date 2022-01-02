@@ -628,8 +628,8 @@ impl Settings {
 
     #[tracing::instrument]
     pub fn from_setting() -> Settings {
-        write_struct();
-        tracing::info!("wrote sample configuration file");
+        //write_struct();
+        //tracing::info!("wrote sample configuration file");
 
         let data: String;
         let res = fs::read_to_string("configurations/read_config.json");

@@ -1,24 +1,14 @@
 {
-    "general": {
-        "management": [
-            "107583083364112988124"
-        ],
-        "employees": [
-            "107583083364112988124"
-        ],
-        "good_msg": "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg",
-        "error_sev2": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
-        "error_sev1": "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png"
-    },
-    "groups": [
-        {
-            "name": "CPU",
-            "management": [
-                "107583083364112988124"
-            ],
-            "employees": [
-                "107583083364112988124"
-            ]
-        }
-    ]
+    "management": [
+        "107583083364112988124"
+    ],
+    "employees": [
+        "107583083364112988124"
+    ],
+    "base_url": "https://chat.googleapis.com/v1/spaces",
+    "token": "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D",
+    "room": "AAAAFy1gKzE",
+    "good_msg": "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg",
+    "error_sev2": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+    "error_sev1": "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png"
 }
