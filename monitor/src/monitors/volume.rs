@@ -1,4 +1,4 @@
-use std::{convert::TryInto, sync::Arc, thread};
+use std::{convert::TryInto, rc::Rc, sync::Arc, thread};
 
 use systemstat::Platform;
 
@@ -52,7 +52,7 @@ pub fn disk_capacity_usage() -> Vec<(u64, String)> {
 }
 
 //starts disk monitoring
-#[tracing::instrument(skip(google_chat_config, settings))]
+//#[tracing::instrument(skip(google_chat_config, settings))]
 pub fn volume_monitor(
     google_chat_config: Arc<GoogleChatConfig>,
     settings: Settings,
@@ -60,10 +60,10 @@ pub fn volume_monitor(
 ) {
     tracing::info!("Started Volume Monitor");
 
-    let inactive_days = settings.main.general.inactive_days;
-    let inactive_times = settings.main.general.inactive_times;
+    let inactive_days = &settings.main.general.inactive_days;
+    let inactive_times = &settings.main.general.inactive_times;
     let mut notified: bool = false;
-    let mut msg_index: i32;
+    let mut msg_index: i32 = 0;
     let mut notification_count = 0;
     let mut send_limit: i32;
     let mut severity = 2;
@@ -77,67 +77,72 @@ pub fn volume_monitor(
         }
     }
 
+    let item_sleep_mili: i32;
+    match item.item_sleep {
+        Some(value) => {
+            item_sleep_mili = value * 1000;
+        }
+        None => {
+            tracing::error!("Error in getting the cpu group item_sleep time");
+            item_sleep_mili = settings.main.notification.item_sleep * 1000;
+        }
+    }
+
+    let mut l_first_wait;
+    match item.first_wait {
+        Some(value) => {
+            l_first_wait = value;
+        }
+        None => {
+            l_first_wait = settings.main.notification.first_wait;
+        }
+    };
+
+    let mut l_wait_between;
+    match item.wait_between {
+        Some(value) => {
+            l_wait_between = value;
+        }
+        None => {
+            l_wait_between = settings.main.notification.wait_between;
+        }
+    };
+
+    let mut priority;
+    match settings.groups.volumes.priority {
+        Some(value) => priority = value,
+        None => {
+            priority = -1;
+        }
+    }
+
+    let mut l_target = &item.target;
+    let mut l_label = &item.label;
+
     loop {
         //sleep thread if current time falls between inactive time specified in json config
         thread_sleep(&inactive_times, &inactive_days);
-
-        let item_sleep_mili: i32;
-        match item.item_sleep {
-            Some(value) => {
-                item_sleep_mili = value * 1000;
-            }
-            None => {
-                tracing::error!("Error in getting the cpu group item_sleep time");
-                item_sleep_mili = settings.main.notification.item_sleep * 1000;
-            }
-        }
-
-        let mut l_first_wait;
-        match item.first_wait {
-            Some(value) => {
-                l_first_wait = value;
-            }
-            None => {
-                l_first_wait = settings.main.notification.first_wait;
-            }
-        };
-
-        let mut l_wait_between;
-        match item.wait_between {
-            Some(value) => {
-                l_wait_between = value;
-            }
-            None => {
-                l_wait_between = settings.main.notification.wait_between;
-            }
-        };
 
         let disk_usage = disk_capacity_usage();
 
         for (disk_usage, mounted_on) in disk_usage {
             //if the mount is the one mentione in json then only compare
-            let l_target = item.target.clone();
 
             if disk_usage > item.measurement.try_into().unwrap()
-                && mounted_on == l_target
+                && mounted_on == *l_target
                 && notification_count <= send_limit
             {
                 severity = 2;
 
                 let message = get_message(
                     msg_index,
-                    settings.groups.volumes.messages,
+                    &settings.groups.volumes.messages,
                     item.measurement,
-                    Some(item.label),
+                    &l_label,
                 );
 
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    message,
-                    settings.groups.volumes.priority,
-                    Some(item.label),
-                    Some(item.target),
-                );
+                let l_msg =
+                    google_chat_config.build_msg(severity, &message, priority, &l_label, &l_target);
 
                 google_chat_config.send_chat_msg(l_msg);
 
@@ -159,32 +164,27 @@ pub fn volume_monitor(
                 notification_count = notification_count + 1;
                 notified = true;
             } else if disk_usage > item.measurement.try_into().unwrap()
-                && mounted_on == item.target
+                && mounted_on == *l_target
                 && notification_count > send_limit
             {
                 severity = 1;
                 msg_index = 0;
                 let message = get_message(
                     msg_index,
-                    settings.groups.volumes.messages,
+                    &settings.groups.volumes.messages,
                     item.measurement,
-                    Some(item.label),
+                    &l_label,
                 );
 
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    message,
-                    settings.groups.volumes.priority,
-                    Some(item.label),
-                    Some(item.target),
-                );
+                let l_msg =
+                    google_chat_config.build_msg(severity, &message, priority, &l_label, &l_target);
 
                 google_chat_config.send_chat_msg(l_msg);
 
                 notification_count = 0;
                 notified = false;
             } else if disk_usage < item.measurement.try_into().unwrap()
-                && mounted_on == item.target
+                && mounted_on == *l_target
                 && notification_count > send_limit
             {
                 notified = false;
@@ -194,18 +194,13 @@ pub fn volume_monitor(
 
                 let message = get_message(
                     msg_index,
-                    settings.groups.volumes.messages,
+                    &settings.groups.volumes.messages,
                     item.measurement,
-                    Some(item.label),
+                    &l_label,
                 );
 
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    message,
-                    settings.groups.volumes.priority,
-                    Some(item.label),
-                    Some(item.target),
-                );
+                let l_msg =
+                    google_chat_config.build_msg(severity, &message, priority, &l_label, &l_target);
 
                 google_chat_config.send_chat_msg(l_msg);
                 notification_count = 0;
@@ -222,24 +217,20 @@ pub fn volume_monitor(
 
 pub fn get_message(
     msg_index: i32,
-    messages: Vec<String>,
+    messages: &Vec<String>,
     measurement: i32,
-    label: Option<String>,
+    label: &String,
 ) -> String {
-    let l_msg_index: usize = msg_index.try_into().unwrap();
-    let mut l_message: String = messages[l_msg_index];
-    let mut l_label: String;
-    match label {
-        Some(value) => {
-            l_label = value;
-        }
-        None => {
-            l_label = "None".to_string();
-        }
-    }
+    let l_msg_index: usize = msg_index.clone().try_into().unwrap();
+    let mut l_message = &messages[l_msg_index];
+    let mut l_label: &String = label;
 
-    l_message = l_message.replacen("{{}}", &l_label, 1);
-    l_message = l_message.replacen("{{}}", format!("{}", &measurement).as_str(), 1);
+    let mut l_message_1;
 
-    l_message
+    l_message_1 = l_message.replacen("{{}}", l_label, 1);
+    l_message_1 = l_message.replacen("{{}}", format!("{}", &measurement).as_str(), 1);
+
+    l_message_1
+
+    // "raj".to_string()
 }

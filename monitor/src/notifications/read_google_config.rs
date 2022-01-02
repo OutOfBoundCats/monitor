@@ -7,7 +7,7 @@ use std::fs::File;
 use std::io::{BufRead, BufReader, Error, Write};
 use tracing::info;
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct GoogleChatConfig {
     pub management: Vec<String>,
     pub employees: Vec<String>,

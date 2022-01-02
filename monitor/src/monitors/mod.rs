@@ -11,10 +11,7 @@ use chrono::{DateTime, Duration, Utc};
 
 use crate::{
     config::common::{Groups, Settings},
-    monitors::{
-        cpu::cpu_monitor, memory::memory_monitor, ping::ping_monitor, services::service_monitor,
-        volume::volume_monitor,
-    },
+    monitors::{cpu::cpu_monitor, memory::memory_monitor, volume::volume_monitor},
 };
 
 pub mod cpu;
@@ -31,7 +28,7 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
     tracing::info!("Started reading google chat config file");
     let google_chat_config = GoogleChatConfig::read_from_file();
 
-    let google_chat_config = Arc::new(google_chat_config);
+    let arc_google_chat_config = Arc::new(google_chat_config);
 
     let mut thread_handle = vec![];
 
@@ -40,51 +37,55 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
     //iterate over all groups and start monitoring every item on different thread
     //1.cpu
 
-    let l_google_chat_config = google_chat_config.clone();
+    let l_google_chat_config = arc_google_chat_config.clone();
     let l_settings = settings.clone();
     thread_handle.push(thread::spawn(move || {
         cpu_monitor(l_google_chat_config, l_settings);
     }));
 
     //2. volume moonitor
-    let l_google_chat_config = google_chat_config.clone();
-    let l_settings = settings.clone();
 
+    let settings_v = settings.clone();
+    let settings_iterator = settings.clone();
     //create different thread to monitor each mounting point mentioend in Item
-    for item in settings.groups.volumes.items {
-        let l_item = item;
+    for item in settings_iterator.groups.volumes.items {
+        //let l_item = Arc::new(item).clone();
+        let mut l_google_chat_config_volume = arc_google_chat_config.clone();
+        let l_settings = settings_v.clone();
+
         thread_handle.push(thread::spawn(move || {
-            volume_monitor(l_google_chat_config, l_settings, l_item);
+            volume_monitor(l_google_chat_config_volume, l_settings, item.clone());
         }));
     }
 
     // 3. memory
-    let l_google_chat_config = google_chat_config.clone();
+
+    let l_google_chat_config_memory = arc_google_chat_config.clone();
     let l_settings = settings.clone();
     thread_handle.push(thread::spawn(move || {
-        memory_monitor(l_google_chat_config, l_settings);
+        memory_monitor(l_google_chat_config_memory, l_settings);
     }));
 
-    // 4. pings
-    let l_google_chat_config = google_chat_config.clone();
-    let l_settings = settings.clone();
-    for item in settings.groups.pings.items {
-        let l_item = item;
-        thread_handle.push(thread::spawn(move || {
-            ping_monitor(l_google_chat_config, l_settings, l_item);
-        }));
-    }
+    // // 4. pings
+    // let l_google_chat_config = google_chat_config.clone();
+    // let l_settings = settings.clone();
+    // for item in settings.groups.pings.items {
+    //     let l_item = item;
+    //     thread_handle.push(thread::spawn(move || {
+    //         ping_monitor(l_google_chat_config, l_settings, l_item);
+    //     }));
+    // }
 
-    // 5. services
-    let l_google_chat_config = google_chat_config.clone();
-    let l_settings = settings.clone();
+    // // 5. services
+    // let l_google_chat_config = google_chat_config.clone();
+    // let l_settings = settings.clone();
 
-    for item in settings.groups.services.items {
-        let l_item = item;
-        thread_handle.push(thread::spawn(move || {
-            service_monitor(l_google_chat_config, l_settings, l_item);
-        }));
-    }
+    // for item in settings.groups.services.items {
+    //     let l_item = item;
+    //     thread_handle.push(thread::spawn(move || {
+    //         service_monitor(l_google_chat_config, l_settings, l_item);
+    //     }));
+    // }
 
     thread_handle
 }

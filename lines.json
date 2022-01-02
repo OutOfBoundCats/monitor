@@ -60,7 +60,7 @@
         },
         "volumes": {
             "messages": [
-                "Volume capacity low in {{label}}. Under {{measurement}}",
+                "Volume capacity low in {{}}. Under {{}}",
                 "Volume size is stable"
             ],
             "priority": 3,

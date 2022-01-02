@@ -32,10 +32,10 @@ impl GoogleChatConfig {
     pub fn build_msg(
         &self,
         severity: i32,
-        message: String,
-        priority: Option<i32>,
-        label: Option<String>,
-        target: Option<String>,
+        message: &String,
+        priority: i32,
+        label: &String,
+        target: &String,
     ) -> String {
         let mut data = fs::read_to_string("messages/google_msg.json").expect("Unable to read file");
 
@@ -64,30 +64,8 @@ impl GoogleChatConfig {
             }
         }
 
-        let mut l_label;
-        let mut l_target;
-        let l_priority;
-        let mut message: String = message;
-        match label {
-            Some(value) => {
-                l_label = value;
-            }
-            None => l_label = "None".to_string(),
-        }
-
-        match target {
-            Some(value) => {
-                l_target = value;
-            }
-            None => l_target = "None".to_string(),
-        }
-
-        match priority {
-            Some(value) => {
-                l_priority = value;
-            }
-            None => l_priority = -1,
-        }
+        let l_priority = priority;
+        let mut message = message;
 
         //header title
         data = data.replacen("{{}}", &message, 1);

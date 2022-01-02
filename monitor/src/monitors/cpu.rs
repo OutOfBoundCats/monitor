@@ -27,12 +27,13 @@ pub fn cpu_usage() -> f32 {
 pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
     tracing::info!("Started CPU Monitor");
 
-    let inactive_days = settings.main.general.inactive_days;
-    let inactive_times = settings.main.general.inactive_times;
+    let inactive_days = settings.main.general.inactive_days.clone();
+    let inactive_times = settings.main.general.inactive_times.clone();
     let mut notified: bool = false;
     let mut msg_index: i32;
     let mut notification_count = 0;
     let mut send_limit: i32;
+    let mut severity = 2;
 
     match settings.groups.cpu.send_limit {
         Some(value) => {
@@ -44,8 +45,6 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
     }
 
     loop {
-        let severity = 2;
-
         //sleep thread if current time falls between inactive time specified in json config
         thread_sleep(&inactive_times, &inactive_days);
         let item_sleep_mili: i32;
@@ -59,16 +58,27 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             }
         }
 
+        let mut priority;
+        match settings.groups.volumes.priority {
+            Some(value) => priority = value,
+            None => {
+                priority = -1;
+            }
+        }
+
         let cpu_usage = cpu_usage();
 
         //find which item with max threashold is getting crossed
-        let vec_index: Vec<i32> = vec![];
-        let vec_value: Vec<i32> = vec![];
-        let mut i = 0;
-        for item in settings.groups.cpu.items {
+        let mut vec_index: Vec<i32> = vec![];
+        let mut vec_value: Vec<i32> = vec![];
+        let mut i: usize = 0;
+
+        let l_setting = settings.clone();
+        let l_setting1 = settings.clone();
+        for item in l_setting.groups.cpu.items {
             if cpu_usage > item.target.parse().unwrap() {
-                vec_index.push(i);
-                let target = item.target.clone().parse().unwrap();
+                vec_index.push(i.try_into().unwrap());
+                let target = l_setting1.groups.cpu.items[i].target.parse().unwrap();
                 vec_value.push(target);
             }
 
@@ -88,10 +98,17 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         //find minimum threashold in items
         let vec_min_index: Vec<i32> = vec![];
         let vec_min_value: Vec<i32> = vec![];
-        let mut i = 0;
-        for item in settings.groups.cpu.items {
-            vec_index.push(i);
-            let target = item.target.clone().parse().unwrap();
+        let mut i: usize = 0;
+
+        let l_setting2 = settings.clone();
+        let l_setting3 = settings.clone();
+        for item in l_setting2.groups.cpu.items {
+            vec_index.push(i.try_into().unwrap());
+            let target = l_setting3.groups.cpu.items[i]
+                .target
+                .clone()
+                .parse()
+                .unwrap();
             vec_value.push(target);
 
             i = i + 1;
@@ -107,7 +124,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             }
         }
         let min_index;
-        let item_min_index: usize;
+        let mut item_min_index: usize = usize::MAX;
         if min_value != -1 {
             min_index = vec_value.iter().position(|&r| r == min_value).unwrap();
             item_min_index = vec_index[min_index].try_into().unwrap();
@@ -118,7 +135,8 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             let item_index: usize = vec_index[max_index].try_into().unwrap();
 
             //got the item with highest threshold being croseed by cpu usage
-            let l_item = settings.groups.cpu.items[item_index];
+
+            let l_item = &settings.groups.cpu.items[item_index];
 
             let mut l_first_wait;
             match l_item.first_wait {
@@ -145,15 +163,14 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 msg_index = 0; //select negative msg from array
                 severity = 2; //inform employees
 
-                let message =
-                    get_message(msg_index, settings.groups.cpu.messages, Some(l_item.label));
+                let message = get_message(msg_index, &settings.groups.cpu.messages, &l_item.label);
 
                 let l_msg = google_chat_config.build_msg(
                     severity,
-                    message,
-                    settings.groups.cpu.priority,
-                    Some(l_item.label),
-                    Some(l_item.target),
+                    &message,
+                    priority,
+                    &l_item.label,
+                    &l_item.target,
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
@@ -169,15 +186,14 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 msg_index = 0; //select negative msg from array
                 severity = 2; //inform employees
 
-                let message =
-                    get_message(msg_index, settings.groups.cpu.messages, Some(l_item.label));
+                let message = get_message(msg_index, &settings.groups.cpu.messages, &l_item.label);
 
                 let l_msg = google_chat_config.build_msg(
                     severity,
-                    message,
-                    settings.groups.cpu.priority,
-                    Some(l_item.label),
-                    Some(l_item.target),
+                    &message,
+                    priority,
+                    &l_item.label,
+                    &l_item.target,
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
@@ -195,15 +211,14 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 msg_index = 0; // select negative msg from array
                 severity = 1; //inform management
 
-                let message =
-                    get_message(msg_index, settings.groups.cpu.messages, Some(l_item.label));
+                let message = get_message(msg_index, &settings.groups.cpu.messages, &l_item.label);
 
                 let l_msg = google_chat_config.build_msg(
                     severity,
-                    message,
-                    settings.groups.cpu.priority,
-                    Some(l_item.label),
-                    Some(l_item.target),
+                    &message,
+                    priority,
+                    &l_item.label,
+                    &l_item.target,
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
@@ -222,25 +237,21 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         //if suers were already notified before and cpu usage is normal now notify with +ve message
 
         if max_value == -1 && notified == true {
-            let l_min_item = settings.groups.cpu.items[item_min_index];
+            let l_min_item = &settings.groups.cpu.items[item_min_index];
 
             notified = false;
             notification_count = 0;
             severity = 2;
             msg_index = 1; // select positive msg from array
 
-            let message = get_message(
-                msg_index,
-                settings.groups.cpu.messages,
-                Some(l_min_item.label),
-            );
+            let message = get_message(msg_index, &settings.groups.cpu.messages, &l_min_item.label);
 
             let l_msg = google_chat_config.build_msg(
                 severity,
-                message,
-                settings.groups.cpu.priority,
-                Some(l_min_item.label),
-                Some(l_min_item.target),
+                &message,
+                priority,
+                &l_min_item.label,
+                &l_min_item.target,
             );
 
             google_chat_config.send_chat_msg(l_msg);
@@ -255,20 +266,14 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
     }
 }
 
-pub fn get_message(msg_index: i32, messages: Vec<String>, label: Option<String>) -> String {
+pub fn get_message(msg_index: i32, messages: &Vec<String>, label: &String) -> String {
     let l_msg_index: usize = msg_index.try_into().unwrap();
-    let mut l_message: String = messages[l_msg_index];
-    let mut l_label: String;
-    match label {
-        Some(value) => {
-            l_label = value;
-        }
-        None => {
-            l_label = "None".to_string();
-        }
-    }
+    let mut l_message = &messages[l_msg_index];
+    let mut l_label = label;
 
-    l_message = l_message.replacen("{{}}", &l_label, 1);
+    let mut l_message_1;
 
-    l_message
+    l_message_1 = l_message.replacen("{{}}", l_label, 1);
+
+    l_message_1
 }

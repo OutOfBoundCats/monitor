@@ -398,7 +398,7 @@ impl Settings {
             None => general_item_sleep,
         };
 
-        for item in self.groups.services.items {
+        for item in self.groups.services.items.iter_mut() {
             item.first_wait = Some(match item.first_wait {
                 Some(v) => v,
                 None => services_group_first_wait,
@@ -448,7 +448,7 @@ impl Settings {
             None => general_item_sleep,
         };
 
-        for item in self.groups.volumes.items {
+        for item in self.groups.volumes.items.iter_mut() {
             item.first_wait = Some(match item.first_wait {
                 Some(v) => v,
                 None => volumes_group_first_wait,
@@ -498,7 +498,7 @@ impl Settings {
             None => general_item_sleep,
         };
 
-        for item in self.groups.pings.items {
+        for item in self.groups.pings.items.iter_mut() {
             item.first_wait = Some(match item.first_wait {
                 Some(v) => v,
                 None => pings_group_first_wait,
@@ -548,7 +548,7 @@ impl Settings {
             None => general_item_sleep,
         };
 
-        for item in self.groups.memory.items {
+        for item in self.groups.memory.items.iter_mut() {
             item.first_wait = Some(match item.first_wait {
                 Some(v) => v,
                 None => memory_group_first_wait,
@@ -598,7 +598,7 @@ impl Settings {
             None => general_item_sleep,
         };
 
-        for item in self.groups.cpu.items {
+        for item in self.groups.cpu.items.iter_mut() {
             item.first_wait = Some(match item.first_wait {
                 Some(v) => v,
                 None => cpu_group_first_wait,
