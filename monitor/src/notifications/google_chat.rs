@@ -1,6 +1,6 @@
 use std::fs;
 
-use crate::{monitors::LocalItems, notifications::read_google_config::GoogleChatConfig};
+use crate::notifications::read_google_config::GoogleChatConfig;
 
 pub struct Response {
     pub response_msg: String,
