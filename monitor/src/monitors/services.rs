@@ -26,7 +26,7 @@ pub fn check_service(command: String, expected_output: String) -> bool {
 }
 
 //service monitor
-#[tracing::instrument(skip())]
+#[tracing::instrument(skip(google_chat_config, settings, item))]
 pub fn service_monitor(
     google_chat_config: Arc<GoogleChatConfig>,
     settings: Settings,

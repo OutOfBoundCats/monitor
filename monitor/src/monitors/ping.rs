@@ -30,7 +30,7 @@ pub fn pin_host(host: String) -> bool {
 }
 
 //ping monitor
-#[tracing::instrument(skip())]
+#[tracing::instrument(skip(google_chat_config, settings, item))]
 pub fn ping_monitor(
     google_chat_config: Arc<GoogleChatConfig>,
     settings: Settings,

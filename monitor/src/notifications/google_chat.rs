@@ -24,8 +24,8 @@ impl GoogleChatConfig {
             response_msg: responsetxt,
             response_code: status_code.clone(),
         };
-        tracing::info!("json paylaod sent  is {}", &json_string);
-        tracing::info!("respose recived is {}", &response.response_msg);
+        //tracing::info!("json paylaod sent  is {}", &json_string);
+        //tracing::info!("respose recived is {}", &response.response_msg);
     }
 
     #[tracing::instrument(skip(self, severity, message, priority, label, target))]
@@ -83,7 +83,7 @@ impl GoogleChatConfig {
             1,
         );
 
-        tracing::info!("json created is {}", &data);
+        //tracing::info!("json created is {}", &data);
         data
     }
 }

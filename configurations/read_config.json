@@ -70,11 +70,6 @@
             "item_sleep": 30,
             "items": [
                 {
-                    "priority": 3,
-                    "first_wait": 30,
-                    "wait_between": 30,
-                    "send_limit": 3,
-                    "item_sleep": 30,
                     "label": "root",
                     "target": "/",
                     "measurement": 2,
@@ -123,7 +118,7 @@
                     "send_limit": 3,
                     "item_sleep": 30,
                     "label": "critical",
-                    "target": "20%",
+                    "target": "20",
                     "enabled": true
                 }
             ]
@@ -146,7 +141,7 @@
                     "send_limit": 3,
                     "item_sleep": 30,
                     "label": "critical",
-                    "target": "100%",
+                    "target": "100",
                     "enabled": true
                 }
             ]

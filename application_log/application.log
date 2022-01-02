@@ -1,0 +1,597 @@
+  2022-01-02T17:31:30.719282Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:31:30.719562Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:31:30.719954Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:31:30.720516Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:31:30.720886Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:31:30.721205Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:31:30.721582Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:31:30.722022Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:61
+
+  2022-01-02T17:31:30.722062Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:31:30.722399Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:31:30.722570Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }
+
+  2022-01-02T17:31:30.722672Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }
+
+  2022-01-02T17:31:30.723008Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }
+
+  2022-01-02T17:31:30.730736Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }
+
+  2022-01-02T17:31:30.732191Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Service {{label}} not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service {{label}} not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }
+
+  2022-01-02T17:31:30.785474Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }
+
+  2022-01-02T17:31:30.786116Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Pîng sucess  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Pîng sucess with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }
+
+  2022-01-02T17:31:31.225003Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "Pîng sucess  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Pîng sucess with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }
+
+  2022-01-02T17:31:31.225460Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }
+
+  2022-01-02T17:31:32.170599Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "Service {{label}} not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service {{label}} not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }
+
+  2022-01-02T17:31:32.171074Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor with , [1mgoogle_chat_config[0m: GoogleChatConfig { management: ["107583083364112988124"], employees: ["107583083364112988124"], base_url: "https://chat.googleapis.com/v1/spaces", token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D", room: "AAAAFy1gKzE", good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg", error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png", error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png" }, [1msettings[0m: Settings { main: NotifyGeneral { general: General { version: "1.0.1", inactive_times: [("2021-11-20 09:10:11 +05:30", "2021-08-10 10:10:11 +05:30")], inactive_days: ["2021-11-20 00:00:00 +05:30"], log_messages_delay: 2, item_sleep: 2, service_sleep: 2, logfile: "logfile", log: true }, notification: Notifications { send_limit: 32, first_wait: 5, wait_between: 3, priority: 2, item_sleep: 2, notification_ended_delay: 5, notify_wait: 5, url: "loggernow.com", button: "button", notify: "notify", notify_not_relaxed: "notidfy_not_relaxxed", notify_model: "email" } }, groups: Groups { services: Services { messages: ["Service {{label}} not running", "Service {{label}} is active"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }] }, volumes: Volumes { messages: ["Volume capacity low in {{label}}. Under {{measurement}}", "Volume size is stable"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [VolumeItems { priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), label: "root", target: "/", measurement: 2, enabled: true }] }, pings: Pings { messages: ["Host {{label}} not responding to ping", "Pîng sucess"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [PingItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "google", target: "www.google.com:443", enabled: true }] }, memory: Memory { messages: ["Memory usage notice ({{label}})", "Memory usage is under the limit"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [MemoryItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "20%", enabled: true }] }, cpu: Cpu { messages: ["CPU usage notice ({{label}})", "CPU usage is valid"], priority: Some(3), first_wait: Some(10), wait_between: Some(15), send_limit: Some(3), item_sleep: Some(30), items: [CpuItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "critical", target: "100%", enabled: true }] } } }, [1mitem[0m: ServiceItems { priority: Some(3), first_wait: Some(30), wait_between: Some(30), send_limit: Some(3), item_sleep: Some(30), label: "cron", target: "cron", command: "", output: "2", enabled: true }
+
+  2022-01-02T17:33:47.990530Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:33:47.990913Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:33:47.991277Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:33:47.991906Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:33:47.992324Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:33:47.992713Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:33:47.993197Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:33:47.993909Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:33:47.994254Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:33:47.994269Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:61
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:33:47.994450Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:33:47.994895Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:33:47.995310Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:33:48.000619Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:33:48.001203Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Service {{label}} not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service {{label}} not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:33:48.065433Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:33:48.065887Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Pîng sucess  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Pîng sucess with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:33:49.304797Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "Service {{label}} not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service {{label}} not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:33:49.305062Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:33:49.385925Z  INFO monitor::notifications::google_chat: json paylaod sent  is {
+    "text": "Pîng sucess  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Pîng sucess with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:33:49.386161Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:35:10.492964Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:35:10.493341Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:35:10.493720Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:35:10.494466Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:35:10.494939Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:10.495295Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:10.495711Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:10.496379Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:35:10.496400Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:35:10.496477Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:35:10.497295Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:35:10.498028Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:35:10.498535Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:35:10.504284Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:35:10.504686Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Service {{label}} not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service {{label}} not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:35:10.556101Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:35:10.556503Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "Pîng sucess  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Pîng sucess with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:86
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:35:52.474932Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:35:52.475258Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:35:52.475616Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:35:52.476512Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:35:52.477068Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:52.477473Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:52.477862Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:35:52.478513Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:35:52.478587Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:35:52.478677Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:35:52.478748Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:35:52.478768Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:35:52.479178Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:35:52.486964Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:35:52.544287Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:36:39.671180Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:36:39.671479Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:36:39.671820Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:36:39.672650Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:36:39.673267Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:36:39.673622Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:36:39.674090Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:36:39.674722Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:36:39.674768Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:36:39.674852Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:36:39.674921Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:36:39.675435Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:36:39.675514Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:36:39.680996Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:36:39.724513Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+

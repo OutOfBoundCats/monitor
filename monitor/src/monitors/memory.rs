@@ -33,7 +33,7 @@ pub fn memory_usage() -> (u64, u64, bool) {
 }
 
 //starts memory monitoring
-#[tracing::instrument(skip())]
+#[tracing::instrument(skip(google_chat_config, settings))]
 pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
     tracing::info!("Started Memory Monitor");
 

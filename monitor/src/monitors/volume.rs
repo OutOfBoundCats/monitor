@@ -16,7 +16,6 @@ pub fn disk_capacity_usage() -> Vec<(u64, String)> {
 
     match sys.mounts() {
         Ok(mounts) => {
-            println!("\nMounts:");
             for mount in mounts.iter() {
                 // println!(
                 //     "{} ---{}---> {} (available {} of {})",
@@ -52,7 +51,7 @@ pub fn disk_capacity_usage() -> Vec<(u64, String)> {
 }
 
 //starts disk monitoring
-//#[tracing::instrument(skip(google_chat_config, settings))]
+#[tracing::instrument(skip(google_chat_config, settings, item))]
 pub fn volume_monitor(
     google_chat_config: Arc<GoogleChatConfig>,
     settings: Settings,
