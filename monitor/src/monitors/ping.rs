@@ -40,7 +40,7 @@ pub fn ping_monitor(
 
     let inactive_days = settings.main.general.inactive_days;
     let inactive_times = settings.main.general.inactive_times;
-    let notified: bool = false;
+    let mut notified: bool = false;
     let mut msg_index: i32;
     let mut notification_count = 0;
     let mut send_limit: i32;
@@ -91,21 +91,22 @@ pub fn ping_monitor(
             }
         };
 
-        let disk_usage = pin_host(item.target);
+        let ping_result = pin_host(item.target);
 
-        if disk_usage && notified == true {
+        if ping_result && notified == true {
             notified = false;
             notification_count = 0;
             severity = 2;
             msg_index = 1; // select positive msg from array
 
+            let message = get_message(msg_index, settings.groups.pings.messages, Some(item.label));
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.cpu.messages,
-                msg_index,
-                settings.groups.cpu.priority,
-                None,
-                None,
+                message,
+                settings.groups.pings.priority,
+                Some(item.label),
+                Some(item.target),
             );
 
             google_chat_config.send_chat_msg(l_msg);
@@ -116,15 +117,16 @@ pub fn ping_monitor(
             thread::sleep(std::time::Duration::from_millis(
                 (item_sleep_mili).try_into().unwrap(),
             ));
-        } else if disk_usage == false && notification_count <= send_limit {
+        } else if ping_result == false && notification_count <= send_limit {
             severity = 2;
             tracing::error!("");
 
+            let message = get_message(msg_index, settings.groups.pings.messages, Some(item.label));
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.volumes.messages,
-                msg_index,
-                settings.groups.volumes.priority,
+                message,
+                settings.groups.pings.priority,
                 Some(item.label),
                 Some(item.target),
             );
@@ -148,13 +150,17 @@ pub fn ping_monitor(
             //increase count and set nofified to true to keep track
             notification_count = notification_count + 1;
             notified = true;
-        } else if disk_usage == false && notification_count > send_limit {
+        } else if ping_result == false && notification_count > send_limit {
             severity = 1;
+
+            msg_index = 0;
+
+            let message = get_message(msg_index, settings.groups.pings.messages, Some(item.label));
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.volumes.messages,
-                msg_index,
-                settings.groups.volumes.priority,
+                message,
+                settings.groups.pings.priority,
                 Some(item.label),
                 Some(item.target),
             );
@@ -165,4 +171,22 @@ pub fn ping_monitor(
             notified = false;
         }
     }
+}
+
+pub fn get_message(msg_index: i32, messages: Vec<String>, label: Option<String>) -> String {
+    let l_msg_index: usize = msg_index.try_into().unwrap();
+    let mut l_message: String = messages[l_msg_index];
+    let mut l_label: String;
+    match label {
+        Some(value) => {
+            l_label = value;
+        }
+        None => {
+            l_label = "None".to_string();
+        }
+    }
+
+    l_message = l_message.replacen("{{}}", &l_label, 1);
+
+    l_message
 }

@@ -36,7 +36,7 @@ pub fn service_monitor(
 
     let inactive_days = settings.main.general.inactive_days;
     let inactive_times = settings.main.general.inactive_times;
-    let notified: bool = false;
+    let mut notified: bool = false;
     let mut msg_index: i32;
     let mut notification_count = 0;
     let mut send_limit: i32;
@@ -95,13 +95,18 @@ pub fn service_monitor(
             severity = 2;
             msg_index = 1; // select positive msg from array
 
+            let message = get_message(
+                msg_index,
+                settings.groups.services.messages,
+                Some(item.label),
+            );
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.services.messages,
-                msg_index,
+                message,
                 settings.groups.services.priority,
-                None,
-                None,
+                Some(item.label),
+                Some(item.target),
             );
 
             google_chat_config.send_chat_msg(l_msg);
@@ -117,10 +122,15 @@ pub fn service_monitor(
             msg_index = 0;
             tracing::error!("");
 
+            let message = get_message(
+                msg_index,
+                settings.groups.services.messages,
+                Some(item.label),
+            );
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.services.messages,
-                msg_index,
+                message,
                 settings.groups.services.priority,
                 Some(item.label),
                 Some(item.target),
@@ -148,10 +158,16 @@ pub fn service_monitor(
         } else if service_status == false && notification_count > send_limit {
             severity = 1;
             msg_index = 0;
+
+            let message = get_message(
+                msg_index,
+                settings.groups.services.messages,
+                Some(item.label),
+            );
+
             let l_msg = google_chat_config.build_msg(
                 severity,
-                settings.groups.services.messages,
-                msg_index,
+                message,
                 settings.groups.services.priority,
                 Some(item.label),
                 Some(item.target),
@@ -163,4 +179,22 @@ pub fn service_monitor(
             notified = false;
         }
     }
+}
+
+pub fn get_message(msg_index: i32, messages: Vec<String>, label: Option<String>) -> String {
+    let l_msg_index: usize = msg_index.try_into().unwrap();
+    let mut l_message: String = messages[l_msg_index];
+    let mut l_label: String;
+    match label {
+        Some(value) => {
+            l_label = value;
+        }
+        None => {
+            l_label = "None".to_string();
+        }
+    }
+
+    l_message = l_message.replacen("{{}}", &l_label, 1);
+
+    l_message
 }

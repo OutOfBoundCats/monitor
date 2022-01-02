@@ -1,4 +1,4 @@
-use std::fs;
+use std::{convert::TryInto, fs};
 
 use crate::notifications::read_google_config::GoogleChatConfig;
 
@@ -28,72 +28,82 @@ impl GoogleChatConfig {
         tracing::info!("respose recived is {}", &response.response_msg);
     }
 
-    #[tracing::instrument(skip(self, severity, messages, priority, label, target))]
+    #[tracing::instrument(skip(self, severity, message, priority, label, target))]
     pub fn build_msg(
         &self,
         severity: i32,
-        messages: Vec<String>,
-        msg_index: i32,
+        message: String,
         priority: Option<i32>,
         label: Option<String>,
         target: Option<String>,
     ) -> String {
         let mut data = fs::read_to_string("messages/google_msg.json").expect("Unable to read file");
 
-        tracing::info!("file data read is {}", &data);
-
         let mut image_url = "".to_string();
 
-        //Header 1
-        let mut header1;
-        if status == "ERROR" {
-            header1 = &item.message[0];
-            if severity == 2 {
-                image_url = self.error_sev2.clone();
-            } else if severity == 1 {
-                image_url = self.error_sev1.clone();
-            }
-        } else {
-            header1 = &item.message[1];
-            image_url = self.good_msg.clone();
+        if severity == 2 {
+            image_url = self.error_sev2.clone();
+        } else if severity == 1 {
+            image_url = self.error_sev1.clone();
         }
 
-        let new_header1 = &header1.replacen("{TXT}", &item.label, 1);
-
-        //text 1
-        data = data.replacen("{TXT}", &new_header1, 1);
-
-        //Header 2
+        //Header 1
         let mut header2 = "".to_string();
         let mut temp = "<users/{}> ";
-        //IF item name is CPU put CPU list in header mesage 2
 
+        // include user id in header text
         if severity == 2 {
             for employees in &self.employees {
-                let temp2 = temp.replacen("{}", &employees, 1);
+                let temp2 = temp.replacen("{{}}", &employees, 1);
                 header2.push_str(&temp2);
             }
         } else if severity == 1 {
             for managers in &self.management {
-                let temp2 = temp.replacen("{}", &managers, 1);
+                let temp2 = temp.replacen("{{}}", &managers, 1);
                 header2.push_str(&temp2);
             }
         }
 
-        //text 2
-        data = data.replacen("{TXT}", &header2, 1);
+        let mut l_label;
+        let mut l_target;
+        let l_priority;
+        let mut message: String = message;
+        match label {
+            Some(value) => {
+                l_label = value;
+            }
+            None => l_label = "None".to_string(),
+        }
+
+        match target {
+            Some(value) => {
+                l_target = value;
+            }
+            None => l_target = "None".to_string(),
+        }
+
+        match priority {
+            Some(value) => {
+                l_priority = value;
+            }
+            None => l_priority = -1,
+        }
 
         //header title
-        data = data.replacen("{TXT}", &new_header1, 1);
+        data = data.replacen("{{}}", &message, 1);
 
         //header subtitle
-        data = data.replacen("{TXT}", &msg, 1);
+        data = data.replacen("Priority is {{}}", format!("{}", &l_priority).as_str(), 1);
 
         //header imageUrl
-        data = data.replacen("{TXT}", &image_url, 1);
+        data = data.replacen("{{}}}", &image_url, 1);
 
-        // sections widgets textParagraph text
-        data = data.replacen("{TXT}", &msg, 1);
+        //section textparagraph text
+        data = data.replacen(
+            "{{}}",
+            format!("{} with priority {}", &message, &l_priority).as_str(),
+            1,
+        );
 
         tracing::info!("json created is {}", &data);
         data
