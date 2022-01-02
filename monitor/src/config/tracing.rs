@@ -1,9 +1,3 @@
-use tracing::subscriber::set_global_default;
-use tracing::Subscriber;
-use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
-use tracing_log::LogTracer;
-use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
-
 pub struct HttpWriter;
 
 impl std::io::Write for HttpWriter {
@@ -13,7 +7,7 @@ impl std::io::Write for HttpWriter {
 
         //println!("from http wrtiter{:?}", buf);
 
-        let s = match std::str::from_utf8(buf) {
+        let _s = match std::str::from_utf8(buf) {
             Ok(v) => v,
             Err(e) => panic!("Invalid UTF-8 sequence: {}", e),
         };

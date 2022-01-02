@@ -46,15 +46,15 @@ pub struct General {
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Groups {
-    pub services: services,
-    pub volumes: volumes,
-    pub pings: pings,
-    pub memory: memory,
-    pub cpu: cpu,
+    pub services: Services,
+    pub volumes: Volumes,
+    pub pings: Pings,
+    pub memory: Memory,
+    pub cpu: Cpu,
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct services {
+pub struct Services {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -79,7 +79,7 @@ pub struct ServiceItems {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct volumes {
+pub struct Volumes {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -103,7 +103,7 @@ pub struct VolumeItems {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct pings {
+pub struct Pings {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -126,7 +126,7 @@ pub struct PingItems {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct memory {
+pub struct Memory {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -149,7 +149,7 @@ pub struct MemoryItems {
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
-pub struct cpu {
+pub struct Cpu {
     pub messages: Vec<String>,
     pub priority: Option<i32>,
     pub first_wait: Option<i32>,
@@ -174,15 +174,15 @@ pub struct CpuItems {
 #[tracing::instrument]
 pub fn write_struct() {
     let start_date = Local.ymd(2021, 11, 20).and_hms(9, 10, 11);
-    let new_start_date = start_date.format("%d.%m.%Y %H:%M %P %:z");
+    let _new_start_date = start_date.format("%d.%m.%Y %H:%M %P %:z");
     //tracing::info!("inactive date is {}", &new_start_date);
 
     let end_date = Local.ymd(2021, 8, 10).and_hms(10, 10, 11);
-    let new_end_date = end_date.format("%d.%m.%Y %H:%M %P %:z");
+    let _new_end_date = end_date.format("%d.%m.%Y %H:%M %P %:z");
     //tracing::info!("inactive date is {}", &new_end_date);
 
     let inactive_day1 = Local.ymd(2021, 11, 20).and_hms(0, 0, 0);
-    let new_inactive_day1 = inactive_day1.format("%d.%m.%Y");
+    let _new_inactive_day1 = inactive_day1.format("%d.%m.%Y");
     //tracing::info!("inactive date is {}", &new_inactive_day1);
 
     let notification = Notifications {
@@ -224,7 +224,7 @@ pub fn write_struct() {
         enabled: true,
     };
 
-    let l_services = services {
+    let l_services = Services {
         messages: vec![
             "Service {{label}} not running".to_string(),
             "Service {{label}} is active".to_string(),
@@ -250,7 +250,7 @@ pub fn write_struct() {
         enabled: true,
     };
 
-    let l_volume = volumes {
+    let l_volume = Volumes {
         messages: vec![
             "Volume capacity low in {{label}}. Under {{measurement}}".to_string(),
             "Volume size is stable".to_string(),
@@ -275,7 +275,7 @@ pub fn write_struct() {
         enabled: true,
     };
 
-    let l_pings = pings {
+    let l_pings = Pings {
         messages: vec![
             "Host {{label}} not responding to ping".to_string(),
             "Pîng sucess".to_string(),
@@ -301,7 +301,7 @@ pub fn write_struct() {
         enabled: true,
     };
 
-    let l_memory = memory {
+    let l_memory = Memory {
         messages: vec![
             "Memory usage notice ({{label}})".to_string(),
             "Memory usage is under the limit".to_string(),
@@ -327,7 +327,7 @@ pub fn write_struct() {
         enabled: true,
     };
 
-    let l_cpu = cpu {
+    let l_cpu = Cpu {
         messages: vec![
             "CPU usage notice ({{label}})".to_string(),
             "CPU usage is valid".to_string(),
@@ -631,7 +631,7 @@ impl Settings {
         write_struct();
         tracing::info!("wrote sample configuration file");
 
-        let mut data: String;
+        let data: String;
         let res = fs::read_to_string("configurations/read_config.json");
 
         match res {

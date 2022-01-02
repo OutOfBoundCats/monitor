@@ -4,7 +4,7 @@ use crate::config::tracing::*;
 mod monitors;
 
 use tracing::subscriber::set_global_default;
-use tracing::{info, Subscriber};
+
 use tracing_bunyan_formatter::{BunyanFormattingLayer, JsonStorageLayer};
 
 use tracing_subscriber::{fmt, layer::SubscriberExt, EnvFilter, Registry};
@@ -69,8 +69,8 @@ fn main() {
     let child_threads = monitors::monitor(settings.clone());
     tracing::info!("Started monitoring threads");
 
-    // for child in child_threads {
-    //     // Wait for the thread to finish. Returns a result.
-    //     let _ = child.join();
-    // }
+    for child in child_threads {
+        // Wait for the thread to finish. Returns a result.
+        let _ = child.join();
+    }
 }

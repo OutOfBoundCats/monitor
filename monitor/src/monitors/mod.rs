@@ -12,7 +12,8 @@ use chrono::{DateTime, Duration, Utc};
 use crate::{
     config::common::{Groups, Settings},
     monitors::{
-        cpu::cpu_monitor, memory::memory_monitor, ping::ping_monitor, volume::volume_monitor,
+        cpu::cpu_monitor, memory::memory_monitor, ping::ping_monitor, services::service_monitor,
+        volume::volume_monitor,
     },
 };
 
@@ -69,26 +70,34 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
     }));
 
     // // 4. pings
-    let l_google_chat_config_pings = arc_google_chat_config.clone();
+
     let settings_v = settings.clone();
     let settings_iterator = settings.clone();
+    //create different thread to monitor each mounting point mentioend in Item
     for item in settings_iterator.groups.pings.items {
-        let l_item = item;
+        //let l_item = Arc::new(item).clone();
+        let mut l_google_chat_config_volume = arc_google_chat_config.clone();
+        let l_settings = settings_v.clone();
+
         thread_handle.push(thread::spawn(move || {
-            ping_monitor(l_google_chat_config_pings, settings_v, l_item);
+            ping_monitor(l_google_chat_config_volume, l_settings, item.clone());
         }));
     }
 
     // // 5. services
-    // let l_google_chat_config = google_chat_config.clone();
-    // let l_settings = settings.clone();
 
-    // for item in settings.groups.services.items {
-    //     let l_item = item;
-    //     thread_handle.push(thread::spawn(move || {
-    //         service_monitor(l_google_chat_config, l_settings, l_item);
-    //     }));
-    // }
+    let settings_v = settings.clone();
+    let settings_iterator = settings.clone();
+    //create different thread to monitor each mounting point mentioend in Item
+    for item in settings_iterator.groups.services.items {
+        //let l_item = Arc::new(item).clone();
+        let mut l_google_chat_config_volume = arc_google_chat_config.clone();
+        let l_settings = settings_v.clone();
+
+        thread_handle.push(thread::spawn(move || {
+            service_monitor(l_google_chat_config_volume, l_settings, item.clone());
+        }));
+    }
 
     thread_handle
 }

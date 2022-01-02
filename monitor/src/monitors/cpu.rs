@@ -8,7 +8,7 @@ use super::thread_sleep;
 
 pub fn cpu_usage() -> f32 {
     let sys = systemstat::System::new();
-    let cpu_load = sys.cpu_load_aggregate().unwrap();
+    let _cpu_load = sys.cpu_load_aggregate().unwrap();
     let mut cpu_usage = 0.0;
     match sys.cpu_load_aggregate() {
         Ok(cpu) => {
@@ -32,7 +32,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
     let mut notified: bool = false;
     let mut msg_index: i32;
     let mut notification_count = 0;
-    let mut send_limit: i32;
+    let send_limit: i32;
     let mut severity = 2;
 
     match settings.groups.cpu.send_limit {
@@ -58,7 +58,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             }
         }
 
-        let mut priority;
+        let priority;
         match settings.groups.volumes.priority {
             Some(value) => priority = value,
             None => {
@@ -96,26 +96,26 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         }
 
         //find minimum threashold in items
-        let vec_min_index: Vec<i32> = vec![];
-        let vec_min_value: Vec<i32> = vec![];
+        let mut vec_min_index: Vec<i32> = vec![];
+        let mut vec_min_value: Vec<i32> = vec![];
         let mut i: usize = 0;
 
         let l_setting2 = settings.clone();
         let l_setting3 = settings.clone();
-        for item in l_setting2.groups.cpu.items {
-            vec_index.push(i.try_into().unwrap());
+        for _item in l_setting2.groups.cpu.items {
+            vec_min_index.push(i.try_into().unwrap());
             let target = l_setting3.groups.cpu.items[i]
                 .target
                 .clone()
                 .parse()
                 .unwrap();
-            vec_value.push(target);
+            vec_min_value.push(target);
 
             i = i + 1;
         }
         //check the maximum threadshold which is gettign breached by current cpu usage
         let mut min_value: i32 = -1;
-        match vec_value.iter().min() {
+        match vec_min_value.iter().min() {
             Some(value) => {
                 min_value = *value;
             }
@@ -126,19 +126,19 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         let min_index;
         let mut item_min_index: usize = usize::MAX;
         if min_value != -1 {
-            min_index = vec_value.iter().position(|&r| r == min_value).unwrap();
+            min_index = vec_min_value.iter().position(|&r| r == min_value).unwrap();
             item_min_index = vec_index[min_index].try_into().unwrap();
         }
 
         if max_value != -1 {
             let max_index = vec_value.iter().position(|&r| r == max_value).unwrap();
-            let item_index: usize = vec_index[max_index].try_into().unwrap();
+            let item_index: usize = vec_min_index[max_index].try_into().unwrap();
 
             //got the item with highest threshold being croseed by cpu usage
 
             let l_item = &settings.groups.cpu.items[item_index];
 
-            let mut l_first_wait;
+            let l_first_wait;
             match l_item.first_wait {
                 Some(value) => {
                     l_first_wait = value;
@@ -148,7 +148,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 }
             };
 
-            let mut l_wait_between;
+            let l_wait_between;
             match l_item.wait_between {
                 Some(value) => {
                     l_wait_between = value;
