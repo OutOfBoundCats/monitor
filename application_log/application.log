@@ -595,3 +595,119 @@
     at monitor/src/monitors/ping.rs:131
     in monitor::monitors::ping::ping_monitor
 
+  2022-01-02T17:56:58.791530Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:56:58.791859Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:56:58.792250Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:56:58.792916Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:56:58.793426Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:56:58.794013Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:56:58.794450Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:56:58.795066Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:28
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:56:58.795270Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:56:58.795419Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:56:58.796437Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:56:58.796655Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:56:58.797186Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:56:58.802859Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:56:58.853990Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:57:23.487108Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-02T17:57:23.487353Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-02T17:57:23.487649Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:57:23.488207Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-02T17:57:23.488600Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-02T17:57:23.488870Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-02T17:57:23.489225Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-02T17:57:23.489817Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:27
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-02T17:57:23.489832Z  INFO monitor::monitors::volume: Started Volume Monitor
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-02T17:57:23.489860Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:38
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-02T17:57:23.489973Z  INFO monitor::monitors::ping: Started Ping Monitor
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-02T17:57:23.490274Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-02T17:57:23.491230Z  INFO monitor::monitors::services: Started Ping Monitor
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:57:23.503830Z ERROR monitor::monitors::services: 
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-02T17:57:23.544832Z ERROR monitor::monitors::ping: 
+    at monitor/src/monitors/ping.rs:131
+    in monitor::monitors::ping::ping_monitor
+

@@ -128,8 +128,8 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
         let mut min_index;
         let mut item_min_index: usize = usize::MAX;
         if min_value != -1 {
-            min_index = vec_value.iter().position(|&r| r == min_value).unwrap();
-            item_min_index = vec_index[min_index].try_into().unwrap();
+            min_index = vec_min_value.iter().position(|&r| r == min_value).unwrap();
+            item_min_index = vec_min_index[min_index].try_into().unwrap();
         }
 
         if max_value != -1 {

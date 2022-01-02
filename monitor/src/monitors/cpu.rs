@@ -12,7 +12,6 @@ pub fn cpu_usage() -> f32 {
     let mut cpu_usage = 0.0;
     match sys.cpu_load_aggregate() {
         Ok(cpu) => {
-            println!("\nMeasuring CPU load...");
             std::thread::sleep(systemstat::Duration::from_secs(1));
             let cpu = cpu.done().unwrap();
             cpu_usage = 100.0 - cpu.idle * 100.0;
@@ -127,7 +126,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         let mut item_min_index: usize = usize::MAX;
         if min_value != -1 {
             min_index = vec_min_value.iter().position(|&r| r == min_value).unwrap();
-            item_min_index = vec_index[min_index].try_into().unwrap();
+            item_min_index = vec_min_index[min_index].try_into().unwrap();
         }
 
         if max_value != -1 {
