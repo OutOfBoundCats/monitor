@@ -71,6 +71,8 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
         let mut msg_index: i32;
         let mut item_sleep_mili: i32;
         let mut priority;
+        let mut l_first_wait;
+        let mut l_wait_between;
 
         match settings.groups.cpu.send_limit {
             Some(value) => {
@@ -90,6 +92,24 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 item_sleep_mili = settings.main.notification.item_sleep * 1000;
             }
         }
+
+        match settings.groups.cpu.first_wait {
+            Some(value) => {
+                l_first_wait = value;
+            }
+            None => {
+                l_first_wait = settings.main.notification.first_wait;
+            }
+        };
+
+        match settings.groups.cpu.wait_between {
+            Some(value) => {
+                l_wait_between = value;
+            }
+            None => {
+                l_wait_between = settings.main.notification.wait_between;
+            }
+        };
 
         match settings.groups.cpu.priority {
             Some(value) => {
@@ -177,8 +197,26 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
                 google_chat_config.send_chat_msg(l_msg);
 
-                notified = true;
+                notified = false;
                 notification_count = 0;
+            }
+
+            //if there was no earlier notification sent then sleep thread for  item_sleep duration as per json
+            if notified == false {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item_sleep_mili).try_into().unwrap(),
+                ));
+            }
+
+            // if notification sent if 1st then sleep for 1st wait else wait for wait_between as per json
+            if notified == true && notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_first_wait).try_into().unwrap(),
+                ));
+            } else if notified == true && notification_count != 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between).try_into().unwrap(),
+                ));
             }
         }
     }

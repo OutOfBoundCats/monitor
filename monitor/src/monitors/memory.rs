@@ -72,7 +72,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
     //check if there are infact active element to monitor
     if vec_local_memory.len() == 0 {
-        tracing::info!("There are no active Cpu items to monitor")
+        tracing::info!("There are no active Memory items to monitor")
     } else {
         //if there are items to monitor then continue monitoring
         let mut severity = 2;
@@ -82,6 +82,8 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
         let mut msg_index: i32;
         let mut item_sleep_mili: i32;
         let mut priority;
+        let mut l_first_wait;
+        let mut l_wait_between;
 
         match settings.groups.memory.send_limit {
             Some(value) => {
@@ -101,6 +103,24 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
                 item_sleep_mili = settings.main.notification.item_sleep * 1000;
             }
         }
+
+        match settings.groups.cpu.first_wait {
+            Some(value) => {
+                l_first_wait = value;
+            }
+            None => {
+                l_first_wait = settings.main.notification.first_wait;
+            }
+        };
+
+        match settings.groups.cpu.wait_between {
+            Some(value) => {
+                l_wait_between = value;
+            }
+            None => {
+                l_wait_between = settings.main.notification.wait_between;
+            }
+        };
 
         match settings.groups.memory.priority {
             Some(value) => {
@@ -202,6 +222,24 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
                 notified = true;
                 notification_count = 0;
+            }
+
+            //if there was no earlier notification sent then sleep thread for  item_sleep duration as per json
+            if notified == false {
+                thread::sleep(std::time::Duration::from_millis(
+                    (item_sleep_mili).try_into().unwrap(),
+                ));
+            }
+
+            // if notification sent if 1st then sleep for 1st wait else wait for wait_between as per json
+            if notified == true && notification_count == 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_first_wait).try_into().unwrap(),
+                ));
+            } else if notified == true && notification_count != 1 {
+                thread::sleep(std::time::Duration::from_millis(
+                    (l_wait_between).try_into().unwrap(),
+                ));
             }
         }
     }
