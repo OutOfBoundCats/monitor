@@ -124,11 +124,11 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
         match settings.groups.memory.priority {
             Some(value) => {
-                priority = value * 1000;
+                priority = value;
             }
             None => {
                 tracing::error!("Error in getting the memory group item_sleep time");
-                priority = settings.main.notification.priority * 1000;
+                priority = settings.main.notification.priority;
             }
         }
 

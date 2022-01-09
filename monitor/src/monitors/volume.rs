@@ -90,20 +90,20 @@ pub fn volume_monitor(
     let l_first_wait;
     match item.first_wait {
         Some(value) => {
-            l_first_wait = value;
+            l_first_wait = value * 1000;
         }
         None => {
-            l_first_wait = settings.main.notification.first_wait;
+            l_first_wait = settings.main.notification.first_wait * 1000;
         }
     };
 
     let l_wait_between;
     match item.wait_between {
         Some(value) => {
-            l_wait_between = value;
+            l_wait_between = value * 1000;
         }
         None => {
-            l_wait_between = settings.main.notification.wait_between;
+            l_wait_between = settings.main.notification.wait_between * 1000;
         }
     };
 
@@ -141,7 +141,7 @@ pub fn volume_monitor(
 
             break;
         } else if current_disk_usage != -1 {
-            tracing::error!("Disk monitor started for mount {}  ", &l_target);
+            tracing::info!("Disk monitor started for mount {}  ", &l_target);
 
             //if disk mount usage is under control and we ahve previously informed of an issue then inform to tell disk usage is good
             if current_disk_usage < item.measurement && notified == true {

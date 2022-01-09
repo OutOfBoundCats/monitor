@@ -95,29 +95,29 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
         match settings.groups.cpu.first_wait {
             Some(value) => {
-                l_first_wait = value;
+                l_first_wait = value * 1000;
             }
             None => {
-                l_first_wait = settings.main.notification.first_wait;
+                l_first_wait = settings.main.notification.first_wait * 1000;
             }
         };
 
         match settings.groups.cpu.wait_between {
             Some(value) => {
-                l_wait_between = value;
+                l_wait_between = value * 1000;
             }
             None => {
-                l_wait_between = settings.main.notification.wait_between;
+                l_wait_between = settings.main.notification.wait_between * 1000;
             }
         };
 
         match settings.groups.cpu.priority {
             Some(value) => {
-                priority = value * 1000;
+                priority = value;
             }
             None => {
                 tracing::error!("Error in getting the cpu group item_sleep time");
-                priority = settings.main.notification.priority * 1000;
+                priority = settings.main.notification.priority;
             }
         }
 
@@ -129,6 +129,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
             for local_item in &vec_local_cpu {
                 //check if cpu usage is more than target if yes then notify and skip checking next elements
+
                 if cpu_usage > local_item.target.into() && send_limit < notification_count {
                     msg_index = 0; //select negative msg from array
                     severity = 2; //inform employees
@@ -154,7 +155,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                     //if notification count is more than send limit and still issue exist notify management
 
                     msg_index = 0; //select negative msg from array
-                    severity = 1; //inform employees
+                    severity = 1; //inform managers
 
                     let message =
                         get_message(msg_index, &settings.groups.cpu.messages, &local_item.label);
@@ -179,7 +180,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             //check if current cpu usage is less than lowest target specified if yes send healthy message
             if cpu_usage < vec_local_cpu[0].target.into() && notified == true {
                 msg_index = 1; //select positive msg from array
-                severity = 1; //inform employees
+                severity = 2; //inform employees
 
                 let message = get_message(
                     msg_index,

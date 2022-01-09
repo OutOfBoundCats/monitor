@@ -8,9 +8,7 @@ use tracing::info;
 pub struct GoogleChatConfig {
     pub management: Vec<String>,
     pub employees: Vec<String>,
-    pub base_url: String, //https://chat.googleapis.com/v1/spaces
-    pub token: String, //AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D
-    pub room: String,  // AAAAFy1gKzE
+    pub chat_url: String,
     pub good_msg: String,
     pub error_sev2: String,
     pub error_sev1: String,
@@ -21,9 +19,7 @@ pub fn write_struct() {
     let googleChatConfig = GoogleChatConfig {
         management: vec!["107583083364112988124".to_string()],
         employees: vec!["107583083364112988124".to_string()],
-        base_url:"https://chat.googleapis.com/v1/spaces".to_string(),
-         token: "AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D".to_string(), 
-        room: "AAAAFy1gKzE".to_string(),
+        chat_url:"https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D".to_string(), 
         good_msg: "https://ak.picdn.net/shutterstock/videos/1068883754/thumb/11.jpg".to_string(),
         error_sev2: "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png".to_string(),
         error_sev1: "https://hotemoji.com/images/dl/u/double-exclamation-mark-emoji-by-google.png".to_string(),   

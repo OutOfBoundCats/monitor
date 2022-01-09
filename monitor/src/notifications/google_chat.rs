@@ -12,10 +12,11 @@ impl GoogleChatConfig {
     pub fn send_chat_msg(&self, msg: String) {
         let json_string: String = msg;
 
-        let g_url = format!("{}/{}/{}", &self.base_url, &self.room, &self.token);
+        let g_url = &self.chat_url;
 
         let client = reqwest::blocking::Client::new();
         let res = client.post(g_url).body(json_string.clone()).send().unwrap();
+        tracing::info!("sent payload is {}", &json_string);
 
         let status_code = res.status().as_u16();
         let responsetxt = res.text_with_charset("UTF-8").unwrap().clone();
@@ -48,35 +49,41 @@ impl GoogleChatConfig {
         }
 
         //Header 1
-        let mut header2 = "".to_string();
-        let mut temp = "<users/{}> ";
+        let mut users = "".to_string();
+        let mut temp = "<users/{{}}> ";
 
         // include user id in header text
         if severity == 2 {
             for employees in &self.employees {
+                temp = "<users/{{}}> ";
                 let temp2 = temp.replacen("{{}}", &employees, 1);
-                header2.push_str(&temp2);
+                users.push_str(&temp2);
             }
         } else if severity == 1 {
             for managers in &self.management {
+                temp = "<users/{{}}> ";
                 let temp2 = temp.replacen("{{}}", &managers, 1);
-                header2.push_str(&temp2);
+                users.push_str(&temp2);
             }
         }
 
         let l_priority = priority;
         let mut message = message;
 
-        //header title
+        //1 . user text
+        data = data.replacen("{{}}", &users, 1);
+
+        //2 .header title
         data = data.replacen("{{}}", &message, 1);
 
-        //header subtitle
-        data = data.replacen("Priority is {{}}", format!("{}", &l_priority).as_str(), 1);
+        //3 .header subtitle
+        let priority_str = format!("Priority is {}", &l_priority);
+        data = data.replacen("{{}}", &priority_str, 1);
 
-        //header imageUrl
-        data = data.replacen("{{}}}", &image_url, 1);
+        //4 .header imageUrl
+        data = data.replacen("{{}}", &image_url, 1);
 
-        //section textparagraph text
+        //5 .section textparagraph text
         data = data.replacen(
             "{{}}",
             format!("{} with priority {}", &message, &l_priority).as_str(),

@@ -65,20 +65,20 @@ pub fn service_monitor(
     let l_first_wait;
     match item.first_wait {
         Some(value) => {
-            l_first_wait = value;
+            l_first_wait = value * 1000;
         }
         None => {
-            l_first_wait = settings.main.notification.first_wait;
+            l_first_wait = settings.main.notification.first_wait * 1000;
         }
     };
 
     let l_wait_between;
     match item.wait_between {
         Some(value) => {
-            l_wait_between = value;
+            l_wait_between = value * 1000;
         }
         None => {
-            l_wait_between = settings.main.notification.wait_between;
+            l_wait_between = settings.main.notification.wait_between * 1000;
         }
     };
 

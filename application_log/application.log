@@ -711,3 +711,1535 @@
     at monitor/src/monitors/ping.rs:131
     in monitor::monitors::ping::ping_monitor
 
+  2022-01-09T15:12:25.680366Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:12:25.680577Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:12:25.680826Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:12:25.681354Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:12:25.681733Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:12:25.682102Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:12:25.682503Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:12:25.683040Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:12:25.683120Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:12:25.683216Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:12:25.683590Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:12:25.684375Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:12:25.684428Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:25.687942Z ERROR monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:12:25.694258Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:25.786797Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:12:26.244975Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:26.703023Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:27.249781Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:12:27.718640Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:12:28.313868Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:30.206911Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:31.575287Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:12:31.997750Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:15:51.399894Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:15:51.400102Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:15:51.400415Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:15:51.400948Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:15:51.401262Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:15:51.401556Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:15:51.401912Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:15:51.402487Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:15:51.402606Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:15:51.402771Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:15:51.402943Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:15:51.402954Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:15:51.403193Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:15:51.406124Z ERROR monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:15:51.409002Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:15:51.455067Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:16:29.791332Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:16:29.792411Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:16:29.793668Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:16:29.794843Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:16:29.795392Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:16:29.795775Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:64
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:16:29.796130Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:16:29.797264Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:16:29.797277Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:16:29.797165Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:16:29.797382Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:16:29.799248Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:16:29.799675Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:16:29.801977Z ERROR monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:16:29.805926Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:16:29.861270Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:16:31.124274Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:16:31.183202Z  INFO monitor::notifications::google_chat: respose recived is <h1>Not Found</h1>
+<h2>Error 404</h2>
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:20:18.217343Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:20:18.217649Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:20:18.217957Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:20:18.218594Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:20:18.219195Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:20:18.219636Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:20:18.219996Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:20:18.220573Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:20:18.220686Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:20:18.220707Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:20:18.220879Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:20:18.220929Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:20:18.221043Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:20:18.224683Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:20:18.226637Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:20:18.317073Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:20:18.743669Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:20:18.780578Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:28
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:21:45.073404Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:21:45.073606Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:21:45.073915Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:21:45.074436Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:21:45.074727Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:21:45.075092Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:21:45.075571Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:21:45.076389Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:21:45.076880Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:21:45.077189Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:21:45.078072Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:21:45.078725Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:21:45.078835Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:21:45.080592Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:21:45.084569Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:21:45.137764Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:21:45.573683Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "Service cron not running  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:21:45.575166Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:21:45.619672Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "Host google not responding to ping  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping with priority 3",
+                "subtitle": "{{}}",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:21:45.620280Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:36:23.672455Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:36:23.672680Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:36:23.673013Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:36:23.673702Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:36:23.674144Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:36:23.674510Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:36:23.675008Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:36:23.675684Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:36:23.675729Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:36:23.675844Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:36:23.676148Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:36:23.676638Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:36:23.676894Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:36:23.679204Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:36:23.683039Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:36:25.193284Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/{}>   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Service cron not running with priority 3",
+                "imageUrl": "{{}}",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:36:25.193992Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:37:33.471843Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:37:33.472112Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:37:33.472405Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:37:33.472955Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:37:33.473301Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:37:33.473650Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:37:33.473947Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:37:33.474609Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:37:33.474639Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:37:33.474690Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:37:33.474789Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:37:33.474877Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:37:33.475859Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:37:33.478047Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:37:33.480677Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:37:33.633817Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:37:33.951255Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/{}>   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Service cron not running with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:37:33.952106Z  INFO monitor::notifications::google_chat: respose recived is {
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:35.859173Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:38:35.859507Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:38:35.859858Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:38:35.860469Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:38:35.860880Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:35.861514Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:35.861870Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:35.862423Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:38:35.862442Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:38:35.862553Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:38:35.862738Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:38:35.862881Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:35.863425Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:38:35.865976Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:38:35.874144Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:35.955296Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:38:49.599392Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:38:49.599586Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:38:49.599858Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:38:49.600503Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:38:49.600820Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:49.601090Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:49.601437Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:38:49.601922Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:38:49.601949Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:38:49.602004Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:38:49.602078Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:38:49.602097Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:38:49.602281Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:49.605058Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:38:49.609839Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:49.610242Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/{}>   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Service cron not running with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:38:49.672669Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:38:49.673024Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/{}>   can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Host google not responding to ping with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:26.085421Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:41:26.085655Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:41:26.086070Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:41:26.086888Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:41:26.087427Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:26.087952Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:26.088487Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:26.089255Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:41:26.089301Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:41:26.089295Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:41:26.089432Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:26.092641Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:41:26.092715Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:26.094596Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:41:26.100041Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:26.100518Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/{}>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Service cron not running with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:26.156464Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:26.156861Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/{}>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Host google not responding to ping with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:42.483150Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:41:42.483336Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:41:42.483609Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:41:42.484132Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:41:42.484418Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:42.484667Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:42.484954Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:41:42.485379Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:41:42.485459Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:41:42.485523Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:41:42.485573Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:42.485597Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:41:42.485788Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:42.488407Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:41:42.491108Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:42.491460Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Service cron not running with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:41:42.531091Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:41:42.531400Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageUrl": "Host google not responding to ping with priority 3",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "{{}}"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:92
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:09.679582Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:43:09.679768Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:43:09.680020Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:43:09.680534Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:43:09.680843Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:09.681125Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:09.681434Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:09.681913Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:43:09.682003Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:43:09.682042Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:43:09.682098Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:43:09.682129Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:09.682160Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:09.685066Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:43:09.690177Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:09.690585Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:09.739995Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:09.740286Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Host google not responding to ping with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:29.651729Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:43:29.651931Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:43:29.652212Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:43:29.652734Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:43:29.653074Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:29.653466Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:29.654108Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:43:29.654674Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:43:29.654907Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:43:29.654935Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:43:29.654999Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:29.655205Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:29.655361Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:43:29.657892Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:43:29.663550Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:29.663984Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:29.718847Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:29.719242Z  INFO monitor::notifications::google_chat: json created is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Host google not responding to ping with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:93
+    in monitor::notifications::google_chat::build_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:31.369369Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:31.370430Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/KQlkZvUcApQ.KQlkZvUcApQ",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "@Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "Service cron not running",
+        "subtitle": "Priority is 3",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Service cron not running with priority 3"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 0,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/KQlkZvUcApQ"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "@Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2022-01-09T15:43:31.423583Z",
+  "lastUpdateTime": "2022-01-09T15:43:31.423583Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:43:31.441966Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Host google not responding to ping with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:43:31.450321Z  INFO monitor::notifications::google_chat: respose recived is {
+  "name": "spaces/AAAAFy1gKzE/messages/0fiJN4c21eU.0fiJN4c21eU",
+  "sender": {
+    "name": "users/114022495153014004089",
+    "displayName": "Monitor Messages",
+    "avatarUrl": "",
+    "email": "",
+    "domainId": "",
+    "type": "BOT",
+    "isAnonymous": false
+  },
+  "text": "@Alfonso Pastor Roux - IST  can you please check",
+  "cards": [
+    {
+      "header": {
+        "title": "Host google not responding to ping",
+        "subtitle": "Priority is 3",
+        "imageStyle": "IMAGE",
+        "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+        "imageAltText": ""
+      },
+      "sections": [
+        {
+          "header": "",
+          "widgets": [
+            {
+              "textParagraph": {
+                "text": "Host google not responding to ping with priority 3"
+              },
+              "buttons": []
+            }
+          ],
+          "collapsable": false,
+          "uncollapsableWidgetsCount": 0
+        }
+      ],
+      "cardActions": [],
+      "name": ""
+    }
+  ],
+  "previewText": "",
+  "annotations": [
+    {
+      "type": "USER_MENTION",
+      "startIndex": 0,
+      "length": 26,
+      "userMention": {
+        "user": {
+          "name": "users/107583083364112988124",
+          "displayName": "Alfonso Pastor Roux - IST",
+          "avatarUrl": "",
+          "email": "",
+          "domainId": "2antadg",
+          "type": "HUMAN",
+          "isAnonymous": false
+        },
+        "type": "MENTION"
+      }
+    }
+  ],
+  "thread": {
+    "name": "spaces/AAAAFy1gKzE/threads/0fiJN4c21eU"
+  },
+  "space": {
+    "name": "spaces/AAAAFy1gKzE",
+    "type": "ROOM",
+    "singleUserBotDm": false,
+    "threaded": false,
+    "displayName": "Raj and Alfonso Testing",
+    "legacyGroupChat": false
+  },
+  "fallbackText": "",
+  "argumentText": "@Alfonso Pastor Roux - IST  can you please check",
+  "attachment": [],
+  "createTime": "2022-01-09T15:43:31.451791Z",
+  "lastUpdateTime": "2022-01-09T15:43:31.451791Z"
+}
+
+    at monitor/src/notifications/google_chat.rs:29
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+

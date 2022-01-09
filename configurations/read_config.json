@@ -64,8 +64,8 @@
                 "Volume size is stable"
             ],
             "priority": 3,
-            "first_wait": 10,
-            "wait_between": 15,
+            "first_wait": 30,
+            "wait_between": 30,
             "send_limit": 3,
             "item_sleep": 30,
             "items": [
@@ -83,8 +83,8 @@
                 "Pîng sucess"
             ],
             "priority": 3,
-            "first_wait": 10,
-            "wait_between": 15,
+            "first_wait": 30,
+            "wait_between": 30,
             "send_limit": 3,
             "item_sleep": 30,
             "items": [
@@ -95,7 +95,7 @@
                     "send_limit": 3,
                     "item_sleep": 30,
                     "label": "google",
-                    "target": "www.google.com:443",
+                    "target": "www.google",
                     "enabled": true
                 }
             ]
@@ -106,8 +106,8 @@
                 "Memory usage is under the limit"
             ],
             "priority": 3,
-            "first_wait": 10,
-            "wait_between": 15,
+            "first_wait": 30,
+            "wait_between": 30,
             "send_limit": 3,
             "item_sleep": 30,
             "items": [
@@ -129,8 +129,8 @@
                 "CPU usage is valid"
             ],
             "priority": 3,
-            "first_wait": 10,
-            "wait_between": 15,
+            "first_wait": 30,
+            "wait_between": 30,
             "send_limit": 3,
             "item_sleep": 30,
             "items": [
