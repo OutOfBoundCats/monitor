@@ -1,5 +1,6 @@
 use std::{convert::TryInto, sync::Arc, thread};
 
+use serde::{Deserialize, Serialize};
 use systemstat::Platform;
 
 use crate::{
@@ -32,6 +33,13 @@ pub fn memory_usage() -> (u64, u64, bool) {
     (used_memory, total_memory, err)
 }
 
+#[derive(Deserialize, Serialize, Debug, Clone)]
+pub struct localMemory {
+    pub priority: Option<i32>,
+    pub label: String,
+    pub target: u8,
+}
+
 //starts memory monitoring
 #[tracing::instrument(skip(google_chat_config, settings))]
 pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings) {
@@ -39,259 +47,162 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
     let inactive_days = settings.main.general.inactive_days.clone();
     let inactive_times = settings.main.general.inactive_times.clone();
-    let mut notified: bool = false;
-    let mut msg_index: i32;
-    let mut notification_count = 0;
-    let mut send_limit: i32;
-    let mut severity = 2;
 
-    match settings.groups.memory.send_limit {
-        Some(value) => {
-            send_limit = value;
-        }
-        None => {
-            send_limit = settings.main.notification.send_limit;
+    //get all the active items only
+
+    let mut vec_local_memory: Vec<localMemory> = vec![];
+
+    for item in &settings.groups.memory.items {
+        //convert target to u8
+        let target_int = item.target.clone().parse::<u8>().unwrap();
+
+        //if item is enabled then only monitor
+        if item.enabled == true {
+            let local_memory = localMemory {
+                priority: item.priority.clone(),
+                label: item.label.clone(),
+                target: target_int,
+            };
+            vec_local_memory.push(local_memory);
         }
     }
 
-    loop {
-        //sleep thread if current time falls between inactive time specified in json config
-        thread_sleep(&inactive_times, &inactive_days);
-        let item_sleep_mili: i32;
+    //sort the vec in ascending order
+    vec_local_memory.sort_by_key(|x| x.target);
+
+    //check if there are infact active element to monitor
+    if vec_local_memory.len() == 0 {
+        tracing::info!("There are no active Cpu items to monitor")
+    } else {
+        //if there are items to monitor then continue monitoring
+        let mut severity = 2;
+        let send_limit: i32;
+        let mut notification_count = 0;
+        let mut notified: bool = false;
+        let mut msg_index: i32;
+        let mut item_sleep_mili: i32;
+        let mut priority;
+
+        match settings.groups.memory.send_limit {
+            Some(value) => {
+                send_limit = value;
+            }
+            None => {
+                send_limit = settings.main.notification.send_limit;
+            }
+        }
 
         match settings.groups.memory.item_sleep {
             Some(value) => {
                 item_sleep_mili = value * 1000;
             }
             None => {
-                item_sleep_mili = settings.main.notification.item_sleep;
-                tracing::error!("Error in getting the cpu group item_sleep time");
+                tracing::error!("Error in getting the memory group item_sleep time");
+                item_sleep_mili = settings.main.notification.item_sleep * 1000;
             }
         }
 
-        let (used_memory, total_memory, err) = memory_usage();
-
-        let memory_used_percentage = used_memory / total_memory * 100;
-
-        //find which item with max threashold is getting crossed
-        let mut vec_index: Vec<i32> = vec![];
-        let mut vec_value: Vec<i32> = vec![];
-        let mut i: usize = 0;
-
-        let l_setting = settings.clone();
-        let l_setting1 = settings.clone();
-        for item in l_setting.groups.memory.items {
-            if memory_used_percentage > item.target.parse().unwrap() {
-                vec_index.push(i.try_into().unwrap());
-                let target = l_setting1.groups.memory.items[i]
-                    .target
-                    .clone()
-                    .parse()
-                    .unwrap();
-                vec_value.push(target);
-            }
-
-            i = i + 1;
-        }
-        //check the maximum threadshold which is gettign breached by current cpu usage
-        let mut max_value: i32 = -1;
-        match vec_value.iter().max() {
+        match settings.groups.memory.priority {
             Some(value) => {
-                max_value = *value;
+                priority = value * 1000;
             }
             None => {
-                max_value = -1;
+                tracing::error!("Error in getting the memory group item_sleep time");
+                priority = settings.main.notification.priority * 1000;
             }
         }
 
-        //find minimum threashold in items
-        let mut vec_min_index: Vec<i32> = vec![];
-        let mut vec_min_value: Vec<i32> = vec![];
-        let mut i = 0;
-        for item in &settings.groups.memory.items {
-            vec_min_index.push(i);
-            let target = item.target.clone().parse().unwrap();
-            vec_min_value.push(target);
+        loop {
+            //sleep thread if current time falls between inactive time specified in json config
+            thread_sleep(&inactive_times, &inactive_days);
 
-            i = i + 1;
-        }
-        //check the maximum threadshold which is gettign breached by current cpu usage
-        let mut min_value: i32 = -1;
-        match vec_min_value.iter().min() {
-            Some(value) => {
-                min_value = *value;
+            let (used_memory, total_memory, err) = memory_usage();
+
+            let memory_used_percentage = used_memory / total_memory * 100;
+
+            for local_item in &vec_local_memory {
+                //check if memory usage is more than target if yes then notify and skip checking next elements
+                if memory_used_percentage > local_item.target.into()
+                    && send_limit < notification_count
+                {
+                    msg_index = 0; //select negative msg from array
+                    severity = 2; //inform employees
+
+                    let message = get_message(
+                        msg_index,
+                        &settings.groups.memory.messages,
+                        &local_item.label,
+                    );
+
+                    let l_msg = google_chat_config.build_msg(
+                        severity,
+                        &message,
+                        priority,
+                        &local_item.label,
+                        &format!("{}", &local_item.target),
+                    );
+
+                    google_chat_config.send_chat_msg(l_msg);
+
+                    notified = true;
+                    notification_count = notification_count + 1;
+
+                    continue;
+                } else if memory_used_percentage > local_item.target.into()
+                    && send_limit > notification_count
+                {
+                    //if notification count is more than send limit and still issue exist notify management
+
+                    msg_index = 0; //select negative msg from array
+                    severity = 1; //inform employees
+
+                    let message = get_message(
+                        msg_index,
+                        &settings.groups.memory.messages,
+                        &local_item.label,
+                    );
+
+                    let l_msg = google_chat_config.build_msg(
+                        severity,
+                        &message,
+                        priority,
+                        &local_item.label,
+                        &format!("{}", &local_item.target),
+                    );
+
+                    google_chat_config.send_chat_msg(l_msg);
+
+                    notified = true;
+                    notification_count = 0;
+
+                    continue;
+                }
             }
-            None => {
-                min_value = -1;
-            }
-        }
-        let mut min_index;
-        let mut item_min_index: usize = usize::MAX;
-        if min_value != -1 {
-            min_index = vec_min_value.iter().position(|&r| r == min_value).unwrap();
-            item_min_index = vec_min_index[min_index].try_into().unwrap();
-        }
 
-        if max_value != -1 {
-            let max_index = vec_value.iter().position(|&r| r == max_value).unwrap();
-            let item_index: usize = vec_index[max_index].try_into().unwrap();
+            //check if current memory usage is less than lowest target specified if yes send healthy message
+            if memory_used_percentage < vec_local_memory[0].target.into() && notified == true {
+                msg_index = 1; //select positive msg from array
+                severity = 1; //inform employees
 
-            //got the item with highest threshold being croseed by cpu usage
-            let l_item = &settings.groups.memory.items[item_index];
-
-            let mut l_first_wait;
-            match l_item.first_wait {
-                Some(value) => {
-                    l_first_wait = value;
-                }
-                None => {
-                    l_first_wait = settings.main.notification.first_wait;
-                }
-            };
-
-            let mut l_wait_between;
-            match l_item.wait_between {
-                Some(value) => {
-                    l_wait_between = value;
-                }
-                None => {
-                    l_wait_between = settings.main.notification.wait_between;
-                }
-            };
-
-            let mut priority;
-            match settings.groups.memory.priority {
-                Some(value) => {
-                    priority = value;
-                }
-                None => {
-                    priority = -1;
-                }
-            }
-
-            //for 1st msg wait for first wait
-            if notified == false {
-                msg_index = 0; //select negative msg from array
-                severity = 2; //inform employees
-
-                let message =
-                    get_message(msg_index, &settings.groups.memory.messages, &l_item.label);
+                let message = get_message(
+                    msg_index,
+                    &settings.groups.cpu.messages,
+                    &vec_local_memory[0].label,
+                );
 
                 let l_msg = google_chat_config.build_msg(
                     severity,
                     &message,
                     priority,
-                    &l_item.label,
-                    &l_item.target,
+                    &vec_local_memory[0].label,
+                    &format!("{}", &vec_local_memory[0].target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);
 
                 notified = true;
-
-                notification_count = notification_count + 1; // increament notification count
-
-                thread::sleep(std::time::Duration::from_millis(
-                    (l_first_wait * 1000).try_into().unwrap(),
-                ));
-            } else if notified == true && notification_count <= send_limit {
-                msg_index = 0; //select negative msg from array
-                severity = 2; //inform employees
-
-                let message =
-                    get_message(msg_index, &settings.groups.memory.messages, &l_item.label);
-
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    &message,
-                    priority,
-                    &l_item.label,
-                    &l_item.target,
-                );
-
-                google_chat_config.send_chat_msg(l_msg);
-
-                notified = true;
-
-                notification_count = notification_count + 1; // increament notification count
-
-                thread::sleep(std::time::Duration::from_millis(
-                    (l_wait_between * 1000).try_into().unwrap(),
-                ));
-            } else if notified == true && notification_count > send_limit {
-                //notify management
-
-                msg_index = 0; // select negative msg from array
-                severity = 1; //inform management
-
-                let message =
-                    get_message(msg_index, &settings.groups.memory.messages, &l_item.label);
-
-                let l_msg = google_chat_config.build_msg(
-                    severity,
-                    &message,
-                    priority,
-                    &l_item.label,
-                    &l_item.target,
-                );
-
-                google_chat_config.send_chat_msg(l_msg);
-
-                //for subsequent messages wait for wait between
-                thread::sleep(std::time::Duration::from_millis(
-                    (l_wait_between * 1000).try_into().unwrap(),
-                ));
-
                 notification_count = 0;
-
-                notified = true;
             }
-        }
-
-        //if suers were already notified before and cpu usage is normal now notify with +ve message
-
-        if max_value == -1 && notified == true {
-            notified = false;
-            notification_count = 0;
-            severity = 2;
-            msg_index = 1; // select positive msg from array
-
-            let priority;
-            match settings.groups.memory.priority {
-                Some(value) => {
-                    priority = value;
-                }
-                None => {
-                    priority = -1;
-                }
-            }
-
-            let l_min_item = &settings.groups.memory.items[item_min_index];
-
-            let message = get_message(
-                msg_index,
-                &settings.groups.memory.messages,
-                &l_min_item.label,
-            );
-
-            let l_msg = google_chat_config.build_msg(
-                severity,
-                &message,
-                priority,
-                &l_min_item.label,
-                &l_min_item.target,
-            );
-
-            google_chat_config.send_chat_msg(l_msg);
-
-            notification_count = 0;
-
-            notified = false;
-
-            //for subsequent messages wait for wait between
-            thread::sleep(std::time::Duration::from_millis(
-                (item_sleep_mili).try_into().unwrap(),
-            ));
         }
     }
 }
