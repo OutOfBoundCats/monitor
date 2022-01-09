@@ -60,6 +60,8 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
             thread_handle.push(thread::spawn(move || {
                 volume_monitor(l_google_chat_config_volume, l_settings, item.clone());
             }));
+        } else if item.enabled == false {
+            tracing::info!("Volume Monitor for {} is disabled", &item.label);
         }
     }
 
@@ -85,6 +87,8 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
             thread_handle.push(thread::spawn(move || {
                 ping_monitor(l_google_chat_config_volume, l_settings, item.clone());
             }));
+        } else if item.enabled == false {
+            tracing::info!("Ping Monitor for {} is disabled", &item.label);
         }
     }
 
@@ -102,6 +106,8 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
             thread_handle.push(thread::spawn(move || {
                 service_monitor(l_google_chat_config_volume, l_settings, item.clone());
             }));
+        } else if item.enabled == false {
+            tracing::info!("Services Monitor for {} is disabled", &item.label);
         }
     }
 
@@ -126,7 +132,9 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
         if inactive_local_date == inactive_date {
             let next_day = Local::now().checked_add_signed(Duration::days(1)).unwrap();
             let sleep_time = next_day.timestamp_millis() - Local::now().timestamp_millis();
-            // tracing::info!("Current date is marked inactive sleeping till next day");
+
+            tracing::info!("Current date is marked inactive so sleeping all the monitors");
+
             thread::sleep(std::time::Duration::from_millis(
                 sleep_time.try_into().unwrap(),
             ));
@@ -146,10 +154,10 @@ pub fn thread_sleep(inactive_times: &Vec<(String, String)>, inactive_days: &Vec<
 
         if local_time > start_dateTime && local_time < end_dateTime {
             let sleep_time = end_dateTime - local_time;
-            // tracing::info!(
-            //     "System time lies between time specified in tuple sleeping for {} sec",
-            //     &sleep_time
-            // );
+            tracing::info!(
+                "System time lies between time specified in tuple sleeping for {} sec",
+                &sleep_time
+            );
             thread::sleep(std::time::Duration::from_millis(
                 sleep_time.try_into().unwrap(),
             ));
