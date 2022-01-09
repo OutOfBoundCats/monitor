@@ -56,9 +56,11 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
         let mut l_google_chat_config_volume = arc_google_chat_config.clone();
         let l_settings = settings_v.clone();
 
-        thread_handle.push(thread::spawn(move || {
-            volume_monitor(l_google_chat_config_volume, l_settings, item.clone());
-        }));
+        if item.enabled == true {
+            thread_handle.push(thread::spawn(move || {
+                volume_monitor(l_google_chat_config_volume, l_settings, item.clone());
+            }));
+        }
     }
 
     // 3. memory
@@ -79,9 +81,11 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
         let mut l_google_chat_config_volume = arc_google_chat_config.clone();
         let l_settings = settings_v.clone();
 
-        thread_handle.push(thread::spawn(move || {
-            ping_monitor(l_google_chat_config_volume, l_settings, item.clone());
-        }));
+        if item.enabled == true {
+            thread_handle.push(thread::spawn(move || {
+                ping_monitor(l_google_chat_config_volume, l_settings, item.clone());
+            }));
+        }
     }
 
     // // 5. services
@@ -94,9 +98,11 @@ pub fn monitor(settings: Settings) -> Vec<JoinHandle<()>> {
         let mut l_google_chat_config_volume = arc_google_chat_config.clone();
         let l_settings = settings_v.clone();
 
-        thread_handle.push(thread::spawn(move || {
-            service_monitor(l_google_chat_config_volume, l_settings, item.clone());
-        }));
+        if item.enabled == true {
+            thread_handle.push(thread::spawn(move || {
+                service_monitor(l_google_chat_config_volume, l_settings, item.clone());
+            }));
+        }
     }
 
     thread_handle

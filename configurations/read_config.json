@@ -35,8 +35,8 @@
     "groups": {
         "services": {
             "messages": [
-                "Service {{label}} not running",
-                "Service {{label}} is active"
+                "Service {{}} not running",
+                "Service {{}} is active"
             ],
             "priority": 3,
             "first_wait": 10,
@@ -60,7 +60,7 @@
         },
         "volumes": {
             "messages": [
-                "Volume capacity low in {{label}}. Under {{measurement}}",
+                "Volume capacity low in {{}}. Under {{}}",
                 "Volume size is stable"
             ],
             "priority": 3,
@@ -79,7 +79,7 @@
         },
         "pings": {
             "messages": [
-                "Host {{label}} not responding to ping",
+                "Host {{}} not responding to ping",
                 "Pîng sucess"
             ],
             "priority": 3,
@@ -102,7 +102,7 @@
         },
         "memory": {
             "messages": [
-                "Memory usage notice ({{label}})",
+                "Memory usage notice ({{}})",
                 "Memory usage is under the limit"
             ],
             "priority": 3,
@@ -125,7 +125,7 @@
         },
         "cpu": {
             "messages": [
-                "CPU usage notice ({{label}})",
+                "CPU usage notice ({{}})",
                 "CPU usage is valid"
             ],
             "priority": 3,
