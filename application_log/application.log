@@ -2243,3 +2243,121 @@
     in monitor::notifications::google_chat::send_chat_msg
     in monitor::monitors::ping::ping_monitor
 
+  2022-01-09T15:44:44.816839Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-09T15:44:44.817134Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-09T15:44:44.817465Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:44:44.817996Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-09T15:44:44.818354Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-09T15:44:44.818633Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-09T15:44:44.818955Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-09T15:44:44.819703Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-09T15:44:44.819745Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-09T15:44:44.819770Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:44:44.820234Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:44:44.820911Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-09T15:44:44.821227Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:44:44.822790Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-09T15:44:44.828249Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:44:44.902147Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-09T15:44:45.513782Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-09T15:44:45.623570Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Host google not responding to ping with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:19
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+

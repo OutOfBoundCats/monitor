@@ -16,7 +16,7 @@ impl GoogleChatConfig {
 
         let client = reqwest::blocking::Client::new();
         let res = client.post(g_url).body(json_string.clone()).send().unwrap();
-        tracing::info!("sent payload is {}", &json_string);
+        //tracing::info!("sent payload is {}", &json_string);
 
         let status_code = res.status().as_u16();
         let responsetxt = res.text_with_charset("UTF-8").unwrap().clone();
