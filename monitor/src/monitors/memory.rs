@@ -223,7 +223,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
                 google_chat_config.send_chat_msg(l_msg);
 
                 notified = true;
-                notification_count = 0;
+                notification_count = notification_count + 1;
             }
 
             //if there was no earlier notification sent then sleep thread for  item_sleep duration as per json
