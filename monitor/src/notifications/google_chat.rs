@@ -1,6 +1,9 @@
 use std::{convert::TryInto, fs};
 
+use reqwest::header;
+
 use crate::notifications::read_google_config::GoogleChatConfig;
+use std::time::Duration;
 
 pub struct Response {
     pub response_msg: String,
@@ -14,19 +17,33 @@ impl GoogleChatConfig {
 
         let g_url = &self.chat_url;
 
-        let client = reqwest::blocking::Client::new();
+        let mut headers = header::HeaderMap::new();
+        headers.insert(
+            "Content-Type",
+            header::HeaderValue::from_static("application/json"),
+        );
+
+        let client = reqwest::blocking::Client::builder()
+            .default_headers(headers)
+            .timeout(Duration::from_secs(60))
+            .build()
+            .unwrap();
+
         let res;
 
         match client.post(g_url).body(json_string.clone()).send() {
             Ok(value) => {
                 res = value;
                 tracing::info!("Post request succesfully sent to google chat ");
+                // tracing::info!("resposne is {:?} ", &res);
             }
             Err(err) => {
                 tracing::error!(
                     "Error occured while sending message to google chat, error resposne is -> {}",
                     &err
                 );
+
+                //tracing::info!("sent payload is {}", &json_string);
             }
         };
         //tracing::info!("sent payload is {}", &json_string);

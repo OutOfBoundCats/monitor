@@ -166,3 +166,604 @@
     at monitor/src/monitors/ping.rs:134
     in monitor::monitors::ping::ping_monitor
 
+  2022-01-10T10:18:17.734546Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-10T10:18:17.734920Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-10T10:18:17.735441Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:18:17.736411Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:18:17.736832Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-10T10:18:17.737208Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-10T10:18:17.738034Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-10T10:18:17.739308Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-10T10:18:17.739431Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:18:17.740891Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:18:17.741246Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-10T10:18:17.742565Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:18:17.744597Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-10T10:18:17.746988Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:18:17.758995Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:18:18.078030Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:18:18.689027Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:18:47.751127Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:18:47.773910Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:18:48.743604Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:18:50.316240Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:23:25.655175Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-10T10:23:25.655510Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-10T10:23:25.655911Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:23:25.656711Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:23:25.657203Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-10T10:23:25.657538Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-10T10:23:25.657945Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-10T10:23:25.658666Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-10T10:23:25.658796Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-10T10:23:25.658808Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:23:25.658878Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:23:25.659025Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-10T10:23:25.659142Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:23:25.662579Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:23:25.702266Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:23:25.709191Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:23:26.443289Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:23:26.601376Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:23:55.665954Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:23:56.486303Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:23:56.645051Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:24:25.669025Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:24:26.491859Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:24:26.651085Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:26
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:24:55.672222Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:24:56.534405Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:24:56.692780Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:24:57.325470Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:26:08.718673Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-10T10:26:08.718895Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-10T10:26:08.719188Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:26:08.719800Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:26:08.720248Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-10T10:26:08.720651Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-10T10:26:08.720993Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-10T10:26:08.721712Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-10T10:26:08.721810Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:26:08.721854Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-10T10:26:08.722028Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-10T10:26:08.722293Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:26:08.723259Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:26:08.725612Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:26:08.730355Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:26:08.812462Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:26:38.729431Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:26:38.738834Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:26:38.739116Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:32
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:26:38.819387Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:26:38.819693Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Host google not responding to ping",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Host google not responding to ping with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:32
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:08.732695Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:27:08.782093Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:27:08.866110Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:09.490946Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:27:09.491272Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:27:09 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:24
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:27:09.655422Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:09.655782Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:27:09 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:24
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:38.735414Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:27:39.502665Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:27:39.705336Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:40.396613Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:23
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:27:40.396872Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:27:40 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:24
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:28:08.738133Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:28:09.507777Z ERROR monitor::notifications::google_chat: Error occured while sending message to google chat, error resposne is -> error sending request for url (https://chat.googleapis.com/v1/spaces/AAAAFy1gKzE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D): operation timed out
+    at monitor/src/notifications/google_chat.rs:27
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:28:09.508090Z  INFO monitor::notifications::google_chat: sent payload is {
+    "text": "<users/107583083364112988124>  can you please check",
+    "cards": [
+        {
+            "header": {
+                "title": "Service cron not running",
+                "subtitle": "Priority is 3",
+                "imageUrl": "https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/110/heavy-exclamation-mark-symbol_2757.png",
+                "imageStyle": "IMAGE"
+            },
+            "sections": [
+                {
+                    "widgets": [
+                        {
+                            "textParagraph": {
+                                "text": "Service cron not running with priority 3"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
+    at monitor/src/notifications/google_chat.rs:32
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:42:56.386751Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-10T10:42:56.386951Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-10T10:42:56.387213Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:42:56.387750Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-10T10:42:56.388103Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-10T10:42:56.388381Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-10T10:42:56.388774Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-10T10:42:56.389305Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-10T10:42:56.389358Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:42:56.389444Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-10T10:42:56.389519Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:42:56.389979Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-10T10:42:56.390405Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:42:56.392843Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:42:56.399946Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:42:56.627595Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:42:57.272577Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:42:57.272841Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:42:57 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:42:58.143354Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:42:58.143736Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:42:57 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:43:26.396392Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:43:27.322544Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:28.152233Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:43:28.900753Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:28.901087Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:43:28 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:29.823095Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:43:29.823513Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:43:29 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:43:56.399220Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:43:58.949549Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:133
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:59.830968Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:59.831251Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:43:59 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T10:43:59.869745Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:01.534605Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:01.534858Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:44:01 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:26.401933Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:44:31.577985Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:128
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:33.923378Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:33.923756Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:44:33 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:44:56.404667Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T10:45:05.487262Z  INFO monitor::notifications::google_chat: Post request succesfully sent to google chat 
+    at monitor/src/notifications/google_chat.rs:37
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T10:45:05.487489Z  INFO monitor::notifications::google_chat: resposne is Response { url: Url { scheme: "https", cannot_be_a_base: false, username: "", password: None, host: Some(Domain("chat.googleapis.com")), port: None, path: "/v1/spaces/AAAAFy1gKzE/messages", query: Some("key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rFHijC_zdQtRNYWsG65G0QvismhSAIL4Z-peRitbR_M%3D"), fragment: None }, status: 200, headers: {"content-type": "application/json; charset=UTF-8", "vary": "X-Origin", "vary": "Referer", "vary": "Origin,Accept-Encoding", "date": "Mon, 10 Jan 2022 10:45:05 GMT", "server": "ESF", "cache-control": "private", "x-xss-protection": "0", "x-frame-options": "SAMEORIGIN", "x-content-type-options": "nosniff", "alt-svc": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"", "accept-ranges": "none", "transfer-encoding": "chunked"} } 
+    at monitor/src/notifications/google_chat.rs:38
+    in monitor::notifications::google_chat::send_chat_msg
+    in monitor::monitors::services::service_monitor
+
