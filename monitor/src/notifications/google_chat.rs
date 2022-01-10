@@ -20,6 +20,7 @@ impl GoogleChatConfig {
         match client.post(g_url).body(json_string.clone()).send() {
             Ok(value) => {
                 res = value;
+                tracing::info!("Post request succesfully sent to google chat ");
             }
             Err(err) => {
                 tracing::error!(

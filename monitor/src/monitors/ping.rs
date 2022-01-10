@@ -61,7 +61,6 @@ pub fn ping_monitor(
             item_sleep_mili = value * 1000;
         }
         None => {
-            tracing::error!("Error in getting the cpu group item_sleep time");
             item_sleep_mili = settings.main.notification.item_sleep * 1000;
         }
     }
@@ -167,7 +166,7 @@ pub fn ping_monitor(
 
             google_chat_config.send_chat_msg(l_msg);
 
-            notification_count = 0;
+            notification_count = notification_count + 1;
             notified = true;
         }
 

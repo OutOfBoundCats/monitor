@@ -104,7 +104,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
             }
         }
 
-        match settings.groups.cpu.first_wait {
+        match settings.groups.memory.first_wait {
             Some(value) => {
                 l_first_wait = value;
             }
@@ -113,7 +113,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
             }
         };
 
-        match settings.groups.cpu.wait_between {
+        match settings.groups.memory.wait_between {
             Some(value) => {
                 l_wait_between = value;
             }
@@ -162,7 +162,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
                 let message = get_message(
                     msg_index,
-                    &settings.groups.cpu.messages,
+                    &settings.groups.memory.messages,
                     &vec_local_memory[0].label,
                 );
 
@@ -184,7 +184,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
                 let message = get_message(
                     msg_index,
-                    &settings.groups.cpu.messages,
+                    &settings.groups.memory.messages,
                     &max_item_crossed.label,
                 );
 
@@ -208,7 +208,7 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
                 let message = get_message(
                     msg_index,
-                    &settings.groups.cpu.messages,
+                    &settings.groups.memory.messages,
                     &max_item_crossed.label,
                 );
 

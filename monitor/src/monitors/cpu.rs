@@ -41,6 +41,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
 
     let mut vec_local_cpu: Vec<localCpu> = vec![];
 
+    //get all the enabled items
     for item in &settings.groups.cpu.items {
         //convert target to u8
         let target_int = item.target.clone().parse::<u8>().unwrap();
@@ -144,6 +145,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
             }
 
             if max_target_crossed == 0 && notified == true {
+                //this means we ahd earlier notified of error but issue no longer persists so inform with good message
                 msg_index = 1; //select positive msg from array
                 severity = 2; //inform employees
 
@@ -210,7 +212,7 @@ pub fn cpu_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Settings
                 google_chat_config.send_chat_msg(l_msg);
 
                 notified = true;
-                notification_count = 0;
+                notification_count = notification_count + 1;
             }
 
             //if there was no earlier notification sent then sleep thread for  item_sleep duration as per json
