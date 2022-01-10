@@ -1,0 +1,106 @@
+  2022-01-10T08:10:34.731320Z  INFO monitor: Subsciber set
+    at monitor/src/main.rs:62
+
+  2022-01-10T08:10:34.733423Z  INFO monitor: Started Reading the configuration file
+    at monitor/src/main.rs:65
+
+  2022-01-10T08:10:34.737218Z  INFO monitor::config::common: Configuration file read succesfully
+    at monitor/src/config/common.rs:650
+    in monitor::config::common::from_setting
+
+  2022-01-10T08:10:34.741573Z  INFO monitor::config::common: Filled item data from parent data
+    at monitor/src/config/common.rs:654
+    in monitor::config::common::from_setting
+
+  2022-01-10T08:10:34.742086Z  INFO monitor::monitors: Started reading google chat config file
+    at monitor/src/monitors/mod.rs:31
+    in monitor::monitors::monitor
+
+  2022-01-10T08:10:34.743006Z  INFO monitor::notifications::read_google_config: Google configuration file succesfullt read
+    at monitor/src/notifications/read_google_config.rs:60
+    in monitor::notifications::read_google_config::read_from_file
+    in monitor::monitors::monitor
+
+  2022-01-10T08:10:34.743413Z  INFO monitor::monitors: Monitoring started
+    at monitor/src/monitors/mod.rs:38
+    in monitor::monitors::monitor
+
+  2022-01-10T08:10:34.744003Z  INFO monitor::monitors::cpu: Started CPU Monitor
+    at monitor/src/monitors/cpu.rs:35
+    in monitor::monitors::cpu::cpu_monitor
+
+  2022-01-10T08:10:34.744115Z  INFO monitor::monitors::volume: Started Volume Monitor for item root
+    at monitor/src/monitors/volume.rs:60
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:10:34.748500Z  INFO monitor::monitors::memory: Started Memory Monitor
+    at monitor/src/monitors/memory.rs:46
+    in monitor::monitors::memory::memory_monitor
+
+  2022-01-10T08:10:34.748535Z  INFO monitor::monitors::ping: Started Ping Monitor for google
+    at monitor/src/monitors/ping.rs:39
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T08:10:34.748570Z  INFO monitor: Started monitoring threads
+    at monitor/src/main.rs:70
+
+  2022-01-10T08:10:34.748620Z  INFO monitor::monitors::services: Started Services Monitor for cron
+    at monitor/src/monitors/services.rs:35
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T08:10:34.757333Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:10:34.761893Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T08:10:34.962661Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T08:11:04.760240Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:11:06.530400Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T08:11:06.603151Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T08:11:34.763025Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:11:37.361600Z ERROR monitor::monitors::ping: Ping Monitor detected issue for google
+    at monitor/src/monitors/ping.rs:134
+    in monitor::monitors::ping::ping_monitor
+
+  2022-01-10T08:11:38.353246Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T08:12:04.765711Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:12:08.999457Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+
+  2022-01-10T08:12:34.768563Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:13:04.771251Z  INFO monitor::monitors::volume: Disk monitor started for mount /  
+    at monitor/src/monitors/volume.rs:144
+    in monitor::monitors::volume::volume_monitor
+
+  2022-01-10T08:13:12.311033Z ERROR monitor::monitors::services: Service Monitor detected issue for cron
+    at monitor/src/monitors/services.rs:129
+    in monitor::monitors::services::service_monitor
+

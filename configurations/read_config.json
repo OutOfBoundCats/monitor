@@ -52,7 +52,7 @@
                     "item_sleep": 30,
                     "label": "cron",
                     "target": "cron",
-                    "command": "",
+                    "command": "systemctl is-active --quiet '+target+' 2>/dev/null",
                     "output": "2",
                     "enabled": true
                 }

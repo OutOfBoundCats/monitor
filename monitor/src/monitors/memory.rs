@@ -132,6 +132,12 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
             }
         }
 
+        let mut max_item_crossed: localMemory = localMemory {
+            priority: Some(0),
+            label: "0".to_string(),
+            target: 0,
+        };
+
         loop {
             //sleep thread if current time falls between inactive time specified in json config
             thread_sleep(&inactive_times, &inactive_days);
@@ -140,69 +146,19 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
 
             let memory_used_percentage = used_memory / total_memory * 100;
 
+            let mut max_target_crossed: i32 = 0;
+
+            //find maximum threashold crossed
             for local_item in &vec_local_memory {
-                //check if memory usage is more than target if yes then notify and skip checking next elements
-                if memory_used_percentage > local_item.target.into()
-                    && send_limit < notification_count
-                {
-                    msg_index = 0; //select negative msg from array
-                    severity = 2; //inform employees
-
-                    let message = get_message(
-                        msg_index,
-                        &settings.groups.memory.messages,
-                        &local_item.label,
-                    );
-
-                    let l_msg = google_chat_config.build_msg(
-                        severity,
-                        &message,
-                        priority,
-                        &local_item.label,
-                        &format!("{}", &local_item.target),
-                    );
-
-                    google_chat_config.send_chat_msg(l_msg);
-
-                    notified = true;
-                    notification_count = notification_count + 1;
-
-                    continue;
-                } else if memory_used_percentage > local_item.target.into()
-                    && send_limit > notification_count
-                {
-                    //if notification count is more than send limit and still issue exist notify management
-
-                    msg_index = 0; //select negative msg from array
-                    severity = 1; //inform employees
-
-                    let message = get_message(
-                        msg_index,
-                        &settings.groups.memory.messages,
-                        &local_item.label,
-                    );
-
-                    let l_msg = google_chat_config.build_msg(
-                        severity,
-                        &message,
-                        priority,
-                        &local_item.label,
-                        &format!("{}", &local_item.target),
-                    );
-
-                    google_chat_config.send_chat_msg(l_msg);
-
-                    notified = true;
-                    notification_count = 0;
-
-                    continue;
+                if memory_used_percentage > local_item.target.into() {
+                    max_item_crossed = local_item.clone();
+                    max_target_crossed = local_item.target.into();
                 }
             }
 
-            //check if current memory usage is less than lowest target specified if yes send healthy message
-            if memory_used_percentage < vec_local_memory[0].target.into() && notified == true {
+            if max_target_crossed == 0 && notified == true {
                 msg_index = 1; //select positive msg from array
-                severity = 1; //inform employees
+                severity = 2; //inform employees
 
                 let message = get_message(
                     msg_index,
@@ -216,6 +172,52 @@ pub fn memory_monitor(google_chat_config: Arc<GoogleChatConfig>, settings: Setti
                     priority,
                     &vec_local_memory[0].label,
                     &format!("{}", &vec_local_memory[0].target),
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
+
+                notified = false;
+                notification_count = 0;
+            } else if max_target_crossed != 0 && send_limit < notification_count {
+                msg_index = 0; //select negative msg from array
+                severity = 2; //inform employees
+
+                let message = get_message(
+                    msg_index,
+                    &settings.groups.cpu.messages,
+                    &max_item_crossed.label,
+                );
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    &message,
+                    priority,
+                    &max_item_crossed.label,
+                    &format!("{}", &max_item_crossed.target),
+                );
+
+                google_chat_config.send_chat_msg(l_msg);
+
+                notified = true;
+                notification_count = notification_count + 1;
+            } else if max_target_crossed != 0 && send_limit > notification_count {
+                //if notification count is more than send limit and still issue exist notify management
+
+                msg_index = 0; //select negative msg from array
+                severity = 1; //inform managers
+
+                let message = get_message(
+                    msg_index,
+                    &settings.groups.cpu.messages,
+                    &max_item_crossed.label,
+                );
+
+                let l_msg = google_chat_config.build_msg(
+                    severity,
+                    &message,
+                    priority,
+                    &max_item_crossed.label,
+                    &format!("{}", &max_item_crossed.target),
                 );
 
                 google_chat_config.send_chat_msg(l_msg);

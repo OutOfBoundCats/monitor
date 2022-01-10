@@ -15,16 +15,21 @@ impl GoogleChatConfig {
         let g_url = &self.chat_url;
 
         let client = reqwest::blocking::Client::new();
-        let res = client.post(g_url).body(json_string.clone()).send().unwrap();
+        let res;
+
+        match client.post(g_url).body(json_string.clone()).send() {
+            Ok(value) => {
+                res = value;
+            }
+            Err(err) => {
+                tracing::error!(
+                    "Error occured while sending message to google chat, error resposne is -> {}",
+                    &err
+                );
+            }
+        };
         //tracing::info!("sent payload is {}", &json_string);
 
-        let status_code = res.status().as_u16();
-        let responsetxt = res.text_with_charset("UTF-8").unwrap().clone();
-
-        let response = Response {
-            response_msg: responsetxt,
-            response_code: status_code.clone(),
-        };
         //tracing::info!("json paylaod sent  is {}", &json_string);
         //tracing::info!("respose recived is {}", &response.response_msg);
     }
